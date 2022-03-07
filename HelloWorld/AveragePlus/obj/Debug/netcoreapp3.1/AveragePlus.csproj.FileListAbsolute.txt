@@ -1,0 +1,14 @@
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\bin\Debug\netcoreapp3.1\AveragePlus.exe
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\bin\Debug\netcoreapp3.1\AveragePlus.deps.json
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\bin\Debug\netcoreapp3.1\AveragePlus.runtimeconfig.json
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\bin\Debug\netcoreapp3.1\AveragePlus.runtimeconfig.dev.json
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\bin\Debug\netcoreapp3.1\AveragePlus.dll
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\bin\Debug\netcoreapp3.1\AveragePlus.pdb
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\obj\Debug\netcoreapp3.1\AveragePlus.csproj.AssemblyReference.cache
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\obj\Debug\netcoreapp3.1\AveragePlus.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\obj\Debug\netcoreapp3.1\AveragePlus.AssemblyInfoInputs.cache
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\obj\Debug\netcoreapp3.1\AveragePlus.AssemblyInfo.cs
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\obj\Debug\netcoreapp3.1\AveragePlus.csproj.CoreCompileInputs.cache
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\obj\Debug\netcoreapp3.1\AveragePlus.dll
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\obj\Debug\netcoreapp3.1\AveragePlus.pdb
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\obj\Debug\netcoreapp3.1\AveragePlus.genruntimeconfig.cache

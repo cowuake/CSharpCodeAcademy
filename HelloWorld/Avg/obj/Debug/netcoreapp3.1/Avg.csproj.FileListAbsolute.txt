@@ -1,0 +1,14 @@
+C:\Users\rmura\source\repos\Week1\HelloWorld\Avg\obj\Debug\netcoreapp3.1\Avg.csproj.AssemblyReference.cache
+C:\Users\rmura\source\repos\Week1\HelloWorld\Avg\obj\Debug\netcoreapp3.1\Avg.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rmura\source\repos\Week1\HelloWorld\Avg\obj\Debug\netcoreapp3.1\Avg.AssemblyInfoInputs.cache
+C:\Users\rmura\source\repos\Week1\HelloWorld\Avg\obj\Debug\netcoreapp3.1\Avg.AssemblyInfo.cs
+C:\Users\rmura\source\repos\Week1\HelloWorld\Avg\obj\Debug\netcoreapp3.1\Avg.csproj.CoreCompileInputs.cache
+C:\Users\rmura\source\repos\Week1\HelloWorld\Avg\bin\Debug\netcoreapp3.1\Avg.exe
+C:\Users\rmura\source\repos\Week1\HelloWorld\Avg\bin\Debug\netcoreapp3.1\Avg.deps.json
+C:\Users\rmura\source\repos\Week1\HelloWorld\Avg\bin\Debug\netcoreapp3.1\Avg.runtimeconfig.json
+C:\Users\rmura\source\repos\Week1\HelloWorld\Avg\bin\Debug\netcoreapp3.1\Avg.runtimeconfig.dev.json
+C:\Users\rmura\source\repos\Week1\HelloWorld\Avg\bin\Debug\netcoreapp3.1\Avg.dll
+C:\Users\rmura\source\repos\Week1\HelloWorld\Avg\bin\Debug\netcoreapp3.1\Avg.pdb
+C:\Users\rmura\source\repos\Week1\HelloWorld\Avg\obj\Debug\netcoreapp3.1\Avg.dll
+C:\Users\rmura\source\repos\Week1\HelloWorld\Avg\obj\Debug\netcoreapp3.1\Avg.pdb
+C:\Users\rmura\source\repos\Week1\HelloWorld\Avg\obj\Debug\netcoreapp3.1\Avg.genruntimeconfig.cache
