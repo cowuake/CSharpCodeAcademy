@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\AveragePlus\\AveragePlus.csproj",
-      "projectName": "AveragePlus",
-      "projectPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\AveragePlus\\AveragePlus.csproj",
+      "projectUniqueName": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\Calculator\\Calculator.csproj",
+      "projectName": "Calculator",
+      "projectPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\Calculator\\Calculator.csproj",
       "packagesPath": "C:\\Users\\rmura\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\AveragePlus\\obj\\",
+      "outputPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\Calculator\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

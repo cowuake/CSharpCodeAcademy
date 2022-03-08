@@ -24,7 +24,7 @@ namespace AveragePlus
 
             // Print output to the console
             Console.WriteLine($"The sum of all numbers is {sum}!");
-            Console.WriteLine($"The average of all numbers is {(float)sum / nNumbers}!");
+            Console.WriteLine($"The average of all numbers is {(float)sum / nNumbers}!");p
         }
     }
 }
