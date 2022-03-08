@@ -32,12 +32,12 @@ namespace Calculator
 
                 string choice = Console.ReadLine();
 
-                switch (choice)
-                {
-                    case "P":
-                        IntArrayLib.Print(array);
-                    case "Q":
-                }
+                //switch (choice)
+                //{
+                //    case "P":
+                //        IntArrayLib.Print(array);
+                //    case "Q":
+                //}
             } while (true);
         }
 

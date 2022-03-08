@@ -1,0 +1,17 @@
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\StringExamples.exe
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\StringExamples.deps.json
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\StringExamples.runtimeconfig.json
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\StringExamples.runtimeconfig.dev.json
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\StringExamples.dll
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\StringExamples.pdb
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\Library.dll
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\Library.pdb
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\obj\Debug\netcoreapp3.1\StringExamples.csproj.AssemblyReference.cache
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\obj\Debug\netcoreapp3.1\StringExamples.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\obj\Debug\netcoreapp3.1\StringExamples.AssemblyInfoInputs.cache
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\obj\Debug\netcoreapp3.1\StringExamples.AssemblyInfo.cs
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\obj\Debug\netcoreapp3.1\StringExamples.csproj.CoreCompileInputs.cache
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\obj\Debug\netcoreapp3.1\StringExamples.csproj.CopyComplete
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\obj\Debug\netcoreapp3.1\StringExamples.dll
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\obj\Debug\netcoreapp3.1\StringExamples.pdb
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\obj\Debug\netcoreapp3.1\StringExamples.genruntimeconfig.cache
