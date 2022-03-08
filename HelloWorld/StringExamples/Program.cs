@@ -7,8 +7,12 @@ namespace StringExamples
     {
         static void Main(string[] args)
         {
-            ConvertToCamelCase();
-            Console.ReadLine();
+            //ConvertToCamelCase();
+            StringLibrary.SplittingBenchmark();
+
+            Console.Write("Press any button to exit...");
+            Console.ReadKey();
+            Environment.Exit(0);
         }
 
         static void ConvertToCamelCase()

@@ -12,3 +12,8 @@ C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\obj\Debug\netcoreapp3.1
 C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\obj\Debug\netcoreapp3.1\AveragePlus.dll
 C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\obj\Debug\netcoreapp3.1\AveragePlus.pdb
 C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\obj\Debug\netcoreapp3.1\AveragePlus.genruntimeconfig.cache
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\bin\Debug\netcoreapp3.1\ExtensionLibrary.dll
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\bin\Debug\netcoreapp3.1\Library.dll
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\bin\Debug\netcoreapp3.1\Library.pdb
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\bin\Debug\netcoreapp3.1\ExtensionLibrary.pdb
+C:\Users\rmura\source\repos\Week1\HelloWorld\AveragePlus\obj\Debug\netcoreapp3.1\AveragePlus.csproj.CopyComplete

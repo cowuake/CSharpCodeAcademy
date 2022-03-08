@@ -8,3 +8,6 @@ C:\Users\rmura\source\repos\Week1\HelloWorld\library\obj\Debug\netcoreapp3.1\Lib
 C:\Users\rmura\source\repos\Week1\HelloWorld\library\obj\Debug\netcoreapp3.1\Library.csproj.CoreCompileInputs.cache
 C:\Users\rmura\source\repos\Week1\HelloWorld\library\obj\Debug\netcoreapp3.1\Library.dll
 C:\Users\rmura\source\repos\Week1\HelloWorld\library\obj\Debug\netcoreapp3.1\Library.pdb
+C:\Users\rmura\source\repos\Week1\HelloWorld\library\bin\Debug\netcoreapp3.1\ExtensionLibrary.dll
+C:\Users\rmura\source\repos\Week1\HelloWorld\library\bin\Debug\netcoreapp3.1\ExtensionLibrary.pdb
+C:\Users\rmura\source\repos\Week1\HelloWorld\library\obj\Debug\netcoreapp3.1\Library.csproj.CopyComplete

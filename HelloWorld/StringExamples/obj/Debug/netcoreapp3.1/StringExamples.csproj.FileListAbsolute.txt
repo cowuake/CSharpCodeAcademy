@@ -15,3 +15,6 @@ C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\obj\Debug\netcoreapp
 C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\obj\Debug\netcoreapp3.1\StringExamples.dll
 C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\obj\Debug\netcoreapp3.1\StringExamples.pdb
 C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\obj\Debug\netcoreapp3.1\StringExamples.genruntimeconfig.cache
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\book.txt
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\ExtensionLibrary.dll
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\ExtensionLibrary.pdb

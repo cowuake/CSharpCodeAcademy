@@ -9,4 +9,10 @@
     <ProjectReference Include="..\library\Library.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="book.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

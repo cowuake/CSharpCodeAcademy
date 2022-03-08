@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "ExtensionLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/ExtensionLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ExtensionLibrary.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "ExtensionLibrary/1.0.0": {
+      "type": "project",
+      "path": "../ExtensionLibrary/ExtensionLibrary.csproj",
+      "msbuildProject": "../ExtensionLibrary/ExtensionLibrary.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "ExtensionLibrary >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\rmura\\.nuget\\packages\\": {},
@@ -14,9 +33,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\library.csproj",
-      "projectName": "library",
-      "projectPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\library.csproj",
+      "projectUniqueName": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\Library.csproj",
+      "projectName": "Library",
+      "projectPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\Library.csproj",
       "packagesPath": "C:\\Users\\rmura\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\obj\\",
       "projectStyle": "PackageReference",
@@ -38,7 +57,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\ExtensionLibrary.csproj": {
+              "projectPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\ExtensionLibrary.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
