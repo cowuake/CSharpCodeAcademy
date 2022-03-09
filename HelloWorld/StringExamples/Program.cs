@@ -8,7 +8,7 @@ namespace StringExamples
         static void Main(string[] args)
         {
             //ConvertToCamelCase();
-            StringLibrary.SplittingBenchmark();
+            StringLib.SplittingBenchmark();
 
             Console.Write("Press any button to exit...");
             Console.ReadKey();
@@ -23,7 +23,7 @@ namespace StringExamples
             string cleanCamelCase;
             string spacedCamelCase;
 
-            StringLibrary.ToCamelCase(input, out cleanCamelCase, out spacedCamelCase);
+            StringLib.ToCamelCase(input, out cleanCamelCase, out spacedCamelCase);
 
             Console.WriteLine(cleanCamelCase);
             Console.WriteLine(spacedCamelCase);

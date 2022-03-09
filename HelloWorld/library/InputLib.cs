@@ -31,5 +31,33 @@ namespace Library
 
             return num;
         }
+
+        public static byte ReadByteFromConsole(string msg)
+        {
+            byte b;
+            string input;
+
+            do
+            {
+                Console.Write(msg);
+                input = Console.ReadLine();
+            } while (!byte.TryParse(input, out b));
+
+            return b;
+        }
+
+        //public static T ReadValueFromConsole<T>(string msg)
+        //{
+        //    T value;
+        //    string input;
+
+        //    do
+        //    {
+        //        Console.Write(msg);
+        //        input = Console.ReadLine();
+        //    } while (!T.TryParse(input, out value));
+
+        //    return value;
+        //}
     }
 }
