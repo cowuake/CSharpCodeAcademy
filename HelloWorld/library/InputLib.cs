@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Library
+namespace MainLibrary
 {
     public class InputLib
     {
@@ -32,6 +32,19 @@ namespace Library
             return num;
         }
 
+        public static string ReadFromConsoleConditionally(string msg, Func<string, bool> condition)
+        {
+            string input;
+
+            do
+            {
+                Console.Write(msg);
+                input = Console.ReadLine();
+            } while (!condition(input));
+
+            return input;
+        }
+
         public static byte ReadByteFromConsole(string msg)
         {
             byte b;
@@ -44,6 +57,34 @@ namespace Library
             } while (!byte.TryParse(input, out b));
 
             return b;
+        }
+
+        public static byte ReadByteFromConsole(string msg, Func<byte, bool> condition)
+        {
+            byte b;
+            string input;
+
+            do
+            {
+                Console.Write(msg);
+                input = Console.ReadLine();
+            } while (!(byte.TryParse(input, out b) && condition(b)));
+
+            return b;
+        }
+
+        public static DateTime ReadDateTimeFromConsole(string msg)
+        {
+            DateTime dt;
+            string input;
+
+            do
+            {
+                Console.Write(msg);
+                input = Console.ReadLine();
+            } while (!DateTime.TryParse(input, out dt));
+
+            return dt;
         }
 
         //public static T ReadValueFromConsole<T>(string msg)

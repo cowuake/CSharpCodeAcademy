@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Library
+namespace MainLibrary
 {
     public class UniverseLib
     {

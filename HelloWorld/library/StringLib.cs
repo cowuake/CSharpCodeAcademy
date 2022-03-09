@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 using ExtensionLibrary;
 
-namespace Library
+namespace MainLibrary
 {
     public class StringLibrary
     {

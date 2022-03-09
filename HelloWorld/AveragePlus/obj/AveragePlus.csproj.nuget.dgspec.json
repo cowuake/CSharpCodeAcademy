@@ -32,8 +32,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\Library.csproj": {
-                "projectPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\Library.csproj"
+              "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj": {
+                "projectPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj"
               }
             }
           }
@@ -124,12 +124,12 @@
         }
       }
     },
-    "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\Library.csproj": {
+    "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\Library.csproj",
-        "projectName": "Library",
-        "projectPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\Library.csproj",
+        "projectUniqueName": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj",
+        "projectName": "MainLibrary",
+        "projectPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj",
         "packagesPath": "C:\\Users\\rmura\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\obj\\",
         "projectStyle": "PackageReference",

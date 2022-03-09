@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avg", "Avg\Avg.csproj", "{7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AveragePlus", "AveragePlus\AveragePlus.csproj", "{E6317110-325E-4946-9CE0-DFD5E05EB468}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library", "library\Library.csproj", "{06D12648-CDE5-4C02-A31F-81ECF7A58F09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MainLibrary", "library\MainLibrary.csproj", "{06D12648-CDE5-4C02-A31F-81ECF7A58F09}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator", "Calculator\Calculator.csproj", "{9C8F45F5-EB2B-400D-8965-1082DB874F45}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures", "DataStructures\DataStructures.csproj", "{EC37B119-6479-49D8-BCE3-443415273789}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructTest", "DataStructTest\DataStructTest.csproj", "{AF84557D-7ECB-4BA5-96B2-5D7C34780AD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessSchoolRegister", "AccessSchoolRegister\AccessSchoolRegister.csproj", "{F8034A07-9CAF-426C-B85C-5A1CD1000130}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{AF84557D-7ECB-4BA5-96B2-5D7C34780AD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF84557D-7ECB-4BA5-96B2-5D7C34780AD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF84557D-7ECB-4BA5-96B2-5D7C34780AD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8034A07-9CAF-426C-B85C-5A1CD1000130}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8034A07-9CAF-426C-B85C-5A1CD1000130}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8034A07-9CAF-426C-B85C-5A1CD1000130}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8034A07-9CAF-426C-B85C-5A1CD1000130}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,17 +12,17 @@
           "bin/placeholder/ExtensionLibrary.dll": {}
         }
       },
-      "Library/1.0.0": {
+      "MainLibrary/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "ExtensionLibrary": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/Library.dll": {}
+          "bin/placeholder/MainLibrary.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Library.dll": {}
+          "bin/placeholder/MainLibrary.dll": {}
         }
       }
     }
@@ -33,15 +33,15 @@
       "path": "../ExtensionLibrary/ExtensionLibrary.csproj",
       "msbuildProject": "../ExtensionLibrary/ExtensionLibrary.csproj"
     },
-    "Library/1.0.0": {
+    "MainLibrary/1.0.0": {
       "type": "project",
-      "path": "../library/Library.csproj",
-      "msbuildProject": "../library/Library.csproj"
+      "path": "../library/MainLibrary.csproj",
+      "msbuildProject": "../library/MainLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Library >= 1.0.0"
+      "MainLibrary >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -76,8 +76,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\Library.csproj": {
-              "projectPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\Library.csproj"
+            "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj": {
+              "projectPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj"
             }
           }
         }
