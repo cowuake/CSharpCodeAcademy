@@ -15,16 +15,18 @@ namespace AccessSchoolRegister.Model
             this.ListOfStudents = new List<Student>();
         }
 
-        private string ReadFirstName()
+        private string ReadName(string option = "first")
         {
-            return InputLib.ReadFromConsoleConditionally(
-                "Insert student's first name: ", s => s.All(c => Char.IsLetter(c)));
+            string name = InputLib.ReadFromConsoleConditionally(
+                $"Insert student's {option} name: ", s => s.All(c => Char.IsLetter(c)));
+
+            return name.Substring(0,1).ToUpper() + name.Substring(1).ToLower();
         }
 
-        private string ReadLastName()
+        private void ReadCompleteName(out string firstName, out string lastName)
         {
-            return InputLib.ReadFromConsoleConditionally(
-                "Insert student's last name: ", s => s.All(c => Char.IsLetter(c)));
+            firstName = ReadName("first");
+            lastName = ReadName("last");
         }
 
         private DateTime ReadDate()
@@ -36,8 +38,11 @@ namespace AccessSchoolRegister.Model
         {
             Console.WriteLine("A new student will be added.");
 
-            string firstName = this.ReadFirstName();
-            string lastName = this.ReadLastName();
+            string firstName;// = this.ReadName("first");
+            string lastName;// = this.ReadName("last");
+
+            ReadCompleteName(out firstName, out lastName);
+
             DateTime birthDay = this.ReadDate();
 
             this.ListOfStudents.Add(new Student(firstName, lastName, birthDay));
@@ -45,8 +50,10 @@ namespace AccessSchoolRegister.Model
 
         public void DeleteStudent()
         {
-            string firstName = this.ReadFirstName();
-            string lastName = this.ReadLastName();
+            string firstName;// = this.ReadName("first");
+            string lastName;// = this.ReadName("last");
+
+            ReadCompleteName(out firstName, out lastName);
 
             int index;
 
@@ -73,8 +80,10 @@ namespace AccessSchoolRegister.Model
 
         public void SearchStudent()
         {
-            string firstName = this.ReadFirstName();
-            string lastName = this.ReadLastName();
+            string firstName;// = this.ReadName("first");
+            string lastName;// = this.ReadName("last");
+
+            ReadCompleteName(out firstName, out lastName);
 
             int index;
 
@@ -83,8 +92,13 @@ namespace AccessSchoolRegister.Model
                 Student student = this.ListOfStudents[index];
                 Console.WriteLine();
                 Console.WriteLine($"Student: {student.FirstName} {student.LastName}");
+                Console.WriteLine();
                 Console.WriteLine($"History of {student.FirstName}'s results:");
                 this.ListStudentResults(student);
+            } else
+            {
+                Console.WriteLine();
+                Console.WriteLine("Student not found!");
             }
         }
 
@@ -148,6 +162,7 @@ namespace AccessSchoolRegister.Model
 
             return true;
         }
+
         public void InsertTestResults()
         {
             if (!CheckStudents())
@@ -164,7 +179,31 @@ namespace AccessSchoolRegister.Model
 
             DateTime date = InputLib.ReadDateTimeFromConsole("Insert date of the test: ");
 
-            var type = TestType.Laboratory;
+            Console.WriteLine();
+
+            Console.WriteLine("Available test types:");
+            Console.Write("O - Oral test\nW - Written test\nL - Laboratory\n");
+
+            Console.WriteLine();
+
+            string identifier = InputLib.ReadFromConsoleConditionally(
+                "Insert the test type by identifier: ",
+                s => s.ToUpper() == "O" || s.ToUpper() == "W" || s.ToUpper() == "L");
+
+            TestType type;
+
+            switch (identifier)
+            {
+                case "O":
+                    type = TestType.OralTest;
+                    break;
+                case "L":
+                    type = TestType.Laboratory;
+                    break;
+                default:
+                    type = TestType.WrittenTest;
+                    break;
+            }
 
             student.Results.Add(new TestEvaluation(description, grade, type));
         }
@@ -182,9 +221,9 @@ namespace AccessSchoolRegister.Model
 
             for (int i = 0; i < student.Results.Count; i++)
             {
-                Console.WriteLine($"Test {i + 1}:\t{student.Results[i].Description}");
-                Console.WriteLine($"Grade: {student.Results[i].Grade}");
-                Console.WriteLine($"Date: {student.Results[i].Date}");
+                Console.WriteLine($"\tTest {i + 1}:\t{student.Results[i].Description}");
+                Console.WriteLine($"\tGrade: {student.Results[i].Grade}");
+                Console.WriteLine($"\tDate: {student.Results[i].Date}");
                 Console.WriteLine();
             }
         }
@@ -202,9 +241,19 @@ namespace AccessSchoolRegister.Model
             student.Results.Remove(result);
         }
 
-        public void SaveRegisterState()
+        public void SaveToXML()
         {
-            Console.WriteLine();
+            throw new NotImplementedException();
+        }
+
+        public void SaveToBinary()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveToASCII()
+        {
+            throw new NotImplementedException();
         }
     }
 }

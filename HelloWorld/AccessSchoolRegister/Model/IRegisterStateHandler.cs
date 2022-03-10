@@ -4,10 +4,10 @@ using System.Text;
 
 namespace AccessSchoolRegister.Model
 {
-    public enum TestType : byte
+    public interface IRegisterStateHandler
     {
-        OralTest = 1,
-        WrittenTest = 2,
-        Laboratory = 3
+        void SaveState();
+
+        void LoadState();
     }
 }

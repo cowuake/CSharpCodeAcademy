@@ -11,7 +11,6 @@ namespace AccessSchoolRegister
             Console.WriteLine("#################################");
             Console.WriteLine("######   SCHOOL REGISTER   ######");
             Console.WriteLine("#################################");
-            Console.WriteLine();
 
             var register = new Register();
 
@@ -24,7 +23,7 @@ namespace AccessSchoolRegister
                 //{ "H",  () => ShowHelp() },
                 { "I",  () => register.InsertTestResults() },
                 { "D",  () => register.DeleteTestResults() },
-                { "S",  () => register.SaveRegisterState() },
+                { "S",  () => register.SaveToASCII() },
                 { "Q",  () => Quit() },
             };
 
@@ -63,14 +62,15 @@ namespace AccessSchoolRegister
 
         public static void ShowHelp(Dictionary<string, string> dict)
         {
+            Console.WriteLine();
             Console.WriteLine("AVAILABLE OPTIONS");
-            Console.WriteLine("=======================================================");
+            Console.WriteLine("==============================================================");
 
             foreach (string key in dict.Keys)
             {
-                Console.WriteLine($"{key}\t=>\t{dict[key]}");
+                Console.WriteLine($"\t{key}\t=>\t{dict[key]}");
             }
-            Console.WriteLine("=======================================================");
+            Console.WriteLine("==============================================================");
         }
 
         public static void Quit()
