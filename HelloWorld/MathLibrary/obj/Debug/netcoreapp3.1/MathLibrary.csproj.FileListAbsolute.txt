@@ -1,0 +1,10 @@
+C:\Users\rmura\source\repos\Week1\HelloWorld\MathLibrary\bin\Debug\netcoreapp3.1\MathLibrary.deps.json
+C:\Users\rmura\source\repos\Week1\HelloWorld\MathLibrary\bin\Debug\netcoreapp3.1\MathLibrary.dll
+C:\Users\rmura\source\repos\Week1\HelloWorld\MathLibrary\bin\Debug\netcoreapp3.1\MathLibrary.pdb
+C:\Users\rmura\source\repos\Week1\HelloWorld\MathLibrary\obj\Debug\netcoreapp3.1\MathLibrary.csproj.AssemblyReference.cache
+C:\Users\rmura\source\repos\Week1\HelloWorld\MathLibrary\obj\Debug\netcoreapp3.1\MathLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rmura\source\repos\Week1\HelloWorld\MathLibrary\obj\Debug\netcoreapp3.1\MathLibrary.AssemblyInfoInputs.cache
+C:\Users\rmura\source\repos\Week1\HelloWorld\MathLibrary\obj\Debug\netcoreapp3.1\MathLibrary.AssemblyInfo.cs
+C:\Users\rmura\source\repos\Week1\HelloWorld\MathLibrary\obj\Debug\netcoreapp3.1\MathLibrary.csproj.CoreCompileInputs.cache
+C:\Users\rmura\source\repos\Week1\HelloWorld\MathLibrary\obj\Debug\netcoreapp3.1\MathLibrary.dll
+C:\Users\rmura\source\repos\Week1\HelloWorld\MathLibrary\obj\Debug\netcoreapp3.1\MathLibrary.pdb

@@ -5,8 +5,6 @@ C:\Users\rmura\source\repos\Week1\HelloWorld\RGB\bin\Debug\netcoreapp3.1\RGB.run
 C:\Users\rmura\source\repos\Week1\HelloWorld\RGB\bin\Debug\netcoreapp3.1\RGB.dll
 C:\Users\rmura\source\repos\Week1\HelloWorld\RGB\bin\Debug\netcoreapp3.1\RGB.pdb
 C:\Users\rmura\source\repos\Week1\HelloWorld\RGB\bin\Debug\netcoreapp3.1\ExtensionLibrary.dll
-C:\Users\rmura\source\repos\Week1\HelloWorld\RGB\bin\Debug\netcoreapp3.1\Library.dll
-C:\Users\rmura\source\repos\Week1\HelloWorld\RGB\bin\Debug\netcoreapp3.1\Library.pdb
 C:\Users\rmura\source\repos\Week1\HelloWorld\RGB\bin\Debug\netcoreapp3.1\ExtensionLibrary.pdb
 C:\Users\rmura\source\repos\Week1\HelloWorld\RGB\obj\Debug\netcoreapp3.1\RGB.csproj.AssemblyReference.cache
 C:\Users\rmura\source\repos\Week1\HelloWorld\RGB\obj\Debug\netcoreapp3.1\RGB.GeneratedMSBuildEditorConfig.editorconfig
@@ -17,3 +15,5 @@ C:\Users\rmura\source\repos\Week1\HelloWorld\RGB\obj\Debug\netcoreapp3.1\RGB.csp
 C:\Users\rmura\source\repos\Week1\HelloWorld\RGB\obj\Debug\netcoreapp3.1\RGB.dll
 C:\Users\rmura\source\repos\Week1\HelloWorld\RGB\obj\Debug\netcoreapp3.1\RGB.pdb
 C:\Users\rmura\source\repos\Week1\HelloWorld\RGB\obj\Debug\netcoreapp3.1\RGB.genruntimeconfig.cache
+C:\Users\rmura\source\repos\Week1\HelloWorld\RGB\bin\Debug\netcoreapp3.1\MainLibrary.dll
+C:\Users\rmura\source\repos\Week1\HelloWorld\RGB\bin\Debug\netcoreapp3.1\MainLibrary.pdb

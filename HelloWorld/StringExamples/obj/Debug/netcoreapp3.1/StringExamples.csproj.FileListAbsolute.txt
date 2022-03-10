@@ -4,8 +4,6 @@ C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp
 C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\StringExamples.runtimeconfig.dev.json
 C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\StringExamples.dll
 C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\StringExamples.pdb
-C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\Library.dll
-C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\Library.pdb
 C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\obj\Debug\netcoreapp3.1\StringExamples.csproj.AssemblyReference.cache
 C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\obj\Debug\netcoreapp3.1\StringExamples.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\obj\Debug\netcoreapp3.1\StringExamples.AssemblyInfoInputs.cache
@@ -18,3 +16,5 @@ C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\obj\Debug\netcoreapp
 C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\book.txt
 C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\ExtensionLibrary.dll
 C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\ExtensionLibrary.pdb
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\MainLibrary.dll
+C:\Users\rmura\source\repos\Week1\HelloWorld\StringExamples\bin\Debug\netcoreapp3.1\MainLibrary.pdb

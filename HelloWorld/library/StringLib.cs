@@ -9,7 +9,7 @@ using ExtensionLibrary;
 
 namespace MainLibrary
 {
-    public class StringLibrary
+    public class StringLib
     {
         public static void ToCamelCase(string input, out string noSpace, out string withSpace)
         {

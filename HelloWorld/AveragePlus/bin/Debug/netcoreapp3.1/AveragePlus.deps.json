@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "AveragePlus/1.0.0": {
         "dependencies": {
-          "Library": "1.0.0"
+          "MainLibrary": "1.0.0"
         },
         "runtime": {
           "AveragePlus.dll": {}
@@ -19,12 +19,12 @@
           "ExtensionLibrary.dll": {}
         }
       },
-      "Library/1.0.0": {
+      "MainLibrary/1.0.0": {
         "dependencies": {
           "ExtensionLibrary": "1.0.0"
         },
         "runtime": {
-          "Library.dll": {}
+          "MainLibrary.dll": {}
         }
       }
     }
@@ -40,7 +40,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Library/1.0.0": {
+    "MainLibrary/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

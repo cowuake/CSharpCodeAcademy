@@ -6,26 +6,15 @@ namespace AccessSchoolRegister
 {
     internal class Program
     {
+        private static SchoolRegister register; // Must be accessible by state handlers
+
         static void Main(string[] args)
         {
             Console.WriteLine("#################################");
             Console.WriteLine("######   SCHOOL REGISTER   ######");
             Console.WriteLine("#################################");
 
-            var register = new Register();
-
-            var Commands = new Dictionary<string, Action>
-            {
-                { "AS", () => register.AddStudent() },
-                { "DS", () => register.DeleteStudent() },
-                { "SS", () => register.SearchStudent() },
-                { "L",  () => register.ListStudents() },
-                //{ "H",  () => ShowHelp() },
-                { "I",  () => register.InsertTestResults() },
-                { "D",  () => register.DeleteTestResults() },
-                { "S",  () => register.SaveToASCII() },
-                { "Q",  () => Quit() },
-            };
+            register = new SchoolRegister();
 
             var CommandInfo = new Dictionary<string, string>
             {
@@ -39,6 +28,22 @@ namespace AccessSchoolRegister
                 { "S",  "Save changes" },
                 { "Q",  "Quit the program" },
             };
+
+            Action help = () => ShowHelp(CommandInfo);
+
+            var Commands = new Dictionary<string, Action>
+            {
+                { "AS", () => register.AddStudent() },
+                { "DS", () => register.DeleteStudent() },
+                { "SS", () => register.SearchStudent() },
+                { "L",  () => register.ListStudents() },
+                { "H",  () => help() },
+                { "I",  () => register.InsertTestResults() },
+                { "D",  () => register.DeleteTestResults() },
+                { "S",  () => register.SaveToASCII() },
+                { "Q",  () => Quit() },
+            };
+
 
             ShowHelp(CommandInfo);
             string input;
@@ -60,7 +65,7 @@ namespace AccessSchoolRegister
             } while (true);
         }
 
-        public static void ShowHelp(Dictionary<string, string> dict)
+        private static void ShowHelp(Dictionary<string, string> dict)
         {
             Console.WriteLine();
             Console.WriteLine("AVAILABLE OPTIONS");
@@ -73,7 +78,7 @@ namespace AccessSchoolRegister
             Console.WriteLine("==============================================================");
         }
 
-        public static void Quit()
+        private static void Quit()
         {
             Environment.Exit(0);
         }

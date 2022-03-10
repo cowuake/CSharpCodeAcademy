@@ -1,5 +1,5 @@
 ﻿using System;
-using Library;
+using MainLibrary;
 
 namespace StringExamples
 {

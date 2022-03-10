@@ -17,15 +17,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StringExamples", "StringExa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtensionLibrary", "ExtensionLibrary\ExtensionLibrary.csproj", "{CB6276C0-2E45-4699-B42C-889E063B7DD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RGB", "RGB\RGB.csproj", "{936B0FC2-FFA1-4BA1-A92E-6684A583E42D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RGB", "RGB\RGB.csproj", "{936B0FC2-FFA1-4BA1-A92E-6684A583E42D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem", "SolarSystem\SolarSystem.csproj", "{3C505B8A-450B-49AC-BFB3-CBE26946E42D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolarSystem", "SolarSystem\SolarSystem.csproj", "{3C505B8A-450B-49AC-BFB3-CBE26946E42D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures", "DataStructures\DataStructures.csproj", "{EC37B119-6479-49D8-BCE3-443415273789}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructures", "DataStructures\DataStructures.csproj", "{EC37B119-6479-49D8-BCE3-443415273789}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructTest", "DataStructTest\DataStructTest.csproj", "{AF84557D-7ECB-4BA5-96B2-5D7C34780AD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructTest", "DataStructTest\DataStructTest.csproj", "{AF84557D-7ECB-4BA5-96B2-5D7C34780AD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessSchoolRegister", "AccessSchoolRegister\AccessSchoolRegister.csproj", "{F8034A07-9CAF-426C-B85C-5A1CD1000130}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccessSchoolRegister", "AccessSchoolRegister\AccessSchoolRegister.csproj", "{F8034A07-9CAF-426C-B85C-5A1CD1000130}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathLibrary", "MathLibrary\MathLibrary.csproj", "{296B8942-A017-4F7F-B1EC-B7573F6656D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathLibrary.Test", "MathLibrary.Test\MathLibrary.Test.csproj", "{BFC0F685-4095-45B3-AB1B-FB7756E9A382}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +85,14 @@ Global
 		{F8034A07-9CAF-426C-B85C-5A1CD1000130}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8034A07-9CAF-426C-B85C-5A1CD1000130}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8034A07-9CAF-426C-B85C-5A1CD1000130}.Release|Any CPU.Build.0 = Release|Any CPU
+		{296B8942-A017-4F7F-B1EC-B7573F6656D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{296B8942-A017-4F7F-B1EC-B7573F6656D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{296B8942-A017-4F7F-B1EC-B7573F6656D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{296B8942-A017-4F7F-B1EC-B7573F6656D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFC0F685-4095-45B3-AB1B-FB7756E9A382}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFC0F685-4095-45B3-AB1B-FB7756E9A382}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFC0F685-4095-45B3-AB1B-FB7756E9A382}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFC0F685-4095-45B3-AB1B-FB7756E9A382}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
