@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PkisZCa0s8MUCRNMkTeyt22ubDxgyv3ypzD5ybnsTXOwoo9pUiTkl+goIkg2oF7KQjSkQs8EO1wTA0el2l5YkA==",
+  "dgSpecHash": "o9dZQy5uxlkfJzpyeltkXlofvDSo5xmoC9CpvpLRziLfZP1eDYv9WLROqy9nTgU7aHovrHpTQ6deVYmODoMtjg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\HelloWorld\\HelloWorld.csproj",
+  "projectFilePath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\HelloWorld\\HelloWorld.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

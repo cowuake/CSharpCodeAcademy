@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GRQJMmdrIolisWPYXqfkBRGEZVBFmboOSHBfRXnjwf5NTc/x1cn+kRfwG9UKLUM1uTx2PR4axXAM+HqE1mmaCg==",
+  "dgSpecHash": "mGV2xJD9iGAhFS32JPnyKga+50z47q2fQh8pWjJSXUY7zXzg7GDQZbAOJhXkfQktq9O2xGNbO80WFd3tMayEHw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\Calculator\\Calculator.csproj",
+  "projectFilePath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\Calculator\\Calculator.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

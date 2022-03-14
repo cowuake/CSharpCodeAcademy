@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3k5LceXq7KGfz2D68RoqA5lK/EUXxYJmKyP8/UGK5dKiGDzWATUTZBAMB2knvGKjZn1We1v7BOooNvYFSeLK0Q==",
+  "dgSpecHash": "IawNmb5Pa7kTV+JuhTsgEaGoVHkQF3bzv3oQ6Rh2ws2QGvehscmnnElr/ZCHu7lkyUYm7R9i8S1V3QLcbekFwA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj",
+  "projectFilePath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

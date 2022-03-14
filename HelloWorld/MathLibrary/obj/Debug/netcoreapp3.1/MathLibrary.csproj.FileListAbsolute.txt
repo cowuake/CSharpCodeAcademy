@@ -8,3 +8,13 @@ C:\Users\rmura\source\repos\Week1\HelloWorld\MathLibrary\obj\Debug\netcoreapp3.1
 C:\Users\rmura\source\repos\Week1\HelloWorld\MathLibrary\obj\Debug\netcoreapp3.1\MathLibrary.csproj.CoreCompileInputs.cache
 C:\Users\rmura\source\repos\Week1\HelloWorld\MathLibrary\obj\Debug\netcoreapp3.1\MathLibrary.dll
 C:\Users\rmura\source\repos\Week1\HelloWorld\MathLibrary\obj\Debug\netcoreapp3.1\MathLibrary.pdb
+C:\Users\riccardo.mura\source\repos\Week1\HelloWorld\MathLibrary\bin\Debug\netcoreapp3.1\MathLibrary.deps.json
+C:\Users\riccardo.mura\source\repos\Week1\HelloWorld\MathLibrary\bin\Debug\netcoreapp3.1\MathLibrary.dll
+C:\Users\riccardo.mura\source\repos\Week1\HelloWorld\MathLibrary\bin\Debug\netcoreapp3.1\MathLibrary.pdb
+C:\Users\riccardo.mura\source\repos\Week1\HelloWorld\MathLibrary\obj\Debug\netcoreapp3.1\MathLibrary.csproj.AssemblyReference.cache
+C:\Users\riccardo.mura\source\repos\Week1\HelloWorld\MathLibrary\obj\Debug\netcoreapp3.1\MathLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\riccardo.mura\source\repos\Week1\HelloWorld\MathLibrary\obj\Debug\netcoreapp3.1\MathLibrary.AssemblyInfoInputs.cache
+C:\Users\riccardo.mura\source\repos\Week1\HelloWorld\MathLibrary\obj\Debug\netcoreapp3.1\MathLibrary.AssemblyInfo.cs
+C:\Users\riccardo.mura\source\repos\Week1\HelloWorld\MathLibrary\obj\Debug\netcoreapp3.1\MathLibrary.csproj.CoreCompileInputs.cache
+C:\Users\riccardo.mura\source\repos\Week1\HelloWorld\MathLibrary\obj\Debug\netcoreapp3.1\MathLibrary.dll
+C:\Users\riccardo.mura\source\repos\Week1\HelloWorld\MathLibrary\obj\Debug\netcoreapp3.1\MathLibrary.pdb

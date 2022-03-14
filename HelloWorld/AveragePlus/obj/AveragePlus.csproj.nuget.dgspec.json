@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\AveragePlus\\AveragePlus.csproj": {}
+    "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\AveragePlus\\AveragePlus.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\AveragePlus\\AveragePlus.csproj": {
+    "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\AveragePlus\\AveragePlus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\AveragePlus\\AveragePlus.csproj",
+        "projectUniqueName": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\AveragePlus\\AveragePlus.csproj",
         "projectName": "AveragePlus",
-        "projectPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\AveragePlus\\AveragePlus.csproj",
-        "packagesPath": "C:\\Users\\rmura\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\AveragePlus\\obj\\",
+        "projectPath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\AveragePlus\\AveragePlus.csproj",
+        "packagesPath": "C:\\Users\\riccardo.mura\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\AveragePlus\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rmura\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\riccardo.mura\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj": {
-                "projectPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj"
+              "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj": {
+                "projectPath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj"
               }
             }
           }
@@ -62,25 +58,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\ExtensionLibrary.csproj": {
+    "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\ExtensionLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\ExtensionLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\ExtensionLibrary.csproj",
         "projectName": "ExtensionLibrary",
-        "projectPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\ExtensionLibrary.csproj",
-        "packagesPath": "C:\\Users\\rmura\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\obj\\",
+        "projectPath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\ExtensionLibrary.csproj",
+        "packagesPath": "C:\\Users\\riccardo.mura\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rmura\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\riccardo.mura\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -120,25 +112,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj": {
+    "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj",
         "projectName": "MainLibrary",
-        "projectPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj",
-        "packagesPath": "C:\\Users\\rmura\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\library\\obj\\",
+        "projectPath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\library\\MainLibrary.csproj",
+        "packagesPath": "C:\\Users\\riccardo.mura\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\library\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rmura\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\riccardo.mura\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -152,8 +140,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\ExtensionLibrary.csproj": {
-                "projectPath": "C:\\Users\\rmura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\ExtensionLibrary.csproj"
+              "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\ExtensionLibrary.csproj": {
+                "projectPath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\ExtensionLibrary.csproj"
               }
             }
           }
@@ -182,7 +170,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
