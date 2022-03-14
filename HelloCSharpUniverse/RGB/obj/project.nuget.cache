@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7pRqAK0LKvqhKozAz0CP3ek91ec6x4grS8LKtg4beDMc5HFZkMD7s1EC++D8M2HXep2RbtOpkhtVmmopNzU35A==",
+  "dgSpecHash": "VT4MY475zt2WlRhL/QMXQZaSKcDj4Dvu8gzqFB6nScCk/LZAMqZAQSls31jHxettc3/O+wbuahOSwTYIP6G/zw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\RGB\\RGB.csproj",
+  "projectFilePath": "C:\\Users\\rmura\\source\\repos\\CSharpCodeAcademy\\HelloCSharpUniverse\\RGB\\RGB.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

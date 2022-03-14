@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\SolarSystem\\SolarSystem.csproj": {}
+    "C:\\Users\\rmura\\source\\repos\\CSharpCodeAcademy\\HelloCSharpUniverse\\SolarSystem\\SolarSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\SolarSystem\\SolarSystem.csproj": {
+    "C:\\Users\\rmura\\source\\repos\\CSharpCodeAcademy\\HelloCSharpUniverse\\SolarSystem\\SolarSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\SolarSystem\\SolarSystem.csproj",
+        "projectUniqueName": "C:\\Users\\rmura\\source\\repos\\CSharpCodeAcademy\\HelloCSharpUniverse\\SolarSystem\\SolarSystem.csproj",
         "projectName": "SolarSystem",
-        "projectPath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\SolarSystem\\SolarSystem.csproj",
-        "packagesPath": "C:\\Users\\riccardo.mura\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\SolarSystem\\obj\\",
+        "projectPath": "C:\\Users\\rmura\\source\\repos\\CSharpCodeAcademy\\HelloCSharpUniverse\\SolarSystem\\SolarSystem.csproj",
+        "packagesPath": "C:\\Users\\rmura\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rmura\\source\\repos\\CSharpCodeAcademy\\HelloCSharpUniverse\\SolarSystem\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\riccardo.mura\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rmura\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

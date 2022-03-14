@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1HMOGl2Likwv3VnxQcS8MJtYbAOs9MmMO9wSCj5nBcv7sb3+vXi4w0EKSgN+naSYr2LyTxR8B4k0zqHbJ5sIJA==",
+  "dgSpecHash": "XtvM4nrg4rJa9LXLLre0As820A3hVc+2oiarK1UKV26NmrL0i95csTm5r7xATw8v8bDiJjzuQn6THKCjcnnrAg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\StringExamples\\StringExamples.csproj",
+  "projectFilePath": "C:\\Users\\rmura\\source\\repos\\CSharpCodeAcademy\\HelloCSharpUniverse\\StringExamples\\StringExamples.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

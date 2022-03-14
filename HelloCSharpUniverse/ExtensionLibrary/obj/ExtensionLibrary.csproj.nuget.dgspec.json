@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\ExtensionLibrary.csproj": {}
+    "C:\\Users\\rmura\\source\\repos\\CSharpCodeAcademy\\HelloCSharpUniverse\\ExtensionLibrary\\ExtensionLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\ExtensionLibrary.csproj": {
+    "C:\\Users\\rmura\\source\\repos\\CSharpCodeAcademy\\HelloCSharpUniverse\\ExtensionLibrary\\ExtensionLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\ExtensionLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\rmura\\source\\repos\\CSharpCodeAcademy\\HelloCSharpUniverse\\ExtensionLibrary\\ExtensionLibrary.csproj",
         "projectName": "ExtensionLibrary",
-        "projectPath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\ExtensionLibrary.csproj",
-        "packagesPath": "C:\\Users\\riccardo.mura\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\ExtensionLibrary\\obj\\",
+        "projectPath": "C:\\Users\\rmura\\source\\repos\\CSharpCodeAcademy\\HelloCSharpUniverse\\ExtensionLibrary\\ExtensionLibrary.csproj",
+        "packagesPath": "C:\\Users\\rmura\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rmura\\source\\repos\\CSharpCodeAcademy\\HelloCSharpUniverse\\ExtensionLibrary\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\riccardo.mura\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rmura\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

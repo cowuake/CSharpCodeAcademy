@@ -5989,19 +5989,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\riccardo.mura\\.nuget\\packages\\": {}
+    "C:\\Users\\rmura\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\MathLibrary.Test\\MathLibrary.Test.csproj",
+      "projectUniqueName": "C:\\Users\\rmura\\source\\repos\\CSharpCodeAcademy\\HelloCSharpUniverse\\MathLibrary.Test\\MathLibrary.Test.csproj",
       "projectName": "MathLibrary.Test",
-      "projectPath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\MathLibrary.Test\\MathLibrary.Test.csproj",
-      "packagesPath": "C:\\Users\\riccardo.mura\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\MathLibrary.Test\\obj\\",
+      "projectPath": "C:\\Users\\rmura\\source\\repos\\CSharpCodeAcademy\\HelloCSharpUniverse\\MathLibrary.Test\\MathLibrary.Test.csproj",
+      "packagesPath": "C:\\Users\\rmura\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\rmura\\source\\repos\\CSharpCodeAcademy\\HelloCSharpUniverse\\MathLibrary.Test\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\riccardo.mura\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\rmura\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6015,8 +6020,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\MathLibrary\\MathLibrary.csproj": {
-              "projectPath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\MathLibrary\\MathLibrary.csproj"
+            "C:\\Users\\rmura\\source\\repos\\CSharpCodeAcademy\\HelloCSharpUniverse\\MathLibrary\\MathLibrary.csproj": {
+              "projectPath": "C:\\Users\\rmura\\source\\repos\\CSharpCodeAcademy\\HelloCSharpUniverse\\MathLibrary\\MathLibrary.csproj"
             }
           }
         }
@@ -6067,7 +6072,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

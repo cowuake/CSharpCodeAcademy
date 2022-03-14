@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bZrTmc2Gdo68LNxNRnIGik+HvULTdBxo6D2TRpQ2HBEIfSpxX02mRAbYvhDYOe/O4LoifuN9GdxIpS4tErtL4Q==",
+  "dgSpecHash": "dtxoZUAcKKi1Nr3KxKiAn9aLfdQxykbTOjCyyz56w/3oKufL+B13rt2PeMW8rEtIms3CIhtLr72qDtoS2uO83w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\riccardo.mura\\source\\repos\\Week1\\HelloWorld\\Avg\\Avg.csproj",
+  "projectFilePath": "C:\\Users\\rmura\\source\\repos\\CSharpCodeAcademy\\HelloCSharpUniverse\\Avg\\Avg.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

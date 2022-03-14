@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avg", "Avg\Avg.csproj", "{7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AveragePlus", "AveragePlus\AveragePlus.csproj", "{E6317110-325E-4946-9CE0-DFD5E05EB468}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MainLibrary", "library\MainLibrary.csproj", "{06D12648-CDE5-4C02-A31F-81ECF7A58F09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MainLibrary", "MainLibrary\MainLibrary.csproj", "{06D12648-CDE5-4C02-A31F-81ECF7A58F09}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator", "Calculator\Calculator.csproj", "{9C8F45F5-EB2B-400D-8965-1082DB874F45}"
 EndProject

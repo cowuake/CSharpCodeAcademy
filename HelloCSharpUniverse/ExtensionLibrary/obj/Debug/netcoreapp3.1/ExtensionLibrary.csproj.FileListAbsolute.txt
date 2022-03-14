@@ -18,3 +18,13 @@ C:\Users\riccardo.mura\source\repos\Week1\HelloWorld\ExtensionLibrary\obj\Debug\
 C:\Users\riccardo.mura\source\repos\Week1\HelloWorld\ExtensionLibrary\obj\Debug\netcoreapp3.1\ExtensionLibrary.csproj.CoreCompileInputs.cache
 C:\Users\riccardo.mura\source\repos\Week1\HelloWorld\ExtensionLibrary\obj\Debug\netcoreapp3.1\ExtensionLibrary.dll
 C:\Users\riccardo.mura\source\repos\Week1\HelloWorld\ExtensionLibrary\obj\Debug\netcoreapp3.1\ExtensionLibrary.pdb
+C:\Users\rmura\source\repos\CSharpCodeAcademy\HelloCSharpUniverse\ExtensionLibrary\bin\Debug\netcoreapp3.1\ExtensionLibrary.deps.json
+C:\Users\rmura\source\repos\CSharpCodeAcademy\HelloCSharpUniverse\ExtensionLibrary\bin\Debug\netcoreapp3.1\ExtensionLibrary.dll
+C:\Users\rmura\source\repos\CSharpCodeAcademy\HelloCSharpUniverse\ExtensionLibrary\bin\Debug\netcoreapp3.1\ExtensionLibrary.pdb
+C:\Users\rmura\source\repos\CSharpCodeAcademy\HelloCSharpUniverse\ExtensionLibrary\obj\Debug\netcoreapp3.1\ExtensionLibrary.csproj.AssemblyReference.cache
+C:\Users\rmura\source\repos\CSharpCodeAcademy\HelloCSharpUniverse\ExtensionLibrary\obj\Debug\netcoreapp3.1\ExtensionLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rmura\source\repos\CSharpCodeAcademy\HelloCSharpUniverse\ExtensionLibrary\obj\Debug\netcoreapp3.1\ExtensionLibrary.AssemblyInfoInputs.cache
+C:\Users\rmura\source\repos\CSharpCodeAcademy\HelloCSharpUniverse\ExtensionLibrary\obj\Debug\netcoreapp3.1\ExtensionLibrary.AssemblyInfo.cs
+C:\Users\rmura\source\repos\CSharpCodeAcademy\HelloCSharpUniverse\ExtensionLibrary\obj\Debug\netcoreapp3.1\ExtensionLibrary.csproj.CoreCompileInputs.cache
+C:\Users\rmura\source\repos\CSharpCodeAcademy\HelloCSharpUniverse\ExtensionLibrary\obj\Debug\netcoreapp3.1\ExtensionLibrary.dll
+C:\Users\rmura\source\repos\CSharpCodeAcademy\HelloCSharpUniverse\ExtensionLibrary\obj\Debug\netcoreapp3.1\ExtensionLibrary.pdb
