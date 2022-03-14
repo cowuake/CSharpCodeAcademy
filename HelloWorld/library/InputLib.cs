@@ -59,6 +59,20 @@ namespace MainLibrary
             return b;
         }
 
+        public static double ReadDoubleFromConsole(string msg)
+        {
+            double d;
+            string input;
+
+            do
+            {
+                Console.Write(msg);
+                input = Console.ReadLine();
+            } while (!double.TryParse(input, out d));
+
+            return d;
+        }
+
         public static byte ReadByteFromConsole(string msg, Func<byte, bool> condition)
         {
             byte b;

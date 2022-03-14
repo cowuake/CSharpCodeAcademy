@@ -14,7 +14,7 @@ namespace MathLibrary.Test
             ComplexNumber a = new ComplexNumber(1, 1);
             ComplexNumber b = new ComplexNumber(2, 2);
 
-            ComplexNumber result = a.Sum(b);
+            ComplexNumber result = a + b;
             Assert.Equal(3, result.Re);
             Assert.Equal(3, result.Im);
         }
@@ -25,7 +25,7 @@ namespace MathLibrary.Test
             ComplexNumber a = new ComplexNumber(8, 6);
             ComplexNumber b = new ComplexNumber(5, 2);
 
-            ComplexNumber result = a.Subtract(b);
+            ComplexNumber result = a - b;
             Assert.Equal(3, result.Re);
             Assert.Equal(4, result.Im);
         }
@@ -36,7 +36,7 @@ namespace MathLibrary.Test
             ComplexNumber a = new ComplexNumber(1, 1);
             ComplexNumber b = new ComplexNumber(3, 1);
 
-            ComplexNumber result = a.Multiply(b);
+            ComplexNumber result = a * b;
             Assert.Equal(2, result.Re);
             Assert.Equal(4, result.Im);
         }
@@ -47,7 +47,7 @@ namespace MathLibrary.Test
             ComplexNumber a = new ComplexNumber(3, 2);
             ComplexNumber b = new ComplexNumber(1, 7);
 
-            ComplexNumber result = a.Multiply(b);
+            ComplexNumber result = a * b;
             Assert.Equal(-11, result.Re);
             Assert.Equal(23, result.Im);
         }
@@ -58,11 +58,9 @@ namespace MathLibrary.Test
             ComplexNumber a = new ComplexNumber(3, 4);
             ComplexNumber b = new ComplexNumber(8, -2);
 
-            ComplexNumber result = a.Divide(b);
-            // NOTE: The asserts are going to fail if the expected values are not
-            //       explicitly passed as a division over doubles!
-            Assert.Equal(4.0d / 17.0d, result.Re);
-            Assert.Equal(19.0d / 34.0d, result.Im);
+            ComplexNumber result = a / b;  
+            Assert.Equal(4.0 / 17.0, result.Re);
+            Assert.Equal(19.0 / 34.0, result.Im);
         }
 
         [Fact]
@@ -81,6 +79,45 @@ namespace MathLibrary.Test
 
             Assert.Equal(b.Re, a.Conjugate.Re);
             Assert.Equal(b.Im, a.Conjugate.Im);
+        }
+
+        [Fact]
+        public void ComplexNumberArgument()
+        {
+            ComplexNumber c;
+
+            c = new ComplexNumber(0, 0);
+            Assert.Null(c.Argument);
+
+            c = new ComplexNumber(0, 999);
+            Assert.Equal(Math.PI / 2, c.Argument);
+
+            c = new ComplexNumber(999, 0);
+            Assert.Equal(0, c.Argument);
+
+            c = new ComplexNumber(999, 999);
+            Assert.Equal(Math.PI / 4, c.Argument);
+        }
+
+        [Fact]
+        public void ComplexNumberSpecialCases()
+        {
+            ComplexNumber c;
+
+            c = new ComplexNumber(0, 0);
+            Assert.False(c.IsReal());
+            Assert.False(c.IsImaginary());
+            Assert.True(c.IsOrigin());
+
+            c = new ComplexNumber(1, 0);
+            Assert.True(c.IsReal());
+            Assert.False(c.IsImaginary());
+            Assert.False(c.IsOrigin());
+
+            c = new ComplexNumber(0, 1);
+            Assert.False(c.IsReal());
+            Assert.True(c.IsImaginary());
+            Assert.False(c.IsOrigin());
         }
     }
 }

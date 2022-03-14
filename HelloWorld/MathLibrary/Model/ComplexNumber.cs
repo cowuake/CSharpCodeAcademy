@@ -31,37 +31,43 @@ namespace MathLibrary.Model
             get => new ComplexNumber(_realPart, -_imagPart);
         }
 
+        public double? Argument
+        {
+            get
+            {
+                if (IsOrigin())
+                    return null;
+
+                if (IsReal()) // Purely real number
+                {
+                    return 0;
+                }
+                else if (IsImaginary()) // Purely imaginary number
+                {
+                    return Math.PI / 2;
+                }
+                else
+                {
+                    return Math.Atan(Im / Re);
+                }
+            }
+        }
+
         public ComplexNumber(double re, double im)
         {
             _realPart = re;
             _imagPart = im;
         }
 
-        //public ComplexNumber Sum(ComplexNumber a, ComplexNumber b)
-        //{
-        //    return new ComplexNumber(a.Re + b.Re, a.Im + b.Im);
-        //}
-
         public ComplexNumber Sum(ComplexNumber c)
         {
             return new ComplexNumber(Re + c.Re, Im + c.Im);
         }
 
-        //public ComplexNumber Subtract(ComplexNumber a, ComplexNumber b)
-        //{
-        //    return new ComplexNumber(a.Re + b.Re, -a.Im - b.Im);
-        //}
-
         public ComplexNumber Subtract(ComplexNumber c)
         {
             return Sum(new ComplexNumber(-c.Re, -c.Im));
         }
-
-        //public ComplexNumber Multiply(ComplexNumber a, ComplexNumber b)
-        //{
-        //    // (a+bi)(c+di) = ac + adi + bci + bdi2
-        //    return new ComplexNumber(a.Re * b.Re - a.Im * b.Im, a.Re * b.Im + b.Re * a.Im);
-        //}
 
         public ComplexNumber Multiply(ComplexNumber c)
         {
@@ -80,6 +86,55 @@ namespace MathLibrary.Model
             newIm /= denominator;
 
             return new ComplexNumber(newRe, newIm);
+        }
+
+        public static ComplexNumber operator +(ComplexNumber a, ComplexNumber b)
+        {
+            return a.Sum(b);
+        }
+
+        public static ComplexNumber operator -(ComplexNumber a, ComplexNumber b)
+        {
+            return a.Subtract(b);
+        }
+
+        public static ComplexNumber operator *(ComplexNumber a, ComplexNumber b)
+        {
+            return a.Multiply(b);
+        }
+
+        public static ComplexNumber operator /(ComplexNumber a, ComplexNumber b)
+        {
+            return a.Divide(b);
+        }
+
+        public bool IsReal()
+        {
+            if (Re != 0 && Im == 0)
+                return true;
+
+            return false;
+        }
+
+        public bool IsImaginary()
+        {
+            if (Re == 0 && Im != 0)
+                return true;
+
+            return false;
+        }
+
+        public bool IsOrigin()
+        {
+            if (Re == 0 && Im == 0)
+                return true;
+
+            return false;
+        }
+
+        public override string ToString()
+        {
+            return $"({Re})+({Im})i";
         }
     }
 }
