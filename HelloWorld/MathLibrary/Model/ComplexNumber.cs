@@ -169,7 +169,16 @@ namespace MathLibrary.Model
 
         public override string ToString()
         {
-            return $"({Re})+({Im})i";
+            if (IsOrigin())
+                return "0";
+
+            if (IsReal())
+                return $"{Re}";
+
+            if (IsImaginary())
+                return $"{Im}i";
+
+            return (Im < 0) ? $"{Re}-{-Im}i" : $"{Re}+{Im}i";
         }
     }
 }

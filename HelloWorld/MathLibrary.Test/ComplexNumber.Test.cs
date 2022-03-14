@@ -145,5 +145,26 @@ namespace MathLibrary.Test
             Assert.True(c.IsImaginary());
             Assert.False(c.IsOrigin());
         }
+
+        [Fact]
+        public void ComplexNumberToString()
+        {
+            ComplexNumber c;
+
+            c = new ComplexNumber(0, 0);
+            Assert.Equal("0", c.ToString());
+
+            c = new ComplexNumber(999, 0);
+            Assert.Equal("999", c.ToString());
+
+            c = new ComplexNumber(0, 999);
+            Assert.Equal("999i", c.ToString());
+
+            c = new ComplexNumber(999, 999);
+            Assert.Equal("999+999i", c.ToString());
+
+            c = new ComplexNumber(-999, -999);
+            Assert.Equal("-999-999i", c.ToString());
+        }
     }
 }
