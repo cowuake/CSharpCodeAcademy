@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using MathLibrary.Model;
 using Xunit;
 
@@ -9,40 +7,61 @@ namespace MathLibrary.Test
     public class ComplexNumberTest
     {
         [Fact]
-        public void SumComplexNumber()
+        public void ComplexNumberSum()
         {
             ComplexNumber a = new ComplexNumber(1, 1);
             ComplexNumber b = new ComplexNumber(2, 2);
+            double d = 10;
 
-            ComplexNumber result = a + b;
+            ComplexNumber result;
+            
+            result = a + b;
             Assert.Equal(3, result.Re);
             Assert.Equal(3, result.Im);
+
+            result = a + d;
+            Assert.Equal(11, result.Re);
+            Assert.Equal(a.Im, result.Im);
         }
 
         [Fact]
-        public void SubtractComplexNumber()
+        public void ComplexNumberSubtract()
         {
             ComplexNumber a = new ComplexNumber(8, 6);
             ComplexNumber b = new ComplexNumber(5, 2);
+            double d = 10;
 
-            ComplexNumber result = a - b;
+            ComplexNumber result;
+            
+            result = a - b;
             Assert.Equal(3, result.Re);
             Assert.Equal(4, result.Im);
+
+            result = a - d;
+            Assert.Equal(-2, result.Re);
+            Assert.Equal(a.Im, result.Im);
         }
 
         [Fact]
-        public void MultiplyComplexNumber()
+        public void ComplexNumberMultiply()
         {
             ComplexNumber a = new ComplexNumber(1, 1);
             ComplexNumber b = new ComplexNumber(3, 1);
+            double d = 10;
 
-            ComplexNumber result = a * b;
+            ComplexNumber result;
+            
+            result = a * b;
             Assert.Equal(2, result.Re);
             Assert.Equal(4, result.Im);
+
+            result = a * d;
+            Assert.Equal(a.Re * d, result.Re);
+            Assert.Equal(a.Im * d, result.Im);
         }
 
         [Fact]
-        public void MultiplyComplexNumber2()
+        public void ComplexNumberMultiply2()
         {
             ComplexNumber a = new ComplexNumber(3, 2);
             ComplexNumber b = new ComplexNumber(1, 7);
@@ -57,10 +76,17 @@ namespace MathLibrary.Test
         {
             ComplexNumber a = new ComplexNumber(3, 4);
             ComplexNumber b = new ComplexNumber(8, -2);
+            double d = 10;
 
-            ComplexNumber result = a / b;  
+            ComplexNumber result;
+            
+            result = a / b;  
             Assert.Equal(4.0 / 17.0, result.Re);
             Assert.Equal(19.0 / 34.0, result.Im);
+
+            result = a / d;
+            Assert.Equal(a.Re / d, result.Re);
+            Assert.Equal(a.Im / d, result.Im);
         }
 
         [Fact]
