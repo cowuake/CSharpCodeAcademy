@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathLibrary", "MathLibrary\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathLibrary.Test", "MathLibrary.Test\MathLibrary.Test.csproj", "{BFC0F685-4095-45B3-AB1B-FB7756E9A382}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComputeWithComplexNumbers", "ComputeWithComplexNumbers\ComputeWithComplexNumbers.csproj", "{FEF970BE-127E-4E2F-9610-82D20D6E857A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComputeWithComplexNumbers", "ComputeWithComplexNumbers\ComputeWithComplexNumbers.csproj", "{FEF970BE-127E-4E2F-9610-82D20D6E857A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductInventory", "ProductInventory\ProductInventory.csproj", "{863CB797-53FC-4367-BC64-FABC928C155C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{FEF970BE-127E-4E2F-9610-82D20D6E857A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEF970BE-127E-4E2F-9610-82D20D6E857A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEF970BE-127E-4E2F-9610-82D20D6E857A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{863CB797-53FC-4367-BC64-FABC928C155C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{863CB797-53FC-4367-BC64-FABC928C155C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{863CB797-53FC-4367-BC64-FABC928C155C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{863CB797-53FC-4367-BC64-FABC928C155C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
