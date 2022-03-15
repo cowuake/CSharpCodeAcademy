@@ -57,6 +57,34 @@ namespace MathLibrary.Model
             _imagPart = im;
         }
 
+        public ComplexNumber(string parsable) // "(a,b)"
+        {
+            if (parsable == null)
+                throw new ArgumentNullException(nameof(parsable));
+
+            parsable = parsable.Trim();
+
+            if (parsable.Substring(0,1) != "(" ||
+                parsable.Substring(parsable.Length - 1) != ")")
+                throw new ArgumentException(nameof(parsable) +
+                                            ": not between paretheses.");
+            
+            string[] numbers = parsable.Substring(1, parsable.Length - 2).Split(',');
+
+            if (numbers.Length != 2)
+                throw new ArgumentException();
+
+            string firstField = numbers[0].Trim();
+            string secondField = numbers[1].Trim();
+
+            if (!(double.TryParse(firstField, out _realPart) &&
+                    double.TryParse(secondField, out _imagPart)))
+            {
+                throw new ArgumentException(nameof(parsable) +
+                    $": cannot parse numbers from {firstField} and {secondField}.");
+            }         
+        }
+
         #region ====================   Sum   ====================
         public ComplexNumber Sum(ComplexNumber c)
         {

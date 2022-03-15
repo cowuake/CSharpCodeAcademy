@@ -166,5 +166,27 @@ namespace MathLibrary.Test
             c = new ComplexNumber(-999, -999);
             Assert.Equal("-999-999i", c.ToString());
         }
+
+        [Fact]
+        public void ComplexNumberFromStringConstructor()
+        {
+            string sourceString;
+            ComplexNumber c;
+            
+            sourceString = "(1,1)";
+            c = new ComplexNumber(sourceString);
+            Assert.Equal(1, c.Re);
+            Assert.Equal(1, c.Im);
+
+            sourceString = "(-1,-1)";
+            c = new ComplexNumber(sourceString);
+            Assert.Equal(-1, c.Re);
+            Assert.Equal(-1, c.Im);
+
+            sourceString = "(1.999,-999.1)";
+            c = new ComplexNumber(sourceString);
+            Assert.Equal(1.999, c.Re);
+            Assert.Equal(-999.1, c.Im);
+        }
     }
 }
