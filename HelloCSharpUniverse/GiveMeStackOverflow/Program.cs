@@ -8,16 +8,8 @@ namespace GiveMeStackOverflow
         {
             int n = 1;
 
-            try
-            {
-                // My precious!
-                GiveMeThatSweetStackOverflow(n);
-            }
-            catch (StackOverflowException e)
-            {
-                // This will print "Stack overflow."
-                throw new StackOverflowException(e.Message);
-            }
+            // My precious!
+            GiveMeThatSweetStackOverflow(n);
         }
 
         internal static void GiveMeThatSweetStackOverflow(int n)

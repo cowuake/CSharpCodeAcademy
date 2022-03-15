@@ -1,6 +1,6 @@
 using System;
 using Xunit;
-using MathLibrary;
+using MathLibrary.Model;
 
 namespace MathLibrary.Test
 {
@@ -10,10 +10,10 @@ namespace MathLibrary.Test
         public void TestZeroDelta()
         {
             // Arrange
-            Equation eq = new Equation();
+            //Equation eq = new Equation();
 
             // Act
-            var result = eq.SolveSecondDegreeEquation(1, 2, 1);
+            var result = Equation.SolveSecondDegreeEquation(1, 2, 1);
 
             // Assert
             Assert.NotNull(result);
@@ -25,10 +25,10 @@ namespace MathLibrary.Test
         public void TestNegativeDelta()
         {
             // Arrange
-            Equation eq = new Equation();
+            //Equation eq = new Equation();
 
             // Act
-            var result = eq.SolveSecondDegreeEquation(2, 1, 2);
+            var result = Equation.SolveSecondDegreeEquation(2, 1, 2);
 
             // Assert
             Assert.NotNull(result);
@@ -39,10 +39,10 @@ namespace MathLibrary.Test
         public void TestPositiveDelta()
         {
             // Arrange
-            Equation eq = new Equation();
+            //Equation eq = new Equation();
 
             // Act
-            var result = eq.SolveSecondDegreeEquation(1, 2, 0);
+            var result = Equation.SolveSecondDegreeEquation(1, 2, 0);
 
             // Assert
             Assert.NotNull(result);
