@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComputeWithComplexNumbers",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductInventory", "ProductInventory\ProductInventory.csproj", "{863CB797-53FC-4367-BC64-FABC928C155C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GiveMeStackOverflow", "GiveMeStackOverflow\GiveMeStackOverflow.csproj", "{EF716993-C104-4778-BEB1-5C789F6AD907}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{863CB797-53FC-4367-BC64-FABC928C155C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{863CB797-53FC-4367-BC64-FABC928C155C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{863CB797-53FC-4367-BC64-FABC928C155C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF716993-C104-4778-BEB1-5C789F6AD907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF716993-C104-4778-BEB1-5C789F6AD907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF716993-C104-4778-BEB1-5C789F6AD907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF716993-C104-4778-BEB1-5C789F6AD907}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
