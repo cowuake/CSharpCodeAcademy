@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Employees_DecoratorDP.Model
+﻿namespace Employees_DecoratorDP.Model
 {
     // This is Decorator in the standard Decorator UML diagram
     public abstract class EmployeeDecorator : Worker
