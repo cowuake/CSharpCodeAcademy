@@ -1,4 +1,4 @@
 12/11/2020;Travel;Reno AIAA Conference;55.40
 05/05/2019;Board;Premium lunch for winners;245.60
 01/01/2021;Lodging;1000-stars hotel;1000
-02/02/1999;Generic;Not of your business;99999999
+02/02/1999;Generic;None of your business;99999999

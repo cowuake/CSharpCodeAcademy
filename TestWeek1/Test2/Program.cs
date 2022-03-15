@@ -7,8 +7,8 @@ namespace Test2
 {
     internal class Program
     {
-        private const string sourceFile = @"../../../../files/in/source_ex2.txt";
-        private const string targetFile = @"../../../../files/out/processed_expenses.txt";
+        private const string SOURCE_FILE = @"../../../../files/in/source_ex2.txt";
+        private const string TARGET_FILE = @"../../../../files/out/processed_expenses.txt";
 
         static void Main(string[] args)
         {
@@ -16,8 +16,8 @@ namespace Test2
 
             try
             {
-                Console.WriteLine($"Going to read file {sourceFile} ...");
-                bool read = ExpenseIO.Read(sourceFile, out list);
+                Console.WriteLine($"Going to read file {SOURCE_FILE} ...");
+                bool read = ExpenseIO.Read(SOURCE_FILE, out list);
 
                 if (read) {
                     Console.WriteLine("Pending approval for expenses...");
@@ -31,8 +31,8 @@ namespace Test2
                     Console.WriteLine("Refunds assigned to approved expenses.");
                     Console.WriteLine();
 
-                    Console.WriteLine($"Going to write log to {targetFile} ...");
-                    bool write = ExpenseIO.Write(list, targetFile);
+                    Console.WriteLine($"Going to write log to {TARGET_FILE} ...");
+                    bool write = ExpenseIO.Write(list, TARGET_FILE);
 
                     if (write)
                     {
@@ -40,11 +40,11 @@ namespace Test2
                     }
                     else
                     {
-                        Console.WriteLine($"Log creation at {targetFile} failed.");
+                        Console.WriteLine($"Log creation at {TARGET_FILE} failed.");
                     }
                 } else
                 {
-                    Console.WriteLine($"Failed to read from source file {sourceFile}!");
+                    Console.WriteLine($"Failed to read from source file {SOURCE_FILE}!");
                 }
                 
             }
@@ -55,7 +55,7 @@ namespace Test2
             }
 
             Console.WriteLine();
-            Console.Write("Press any button to exit.");
+            Console.Write("Press any button to exit...");
             Console.ReadKey();
         }
     }

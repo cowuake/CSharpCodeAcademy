@@ -3,7 +3,7 @@ using Test2.Model;
 
 namespace Test2.Test
 {
-    public class UnitTest1
+    public class XTest
     {
         [Fact]
         public void Test1()

@@ -13,21 +13,12 @@ namespace Test2.Model
 
         public DateTime Date { get; }
 
-        public ItemOfExpenditure(byte category, decimal expense, DateTime date, string description)
+        public ItemOfExpenditure(byte category, decimal expense,
+                                 DateTime date = default(DateTime), string description = "")
         {
             Category = (ItemCategory)category;
             Date = date;
             Description = description;
-            Expense = expense;
-            Approval = LevelOfApproval.None;
-            Refund = 0;
-        }
-
-        public ItemOfExpenditure(byte category, decimal expense)
-        {
-            Category = (ItemCategory)category;
-            Date = DateTime.Now;
-            Description = "";
             Expense = expense;
             Approval = LevelOfApproval.None;
             Refund = 0;
