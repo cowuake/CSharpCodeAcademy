@@ -7,7 +7,7 @@ namespace Restaurant.Test
     public class TestRestaurant
     {
         private static Func<MenuItemCategory> DefaultMenuItemCategory =
-            () => new MenuItemCategory("Good food", 20);
+            () => new MenuItemCategory("IDX", "Sea side dishes", "Sea side dishes", 0, 10);
 
         private static Func<MenuItem> DefaultMenuItem =
             () => new MenuItem("CODE", "Sea mixed fry", DefaultMenuItemCategory(),
