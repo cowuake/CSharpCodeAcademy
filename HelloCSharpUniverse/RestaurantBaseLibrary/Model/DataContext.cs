@@ -72,8 +72,8 @@ namespace Restaurant.BaseLibrary
         [Serializable]
         public class RestaurantDataContext
         {
-            public IList<MenuItem> MenuItems { get; internal set; }
-            public IList<MenuItemCategory> MenuCategories { get; internal set; }
+            public IList<MenuItem> MenuItems { get; }
+            public IList<MenuItemCategory> MenuCategories { get; }
             public IList<Table> Tables { get; }
             public IList<Invoice> Invoices { get; }
             public IList<Payment> Payments { get; }

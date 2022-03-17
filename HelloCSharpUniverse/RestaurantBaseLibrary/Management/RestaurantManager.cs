@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 
 namespace Restaurant.BaseLibrary
 {
     public static class RestaurantManager
     {
-        public static bool AllTableClosed(DataContext state)
+        public static bool AllTablesClosed(DataContext state)
             => state.Context.Tables.All(table => table.Available);
 
         private static bool SearchDomain<T>(DataContext state, Type type, out IList<T> domain)
@@ -36,36 +35,53 @@ namespace Restaurant.BaseLibrary
             return true;
         }
 
-        public static void UpdateMenu(DataContext state, MenuChanges change, params Object[] args)
+        public static void UpdateMenu(DataContext state, MenuChanges change, params Object[] jolly)
         {
-            if (!AllTableClosed(state))
+            if (!AllTablesClosed(state))
                 throw new Exception("Cannot modify the menu, some tables still open.");
 
             switch (change)
             {
                 case MenuChanges.NewItem:
 
-                    if (!(args[0] is MenuItem))
+                    if (!(jolly[0] is MenuItem))
                         throw new Exception("Impossible to add invalid item to menu.");
 
-                    state.Context.MenuItems.Add(args[0] as MenuItem);
+                    state.Context.MenuItems.Add(jolly[0] as MenuItem);
+
                     break;
 
                 case MenuChanges.NewCategory:
 
-                    if (!(args[0] is MenuItemCategory))
+                    if (!(jolly[0] is MenuItemCategory))
                         throw new Exception("Impossibile to add invalid category to menu");
 
-                    state.Context.MenuCategories.Add(args[0] as MenuItemCategory);    
+                    state.Context.MenuCategories.Add(jolly[0] as MenuItemCategory);
+                    
                     break;
 
                 case MenuChanges.ChangeItem:
 
-                    if (!(args[0] is Tuple))
+                    if (!(jolly[0] is string))
                         throw new Exception("Impossible to modify menu item with the given parameters!");
 
-                    break;
-                case MenuChanges.ChangeCategory:
+                    IList<MenuItem> items;
+                    SearchDomain(state, typeof(MenuItem), out items);
+
+                    MenuItem target;
+                    FindInContext(jolly[0] as string, state, out target);
+
+                    MenuItem replacement = new MenuItem(
+                        target.UniqueID,
+                        !(jolly[1] is null) ? (string)jolly[1] : target.Name,
+                        !(jolly[2] is null) ? (MenuItemCategory) jolly[2] : target.Category,
+                        !(jolly[3] is null) ? (decimal)jolly[3] : target.Price,
+                        !(jolly[4] is null) ? (string)jolly[4] : target.Description
+                    );
+
+                    items.Remove(target);
+                    items.Add(replacement);
+
                     break;
             }
         }
