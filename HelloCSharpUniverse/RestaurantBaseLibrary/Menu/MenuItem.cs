@@ -4,23 +4,21 @@ using System.Text;
 
 namespace Restaurant.BaseLibrary
 {
-    public abstract class MenuItem : IMenuItem
+    public class MenuItem
     {
         public string UniqueID { get; }
         public string Name { get; }
         public MenuItemCategory Category { get; }
         public decimal Price { get; }
-        public MenuItemTaxClass TaxClass { get; }
         public string Description { get; }
 
         public MenuItem(string uniqueID, string name, MenuItemCategory category,
-                        decimal price, MenuItemTaxClass taxClass, string description)
+                        decimal price, string description)
         {
             UniqueID = uniqueID;
             Name = name;
             Category = category;
             Price = price;
-            TaxClass = taxClass;
             Description = description;
         }
 
@@ -31,13 +29,30 @@ namespace Restaurant.BaseLibrary
             sb.AppendLine($"Item {UniqueID} summary");
             sb.AppendLine($"\tName: {Name}");
             sb.AppendLine($"\tCategory: {Category}");
-            sb.AppendLine($"\tTax class: {TaxClass}");
             sb.AppendLine($"\tDescription:{Description}");
 
             return sb.ToString();
         }
 
-        public bool Read(Object source) => false;
-        public bool Show() => false;
+        public bool Read(Object source)
+        {
+            if (!(source is string))
+                return false;
+
+            source = source as string;
+
+            return false;
+        }
+
+        public bool Show()
+        {
+            string s = ToString();
+
+            if (s == null)
+                return false;
+
+            Console.WriteLine(s);
+            return true;
+        }
     }
 }

@@ -8,5 +8,11 @@ namespace Restaurant.BaseLibrary
     {
         public string Name { get; }
         public uint VAT { get; }
+
+        public MenuItemCategory(string name, uint vat)
+        {
+            Name = name;
+            VAT = vat;
+        }
     }
 }
