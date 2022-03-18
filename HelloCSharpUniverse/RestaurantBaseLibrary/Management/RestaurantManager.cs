@@ -68,16 +68,24 @@ namespace Restaurant.BaseLibrary
                     IList<MenuItem> items;
                     SearchDomain(state, typeof(MenuItem), out items);
 
-                    MenuItem target;
+                    MenuItem target, replacement;
                     FindInContext(jolly[0] as string, state, out target);
 
-                    MenuItem replacement = new MenuItem(
-                        target.UniqueID,
-                        !(jolly[1] is null) ? (string)jolly[1] : target.Name,
-                        !(jolly[2] is null) ? (MenuItemCategory) jolly[2] : target.Category,
-                        !(jolly[3] is null) ? (decimal)jolly[3] : target.Price,
-                        !(jolly[4] is null) ? (string)jolly[4] : target.Description
-                    );
+                    try
+                    {
+                        replacement = new MenuItem(
+                            target.UniqueID,
+                            !(jolly[1] is null) ? (string)jolly[1] : target.Name,
+                            !(jolly[2] is null) ? (MenuItemCategory)jolly[2] : target.Category,
+                            !(jolly[3] is null) ? (decimal)jolly[3] : target.Price,
+                            !(jolly[4] is null) ? (string)jolly[4] : target.Description
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message + "Failed to modify menu item.");
+                    }
+                    
 
                     items.Remove(target);
                     items.Add(replacement);
