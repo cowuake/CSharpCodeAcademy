@@ -6,7 +6,7 @@ namespace BankAccount.Model
 {
     public interface IBankAccountDataContext
     {
-        bool Save(out string message);
-        bool Load(out string message);
+        bool Save(string path, out string message);
+        bool Load(string path, out string message);
     }
 }
