@@ -37,7 +37,7 @@ namespace BankAccount.Services
             else
                 availableOptions = new string[] { "m", "p", "q" };
 
-            string input = SimpleIO.ReadFromConsoleConditionally(
+            string input = SimpleIO.ReadFromConsole(
                 "Insert one of the options above: ",
                 s => availableOptions.Contains(s.ToLower())).ToLower();
 
@@ -69,7 +69,7 @@ namespace BankAccount.Services
         {
             uint accountID = (uint)DateTime.Now.Millisecond;
 
-            string bankName = SimpleIO.ReadFromConsoleConditionally(
+            string bankName = SimpleIO.ReadFromConsole(
                 "Insert the name of the bank (no symbols, no numbers): ",
                 s => !String.IsNullOrEmpty(s) && s.All(c => Char.IsLetter(c)));
 
@@ -84,9 +84,10 @@ namespace BankAccount.Services
             return amount;
         }
 
-        public static ushort ReadPIN(PersonalAccount account)
+        public static short ReadPIN(PersonalAccount account)
         {
-            return SimpleIO.ReadUShortFromConsole("Please insert your PIN: ");
+            return (short)SimpleIO.ReadIntegerFromConsole("Please insert your PIN: ",
+                                                            (n => n >= 100000 && n <= 99999));
         }
 
         public static void CheckBlocked(PersonalAccount account)
@@ -103,7 +104,7 @@ namespace BankAccount.Services
         {
             CheckBlocked(account);
 
-            ushort pin;
+            short pin;
 
             do
             {
@@ -122,7 +123,7 @@ namespace BankAccount.Services
             Console.WriteLine("CC - Perform credit card movement");
             Console.WriteLine("Q - Cancel operation");
 
-            string input = SimpleIO.ReadFromConsoleConditionally(
+            string input = SimpleIO.ReadFromConsole(
                 "Insert one of the options above: ",
                 s => availableOptions.Contains(s.Trim().ToLower())).Trim().ToLower();
 
@@ -164,7 +165,7 @@ namespace BankAccount.Services
             else
             {
                 Console.WriteLine("No movements to date.");
-            }    
+            }
         }
     }
 }

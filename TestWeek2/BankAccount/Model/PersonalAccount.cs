@@ -13,7 +13,7 @@ namespace BankAccount.Model
         public IList<IMovement> Movements { get; } = new List<IMovement>();
         public DateTime? LastMovement { get; } = null;
 
-        private ushort PIN { get; set; } = (ushort)new Random().Next(10000, 99999);
+        private short PIN { get; set; } = (short)new Random().Next(10000, 99999);
         private byte FailedAccessAttempts { get; set; } = 0;
         public bool Blocked { get; private set; } = false;
 
@@ -30,7 +30,7 @@ namespace BankAccount.Model
             Credit = credit;
         }
 
-        public bool CheckPin(uint code)
+        public bool CheckPin(short code)
         {
             if (code == PIN)
                 return true;

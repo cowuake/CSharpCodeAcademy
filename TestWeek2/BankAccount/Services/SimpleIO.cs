@@ -6,7 +6,7 @@ namespace BankAccount.Services
 {
     public static class SimpleIO
     {
-        public static string ReadFromConsoleConditionally(string msg, Func<string, bool> condition)
+        public static string ReadFromConsole(string msg, Func<string, bool> condition = null)
         {
             string input;
 
@@ -17,6 +17,20 @@ namespace BankAccount.Services
             } while (!condition(input));
 
             return input;
+        }
+
+        public static int ReadIntegerFromConsole(string msg, Func<int, bool> condition = null)
+        {
+            int number;
+            string input;
+
+            do
+            {
+                Console.Write(msg);
+                input = Console.ReadLine().Trim();
+            } while (!int.TryParse(input, out number) && !condition(number));
+
+            return number;
         }
 
         public static uint ReadUIntFromConsole(string msg)
