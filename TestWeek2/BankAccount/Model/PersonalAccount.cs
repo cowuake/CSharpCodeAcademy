@@ -8,23 +8,26 @@ namespace BankAccount.Model
     {
         public uint ID { get; }
         public string BankName { get; }
+
         public decimal Credit { get; }
-        public IList<IMovement> Movements { get; }
-        public DateTime LastAction { get; }
-        public bool Blocked { get; private set; }
+        public IList<IMovement> Movements { get; } = new List<IMovement>();
+        public DateTime? LastMovement { get; } = null;
 
-        private ushort PIN = (ushort)new Random().Next(10000, 99999);
-        private byte attempts = 0;
+        private ushort PIN { get; set; } = (ushort)new Random().Next(10000, 99999);
+        private byte FailedAccessAttempts { get; set; } = 0;
+        public bool Blocked { get; private set; } = false;
 
-        public PersonalAccount (uint id, string bankName)
+        public PersonalAccount(uint id, string bankName)
         {
             ID = id;
             BankName = bankName;
-            Credit = 0;
-            Movements = new List<IMovement>();
-            LastAction = DateTime.UtcNow;
-            Blocked = false;
+
             Console.WriteLine($"Your PIN is {PIN}.");
+        }
+
+        public PersonalAccount(uint id, string bankName, decimal credit) : this(id, bankName)
+        {
+            Credit = credit;
         }
 
         public bool CheckPin(uint code)
@@ -32,9 +35,9 @@ namespace BankAccount.Model
             if (code == PIN)
                 return true;
 
-            attempts++;
-            
-            if (attempts >= 5)
+            FailedAccessAttempts++;
+
+            if (FailedAccessAttempts >= 5)
             {
                 Blocked = true;
                 Console.WriteLine("Enter wrong PIN 5 times. Your bank account has been blocked.");

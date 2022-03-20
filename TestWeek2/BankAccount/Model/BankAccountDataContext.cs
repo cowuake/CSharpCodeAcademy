@@ -8,7 +8,7 @@ namespace BankAccount.Model
 {
     public class BankAccountDataContext : IBankAccountDataContext
     {
-        public const string DATA_FILE_PATH = "data/rist.bin";
+        public const string DATA_FILE_PATH = "../../../data/restaurant.dat";
         private const string DATA_FORMAT_VERSION = "0.1.0.0";
 
         public BankAccountState Data;
