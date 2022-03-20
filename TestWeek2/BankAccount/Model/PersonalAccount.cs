@@ -30,18 +30,22 @@ namespace BankAccount.Model
             Credit = credit;
         }
 
-        public bool CheckPin(short code)
+        public bool CheckPin(Func<PersonalAccount, short> reader)
         {
-            if (code == PIN)
-                return true;
+            short code;
 
-            FailedAccessAttempts++;
-
-            if (FailedAccessAttempts >= 5)
+            do
             {
-                Blocked = true;
-                Console.WriteLine("Enter wrong PIN 5 times. Your bank account has been blocked.");
+                code = reader(this);
+
+                if (code == PIN)
+                    return true;
+
+                FailedAccessAttempts++;
             }
+            while (FailedAccessAttempts < 5);
+
+            Blocked = true;
 
             return false;
         }

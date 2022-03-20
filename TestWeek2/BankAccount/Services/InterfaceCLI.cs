@@ -104,15 +104,13 @@ namespace BankAccount.Services
         {
             CheckBlocked(account);
 
-            short pin;
-
-            do
-            {
-                pin = ReadPIN(account);
-            } while (!account.Blocked && !account.CheckPin(pin));
+            account.CheckPin(ReadPIN);
 
             if (account.Blocked)
+            {
+                Console.WriteLine("Enter wrong PIN 5 times. Your bank account has been blocked.");
                 return;
+            }
 
             string[] availableOptions = new string[] { "c", "t", "cc", "q" };
 

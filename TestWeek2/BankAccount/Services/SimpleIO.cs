@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BankAccount.Services
 {
@@ -14,7 +12,8 @@ namespace BankAccount.Services
             {
                 Console.Write(msg);
                 input = Console.ReadLine().Trim();
-            } while (!condition(input));
+            }
+            while (!condition(input));
 
             return input;
         }
@@ -28,7 +27,8 @@ namespace BankAccount.Services
             {
                 Console.Write(msg);
                 input = Console.ReadLine().Trim();
-            } while (!int.TryParse(input, out number) && !condition(number));
+            }
+            while (!int.TryParse(input, out number) && !condition(number));
 
             return number;
         }
@@ -42,7 +42,8 @@ namespace BankAccount.Services
             {
                 Console.Write(msg);
                 input = Console.ReadLine().Trim();
-            } while (!uint.TryParse(input, out n));
+            }
+            while (!uint.TryParse(input, out n));
 
             return n;
         }
@@ -56,7 +57,8 @@ namespace BankAccount.Services
             {
                 Console.Write(msg);
                 input = Console.ReadLine().Trim();
-            } while (!ushort.TryParse(input, out n));
+            }
+            while (!ushort.TryParse(input, out n));
 
             return n;
         }

@@ -30,7 +30,7 @@ namespace BankAccount.CLI
             Console.Write("\nPrint any key to exit program... ");
             Console.ReadKey();
 
-            //InterfaceCLI.ReadInput();
+            InterfaceCLI.ReadInput();
         }
     }
 }
