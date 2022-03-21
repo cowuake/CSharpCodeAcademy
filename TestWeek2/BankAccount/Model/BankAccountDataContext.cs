@@ -10,7 +10,7 @@ namespace BankAccount.Model
     {
         private const string DATA_FORMAT_VERSION = "1.0.0.0";
 
-        public BankAccountState Data;
+        public BankAccountState Data { get;  set; }
         public BankAccountDataContext() => Data = new BankAccountState();
 
         #region ====================   Save & Load   ====================

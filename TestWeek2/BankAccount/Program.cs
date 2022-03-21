@@ -22,34 +22,18 @@ namespace BankAccount.CLI
             string dataFilePath = basePath + "/data/restaurant.dat";
             string backupFilePath = basePath + "/data/restaurant.dat.bak";
 
-            Console.WriteLine("Welcome to the AvaNODE bank account system.");
-
+            CheckMockData(dataFilePath);
             BankAccountDataContext context = new BankAccountDataContext();
-
-            var mockBankAccounts = new List<PersonalAccount>
-            {
-                new PersonalAccount(19, "Capital One", 99999.99m),
-                new PersonalAccount(10, "JPMorgan Chase"),
-                new PersonalAccount(87, "Deutsche Bank"),
-                new PersonalAccount(27, "Unicredit")
-            };
-
-            mockBankAccounts.ForEach(x => context.Data.Accounts.Add(x));
-
-            string savingOperationOutcome;
-            if (!context.Save(backupFilePath, out savingOperationOutcome))
-                Console.WriteLine(savingOperationOutcome);
-
-            context.Data.Accounts.Add(new PersonalAccount(99, "ZombieBank", 10000));
-            context.Data.Accounts.Clear();
 
             string loadingOperationOutcome;
             if (!context.Load(backupFilePath, out loadingOperationOutcome))
                 Console.WriteLine(loadingOperationOutcome);
 
-            context.Data.Accounts.ForEach(x => InterfaceCLI.PrintAccountAndCreditInfo(x));
+            Console.WriteLine("Welcome to the AvaNODE bank account system.");
 
-            //InterfaceCLI.ReadInput();
+            //context.Data.Accounts.ForEach(x => InterfaceCLI.PrintAccountAndCreditInfo(x));
+
+            InterfaceCLI.ReadInput(context);
 
             Console.Write("\nPrint any key to exit program... ");
             Console.ReadKey();
@@ -78,6 +62,28 @@ namespace BankAccount.CLI
             }
 
             return false;
+        }
+
+        public static void CheckMockData(string path)
+        {
+            if (File.Exists(path))
+                return;
+
+            BankAccountDataContext dataContext = new BankAccountDataContext();
+
+            List<PersonalAccount> mockBankAccounts = new List<PersonalAccount>
+            {
+                new PersonalAccount(19, "Capital One", 99999.99m),
+                new PersonalAccount(10, "JPMorgan Chase"),
+                new PersonalAccount(87, "Deutsche Bank"),
+                new PersonalAccount(27, "Unicredit")
+            };
+
+            mockBankAccounts.ForEach(x => dataContext.Data.Accounts.Add(x));
+
+            string savingOperationOutcome;
+            if (!dataContext.Save(path, out savingOperationOutcome))
+                Console.WriteLine(savingOperationOutcome);
         }
     }
 }

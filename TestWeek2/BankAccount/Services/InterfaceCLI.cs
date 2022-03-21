@@ -27,7 +27,7 @@ namespace BankAccount.Services
             Console.WriteLine();
         }
 
-        public static void ReadInput(PersonalAccount account = null)
+        public static void ReadInput(BankAccountDataContext context, PersonalAccount account = null)
         {
             PrintMenu(account);
             string[] availableOptions;
@@ -44,14 +44,14 @@ namespace BankAccount.Services
             switch (input)
             {
                 case "a":
-                    account = CreateAccount();
+                    account = AddAccount(context);
                     Console.WriteLine($"");
                     break;
                 case "h":
-                    PrintMenu();
+                    PrintMenu(account);
                     break;
                 case "m":
-                    RequestMovement(account);
+                    RequestMovement(context, account);
                     break;
                 case "p":
                     if (account != null)
@@ -62,10 +62,10 @@ namespace BankAccount.Services
                     break;
             }
 
-            ReadInput(account);
+            ReadInput(context, account);
         }
 
-        public static PersonalAccount CreateAccount()
+        public static PersonalAccount AddAccount(BankAccountDataContext context)
         {
             uint accountID = (uint)DateTime.Now.Millisecond;
 
@@ -73,7 +73,9 @@ namespace BankAccount.Services
                 "Insert the name of the bank (no symbols, no numbers): ",
                 s => !String.IsNullOrEmpty(s) && s.All(c => Char.IsLetter(c)));
 
-            return new PersonalAccount(accountID, bankName);
+            context.Data.Accounts.Add(new PersonalAccount(accountID, bankName));
+
+            return context.Data.Accounts.Last();
         }
 
         public static decimal ReadAmount()
@@ -94,13 +96,13 @@ namespace BankAccount.Services
         {
             if (account.Blocked)
             {
-                Console.WriteLine("Sorry, your account has been blocked.");
+                Console.WriteLine("\nSorry, your account has been blocked.");
                 Console.WriteLine("You will be logged out now.");
                 ReadInput(null);
             }
         }
 
-        public static void RequestMovement(PersonalAccount account)
+        public static void RequestMovement(BankAccountDataContext context, PersonalAccount account)
         {
             CheckBlocked(account);
 
@@ -143,7 +145,7 @@ namespace BankAccount.Services
                         throw new Exception();
                     break;
                 case "q":
-                    ReadInput(account);
+                    ReadInput(context, account);
                     break;
             }
         }
