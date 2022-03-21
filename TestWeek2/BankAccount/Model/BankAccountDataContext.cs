@@ -8,7 +8,7 @@ namespace BankAccount.Model
 {
     public class BankAccountDataContext : IBankAccountDataContext
     {
-        private const string DATA_FORMAT_VERSION = "0.1.0.0";
+        private const string DATA_FORMAT_VERSION = "1.0.0.0";
 
         public BankAccountState Data;
         public BankAccountDataContext() => Data = new BankAccountState();

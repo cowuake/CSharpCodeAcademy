@@ -4,6 +4,7 @@ using System.Text;
 
 namespace BankAccount.Model
 {
+    [Serializable]
     public class PersonalAccount
     {
         public uint ID { get; }

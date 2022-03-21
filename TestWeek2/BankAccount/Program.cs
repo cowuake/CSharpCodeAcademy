@@ -9,9 +9,6 @@ namespace BankAccount.CLI
 {
     internal class Program
     {
-        //public const string BACKUP_DATA_FILE_PATH = "./data/restaurant.dat.bak";
-        //public const string DATA_FILE_PATH = "./data/restaurant.dat.bak";
-
         static void Main(string[] args)
         {
             string basePath;
@@ -40,7 +37,8 @@ namespace BankAccount.CLI
             mockBankAccounts.ForEach(x => context.Data.Accounts.Add(x));
 
             string savingOperationOutcome;
-            context.Save(backupFilePath, out savingOperationOutcome);
+            if (!context.Save(backupFilePath, out savingOperationOutcome))
+                Console.WriteLine(savingOperationOutcome);
 
             context.Data.Accounts.Add(new PersonalAccount(99, "ZombieBank", 10000));
             context.Data.Accounts.Clear();
