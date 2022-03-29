@@ -8,36 +8,41 @@ namespace Multithreaded
 {
     internal class Program
     {
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
 
             ReadInput();
 
-            var watch = new System.Diagnostics.Stopwatch();
+            var watch = new Stopwatch();
             watch.Start();
 
+            // This will run pretty fast if no heavy computations will be done inside
             DoNotSpawnThreads(1000);
 
             watch.Stop();
-            var noThreadsTime = watch.Elapsed.TotalMilliseconds;
+            double noThreadsTime = watch.Elapsed.TotalMilliseconds;
             watch.Restart();
 
+            // This will be extremely slow for any trivial computations inside, due to
+            // the overhead coming from thread spawning
             SpawnSomeThreads(1000);
 
             watch.Stop();
-            var someThreadsTime = watch.Elapsed.TotalMilliseconds;
+            double someThreadsTime = watch.Elapsed.TotalMilliseconds;
             watch.Restart();
 
+            // This will be faster than the previous one due to the threads being spawned
+            // in parallel
             SpawnSomeCrazyThreads(1000);
 
             watch.Stop();
-            var someCrazyThreadsTime = watch.Elapsed.TotalMilliseconds;
+            double someCrazyThreadsTime = watch.Elapsed.TotalMilliseconds;
 
             Console.WriteLine();
-            Console.WriteLine($"DoNotSpawnThreads executed in {noThreadsTime:F2} ms");
-            Console.WriteLine($"SpawnSomeThreads executed in {someThreadsTime:F2} ms");
-            Console.WriteLine($"SpawnSomeCrazyThreads executed in {someCrazyThreadsTime:F2} ms");
+            Console.WriteLine($"DoNotSpawnThreads\t executed in {noThreadsTime:F2} ms");
+            Console.WriteLine($"SpawnSomeThreads\t executed in {someThreadsTime:F2} ms");
+            Console.WriteLine($"SpawnSomeCrazyThreads\t executed in {someCrazyThreadsTime:F2} ms");
             Console.WriteLine();
 
             CLIUtils.WaitForExit();
