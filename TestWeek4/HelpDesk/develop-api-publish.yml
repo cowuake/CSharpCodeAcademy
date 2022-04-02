@@ -1,0 +1,53 @@
+trigger:
+- develop
+
+pool: 'Pipeline'
+  #vmImage: 'ubuntu-latest' # Cannot use this without subscription...
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+
+- script: dotnet restore
+  displayName: Restore all NuGet packages
+
+- script: |
+    cd HelpDeskService.API
+    dotnet build --configuration $(buildConfiguration)
+  displayName: API build
+
+- script: |
+    cd HelpDeskService.Core.Tests
+    dotnet test --configuration $(buildConfiguration) --logger "trx;LogFileName=testresults.trx"
+  displayName: Launch Core unit tests
+
+- task: PublishTestResults@2
+  inputs:
+    testRunner: VSTest
+    testResultsFiles: '**/*.trx'
+  
+- script: |
+    cd HelpDeskService.API
+    dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
+  displayName: Publish AcademyE.LegoCatalog.API project
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.BinariesDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+
+- task: PublishBuildArtifacts@1
+  displayName: Publish to Artifact
+  inputs:
+    PathtoPublish: '$(Build.BinariesDirectory)'
+  condition: succeededOrFailed()
+
+- task: DeleteFiles@1
+  displayName: Remove artifacts from Agent
+  inputs:
+    SourceFolder: '$(Build.BinariesDirectory)'
+    Contents: '*'

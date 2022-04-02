@@ -1,0 +1,18 @@
+trigger:
+- develop
+
+pool: 'Pipeline'
+  #vmImage: 'ubuntu-latest' # Cannot use this without subscription...
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+
+- script: dotnet restore
+  displayName: Restore all NuGet packages
+
+- script: |
+    cd HelpDeskService.API
+    dotnet build --configuration $(buildConfiguration)
+  displayName: API build
