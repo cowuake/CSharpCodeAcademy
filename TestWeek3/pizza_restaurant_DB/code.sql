@@ -14,7 +14,7 @@ GO
 CREATE TABLE pizza
 (
 	id TINYINT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-	name VARCHAR(25),
+	name VARCHAR(25) NOT NULL UNIQUE,
 	price MONEY CONSTRAINT NonNegativePrice CHECK(price >= 0)
 )
 GO
@@ -25,7 +25,7 @@ GO
 CREATE TABLE ingredient
 (
 	id INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-	name VARCHAR(50) NOT NULL,
+	name VARCHAR(50) NOT NULL UNIQUE,
 	price MONEY NOT NULL,
 	qty_stored INT NOT NULL
 )
@@ -379,3 +379,29 @@ AS
 		JOIN
 			ingredient AS I ON PXI.ingredient_id = I.id
 		GROUP BY P.price, P.name
+GO
+
+--BEGIN TRANSACTION;
+--	DECLARE
+--		@deleted table (pizza_id TINYINT);
+
+--	DELETE
+--		PXI
+--	OUTPUT
+--		deleted.pizza_id INTO @deleted
+--	FROM
+--		pizza AS P
+--	JOIN
+--		pizza_x_ingredient AS PXI ON P.id = PXI.pizza_id
+--	JOIN
+--		ingredient AS I ON I.id = PXI.ingredient_id
+--	WHERE
+--		I.name = 'Artichokes';
+
+--	DELETE
+--		P
+--	FROM
+--		pizza AS P
+--	JOIN
+--		@deleted AS D ON D.pizza_id = P.id;
+--COMMIT TRANSACTION;

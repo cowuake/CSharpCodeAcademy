@@ -24,6 +24,54 @@ namespace PizzaRestaurant.Client
 
             Console.WriteLine();
 
+            // Read data from database passing a parameter
+            AdoNetExamples.DataReaderWithParamsExample(7.5m);
+
+            Console.WriteLine();
+
+            // Insert record in database table
+            AdoNetExamples.InsertExample();
+
+            Console.WriteLine();
+
+            // Insert record in database table using a parameter
+            AdoNetExamples.InsertWithParamsExample();
+
+            Console.WriteLine();
+
+            // Execute scalar command
+            AdoNetExamples.ExecuteScalarExample();
+
+            Console.WriteLine();
+
+            // Call stored procedure with parameters
+            AdoNetExamples.CallStoredProcedureWithParamsExample();
+
+            Console.WriteLine();
+
+            // Update a table in database
+            AdoNetExamples.UpdateExample();
+
+            Console.WriteLine();
+
+            // Update a table in database with params
+            AdoNetExamples.UpdateWithParamsExample("Ultimate Pizza");
+
+            Console.WriteLine();
+
+            // Delete record in database table
+            AdoNetExamples.DeleteExample();
+
+            Console.WriteLine();
+
+            // Delete record in database table with params
+            AdoNetExamples.DeleteWithParamsExample("Artichokes");
+
+            Console.WriteLine();
+
+            // Execute query returning more than one set from database
+            AdoNetExamples.MultipleResultSetsExample();
+
             Console.Write("Press any key to exit... ");
             Console.ReadKey();
         }
