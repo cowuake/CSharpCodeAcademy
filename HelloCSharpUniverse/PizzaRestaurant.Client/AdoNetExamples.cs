@@ -509,7 +509,7 @@ namespace PizzaRestaurant.Client
 
                     string sqlText = "BEGIN TRANSACTION;" +
                         "declare @deleted table (pizza_id TINYINT);" +
-                        "DELETE PXI " +
+                        "DELETE PXI, P " +
                         "OUTPUT deleted.pizza_id INTO @deleted " +
                         "FROM pizza AS P " +
                         "JOIN pizza_x_ingredient AS PXI ON P.id = PXI.pizza_id " +
@@ -585,6 +585,103 @@ namespace PizzaRestaurant.Client
                 finally
                 {
                     if (connection.State == System.Data.ConnectionState.Open)
+                        connection.Close();
+                }
+            }
+        }
+        
+        public static void TransactionExample()
+        {
+            using (var connection = new SqlConnection(cs))
+            {
+                // Must be put here for catches!
+                SqlTransaction transaction = null;
+
+                try
+                {
+                    string pizzaName;
+                    string ingredientName;
+                    decimal price = 9999.99m;
+
+                    // Read new pizza name from console
+                    pizzaName = InputLib.ReadFromConsoleConditionally(
+                        "Please insert a name for the new pizza: ",
+                        s => !String.IsNullOrEmpty(s) && !String.IsNullOrWhiteSpace(s));
+
+                    // Read ingredient name for the new pizza from console
+                    ingredientName = InputLib.ReadFromConsoleConditionally(
+                        "Please insert a name for the ingredient: ",
+                        s => !String.IsNullOrEmpty(s) && !String.IsNullOrWhiteSpace(s));
+                    
+                    // Read price for the new pizza from console
+                    InputLib.ReadFromConsoleConditionally(
+                        "Please insert a price: ",
+                        s => decimal.TryParse(s, out price));
+
+                    // Open connection
+                    connection.Open();
+
+                    // Qury for retrieving id of the specified ingredient
+                    // (will throw error if the ingredient is not found)
+                    string sqlText = "SELECT TOP(1) id FROM ingredient WHERE name = @name";
+
+                    SqlParameter nameParam = new SqlParameter {
+                        ParameterName = "@name",
+                        Value = ingredientName,
+                        SqlDbType = System.Data.SqlDbType.VarChar
+                    };
+
+                    // BEGIN TRANSACTION
+                    transaction = connection.BeginTransaction();
+
+                    SqlParameter priceParam = new SqlParameter {
+                        ParameterName = "@price",
+                        Value = price,
+                        SqlDbType = System.Data.SqlDbType.VarChar
+                    };
+
+                    SqlCommand ingredientReadCmd = new SqlCommand(sqlText, connection);
+                    ingredientReadCmd.Parameters.Add(nameParam);
+
+                    ingredientReadCmd.Transaction = transaction;
+
+                    // Obtain id of the given ingredient
+                    object id = ingredientReadCmd.ExecuteScalar();
+                    byte ingredientId = (byte)id;
+
+                    sqlText = "INSERT INTO pizza VALUES (@name, @price)";
+                    SqlCommand insertCmd = new SqlCommand(sqlText, connection);
+                    insertCmd.Parameters.AddWithValue("@name", ingredientName);
+                    insertCmd.Parameters.AddWithValue("@price", price);
+
+                    insertCmd.Transaction = transaction;
+
+                    sqlText = $"INSERTO INTO pizza_x_ingredient(pizza_id, ingredient_id, ingredient_qty VALUES(@@IDENTITY, {ingredientName}, 1000";
+
+                    insertCmd.ExecuteNonQuery();
+
+                    // COMMIT TRANSACTION
+                    transaction.Commit();
+                }
+                catch (SqlException ex)
+                {
+                    Console.WriteLine($"SQL ERROR: {ex.Message}");
+
+                    // ROLLBACK TRANSACTION
+                    if (transaction != null)
+                        transaction.Rollback();
+                }
+                catch (Exception ex2)
+                {
+                    Console.WriteLine($"GENERIC ERROR: {ex2.Message}");
+
+                    // ROLLBACK TRANSACTION
+                    if (transaction != null)
+                        transaction.Rollback();
+                }
+                finally
+                {
+                    if (connection.State != System.Data.ConnectionState.Closed)
                         connection.Close();
                 }
             }
