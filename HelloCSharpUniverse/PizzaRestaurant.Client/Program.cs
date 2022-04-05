@@ -9,68 +9,102 @@ namespace PizzaRestaurant.Client
     {
         static async Task Main(string[] args)
         {
-            // Synchronous connection opening
-            AdoNetExamples.ConnectionExample();
+            bool connected = false;
+            bool notConnected = true;
 
-            Console.WriteLine();
+            // CONNECTED MODE EXAMPLES
+            if (connected)
+            {
+                // Synchronous connection opening
+                AdoNetExamples_connected.ConnectionExample();
 
-            // Asynchronous connection opening
-            await AdoNetExamples.ConnectionExampleAsync();
+                Console.WriteLine();
 
-            Console.WriteLine();
+                // Asynchronous connection opening
+                await AdoNetExamples_connected.ConnectionExampleAsync();
 
-            // Read data from database
-            AdoNetExamples.DataReaderExample();
+                Console.WriteLine();
 
-            Console.WriteLine();
+                // Read data from database
+                AdoNetExamples_connected.DataReaderExample();
 
-            // Read data from database passing a parameter
-            AdoNetExamples.DataReaderWithParamsExample(7.5m);
+                Console.WriteLine();
 
-            Console.WriteLine();
+                // Read data from database passing a parameter
+                AdoNetExamples_connected.DataReaderWithParamsExample(7.5m);
 
-            // Insert record in database table
-            AdoNetExamples.InsertExample();
+                Console.WriteLine();
 
-            Console.WriteLine();
+                // Insert record in database table
+                AdoNetExamples_connected.InsertExample();
 
-            // Insert record in database table using a parameter
-            AdoNetExamples.InsertWithParamsExample();
+                Console.WriteLine();
 
-            Console.WriteLine();
+                // Insert record in database table using a parameter
+                AdoNetExamples_connected.InsertWithParamsExample();
 
-            // Execute scalar command
-            AdoNetExamples.ExecuteScalarExample();
+                Console.WriteLine();
 
-            Console.WriteLine();
+                // Execute scalar command
+                AdoNetExamples_connected.ExecuteScalarExample();
 
-            // Call stored procedure with parameters
-            AdoNetExamples.CallStoredProcedureWithParamsExample();
+                Console.WriteLine();
 
-            Console.WriteLine();
+                // Call stored procedure with parameters
+                AdoNetExamples_connected.CallStoredProcedureWithParamsExample();
 
-            // Update a table in database
-            AdoNetExamples.UpdateExample();
+                Console.WriteLine();
 
-            Console.WriteLine();
+                // Update a table in database
+                AdoNetExamples_connected.UpdateExample();
 
-            // Update a table in database with params
-            AdoNetExamples.UpdateWithParamsExample("Ultimate Pizza");
+                Console.WriteLine();
 
-            Console.WriteLine();
+                // Update a table in database with params
+                AdoNetExamples_connected.UpdateWithParamsExample("Ultimate Pizza");
 
-            // Delete record in database table
-            AdoNetExamples.DeleteExample();
+                Console.WriteLine();
 
-            Console.WriteLine();
+                // Delete record in database table
+                AdoNetExamples_connected.DeleteExample();
 
-            // Delete record in database table with params
-            AdoNetExamples.DeleteWithParamsExample("Artichokes");
+                Console.WriteLine();
 
-            Console.WriteLine();
+                // Delete record in database table with params
+                AdoNetExamples_connected.DeleteWithParamsExample("Artichokes");
 
-            // Execute query returning more than one set from database
-            AdoNetExamples.MultipleResultSetsExample();
+                Console.WriteLine();
+
+                // Execute query returning more than one set from database
+                AdoNetExamples_connected.MultipleResultSetsExample();
+
+                Console.WriteLine();
+            }
+
+            // NOT CONNECTED MODE EXAMPLES
+            if (notConnected)
+            {
+                AdoNetExamples_not_connected.ReadDataExample();
+
+                Console.WriteLine();
+
+                AdoNetExamples_not_connected.InsertExample();
+
+                Console.WriteLine();
+
+                AdoNetExamples_not_connected.UpdateExample();
+
+                Console.WriteLine();
+
+                AdoNetExamples_not_connected.DeleteExample();
+
+                Console.WriteLine();
+
+                // Not exactly in non-connected mode...
+                AdoNetExamples_not_connected.TransactionExample();
+
+                Console.WriteLine();
+            }
 
             Console.Write("Press any key to exit... ");
             Console.ReadKey();

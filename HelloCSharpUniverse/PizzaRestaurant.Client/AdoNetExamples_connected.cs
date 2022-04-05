@@ -10,7 +10,7 @@ using MainLibrary;
 
 namespace PizzaRestaurant.Client
 {
-    public static class AdoNetExamples
+    public static class AdoNetExamples_connected
     {
         private static IConfigurationRoot config =
             new ConfigurationBuilder()
