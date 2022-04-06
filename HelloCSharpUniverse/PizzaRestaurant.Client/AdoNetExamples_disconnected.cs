@@ -11,7 +11,7 @@ using System.Data;
 
 namespace PizzaRestaurant.Client
 {
-    public static class AdoNetExamples_not_connected
+    public static class AdoNetExamples_disconnected
     {
         private static IConfigurationRoot config =
             new ConfigurationBuilder()

@@ -84,24 +84,24 @@ namespace PizzaRestaurant.Client
             // NOT CONNECTED MODE EXAMPLES
             if (notConnected)
             {
-                AdoNetExamples_not_connected.ReadDataExample();
+                AdoNetExamples_disconnected.ReadDataExample();
 
                 Console.WriteLine();
 
-                AdoNetExamples_not_connected.InsertExample();
+                AdoNetExamples_disconnected.InsertExample();
 
                 Console.WriteLine();
 
-                AdoNetExamples_not_connected.UpdateExample();
+                AdoNetExamples_disconnected.UpdateExample();
 
                 Console.WriteLine();
 
-                AdoNetExamples_not_connected.DeleteExample();
+                AdoNetExamples_disconnected.DeleteExample();
 
                 Console.WriteLine();
 
                 // Not exactly in non-connected mode...
-                AdoNetExamples_not_connected.TransactionExample();
+                AdoNetExamples_disconnected.TransactionExample();
 
                 Console.WriteLine();
             }

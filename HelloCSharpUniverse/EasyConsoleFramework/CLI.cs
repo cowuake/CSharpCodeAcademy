@@ -2,21 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using EasyConsoleFramework.IO;
+using EasyConsoleFramework.ExtensionMethods;
 
 namespace EasyConsoleFramework
 {
-    public class CLI
+    public sealed class CLI
     {
         private static SortedDictionary<string, string> _commandInfo;
 
-        private static SortedDictionary<string, Action> _commandAction;
+        private static Dictionary<string, Action> _commandAction;
 
         public string ApplicationName { get; private set; } = null;
 
         public CLI()
         {
             _commandInfo = new SortedDictionary<string, string>();
-            _commandAction = new SortedDictionary<string, Action>();
+            _commandAction = new Dictionary<string, Action>();
 
             AddAction("H", "Show menu entries", ShowMenu);
             AddAction("Q", "Exit program", ExitProgram);
@@ -33,9 +34,10 @@ namespace EasyConsoleFramework
             ApplicationName = name;
         }
 
-        public void ShowMenu()
+        private void ShowMenu()
         {
-            BaseIO.PrintSortedDictionary(_commandInfo);
+            Console.WriteLine();
+            Console.WriteLine(_commandInfo.ToFormattedString());
         }
 
         public void ExitProgram()
@@ -46,12 +48,15 @@ namespace EasyConsoleFramework
         public void Run()
         {
             if (ApplicationName != null)
-            { 
-                string welcomeString = $"    Welcome to {ApplicationName}    ";
-                string line = new string('-', welcomeString.Length);
+            {
+                string welcomeString = "    Welcome to ";
+                string line = new string('-', welcomeString.Length + ApplicationName.Length + 4);
 
                 Console.WriteLine(line);
-                Console.WriteLine(welcomeString);
+                Console.Write(welcomeString);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"{ApplicationName}");
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine(line);
             }
 
@@ -59,6 +64,7 @@ namespace EasyConsoleFramework
 
             do
             {
+                // Read command from console
                 string input = BaseIO.ReadFromConsole(
                     "Please choose a valid option: ",
                     s => _commandInfo.Keys.Contains(s.ToUpper()));
@@ -68,8 +74,6 @@ namespace EasyConsoleFramework
 
                 // Launch the command
                 _commandAction[input]();
-
-                Console.WriteLine();
             } while (true);
         }
     }

@@ -27,10 +27,12 @@ namespace TicketingDisconnected
 
                 cli.SetApplicationName("Ticketing in disconnected mode");
 
-                cli.AddAction("L", "List all tickets", () => Methods.PrintAllTickets(cs));
-                cli.AddAction("I", "Insert ticket", () => Methods.InsertTicket(cs));
-                cli.AddAction("D", "Delete ticket", () => Methods.DeleteTicket(cs));
-                cli.AddAction("U", "Delete ticket", () => Methods.UpdateDatabase(cs));
+                MethodProvider provider = new MethodProvider(cs);
+
+                cli.AddAction("L", "List all tickets", () => provider.PrintAllTickets());
+                cli.AddAction("I", "Insert ticket", () => provider.InsertTicket());
+                cli.AddAction("D", "Delete ticket", () => provider.DeleteTicket());
+                cli.AddAction("U", "Delete ticket", () => provider.UpdateDatabase());
 
                 // Run the (user) command line interface
                 cli.Run();
