@@ -49,7 +49,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multithreaded", "Multithrea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaRestaurant.Client", "PizzaRestaurant.Client\PizzaRestaurant.Client.csproj", "{7F07C961-4EE8-471E-B56C-F63C785269FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketing", "Ticketing\Ticketing.csproj", "{1E2864C4-31E2-4BC1-8BFF-55549EF734BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticketing", "Ticketing\Ticketing.csproj", "{1E2864C4-31E2-4BC1-8BFF-55549EF734BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyConsoleFramework", "EasyConsoleFramework\EasyConsoleFramework.csproj", "{4ABA2CEF-8090-4DFD-8546-96EDC109D7DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyConsoleFramework.Demo", "EasyConsoleFramework.Demo\EasyConsoleFramework.Demo.csproj", "{96F7CB2C-7F90-4125-8698-2CDB5527FB74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketingDisconnected", "TicketingDisconnected\TicketingDisconnected.csproj", "{27234190-4456-4D6E-9D15-23AA4BF0938B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +159,18 @@ Global
 		{1E2864C4-31E2-4BC1-8BFF-55549EF734BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E2864C4-31E2-4BC1-8BFF-55549EF734BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E2864C4-31E2-4BC1-8BFF-55549EF734BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ABA2CEF-8090-4DFD-8546-96EDC109D7DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ABA2CEF-8090-4DFD-8546-96EDC109D7DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ABA2CEF-8090-4DFD-8546-96EDC109D7DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ABA2CEF-8090-4DFD-8546-96EDC109D7DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96F7CB2C-7F90-4125-8698-2CDB5527FB74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96F7CB2C-7F90-4125-8698-2CDB5527FB74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96F7CB2C-7F90-4125-8698-2CDB5527FB74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96F7CB2C-7F90-4125-8698-2CDB5527FB74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27234190-4456-4D6E-9D15-23AA4BF0938B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27234190-4456-4D6E-9D15-23AA4BF0938B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27234190-4456-4D6E-9D15-23AA4BF0938B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27234190-4456-4D6E-9D15-23AA4BF0938B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
