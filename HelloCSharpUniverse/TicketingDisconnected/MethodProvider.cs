@@ -20,25 +20,51 @@ namespace TicketingDisconnected
             _adapter = InitDataSetAndDataAdapter();
         }
 
-        public void PrintAllTickets()
+        private string StateToString(DataRow record)
+        {
+            string state = null;
+
+            switch (record.RowState)
+            {
+                case DataRowState.Added:
+                    state = "[A]";
+                    break;
+                case DataRowState.Deleted:
+                    state = "[D]";
+                    break;
+                case DataRowState.Modified:
+                    state = "[M]";
+                    break;
+                default:
+                    state =  "";
+                    break;
+            }
+
+            return state;
+        }
+
+        public void ListAllTickets()
         {
             try
             {
-                DataTable ticket = _dataSet.Tables["ticket"];
+                DataTable ticket = _dataSet.Tables["ticket_with_category"];
                 var ticketRows = ticket.Rows;
 
                 Console.WriteLine();
                 Console.WriteLine(new String('-', Console.BufferWidth));
 
-                Console.WriteLine("{0,5} {1,-55} {2,-12} {3,-17} {4,-10} {5,-8}",
+                string formatString = "{0,5} {1,-55} {2,-12} {3,-17} {4,-10} {5,-8}";
+
+                Console.WriteLine(formatString,
                     ticket.Columns[0], ticket.Columns[1], ticket.Columns[2],
                     ticket.Columns[3], ticket.Columns[4], ticket.Columns[5]);
 
                 Console.WriteLine(new String('-', Console.BufferWidth));
 
                 foreach (DataRow row in ticketRows)
-                    Console.WriteLine("{0,5} {1,-55} {2,-12} {3,-17} {4,-10} {5,-8}",
-                        row["id"], row["description"], Convert.ToDateTime(row["opened"]).ToString("yyyy/MM/dd"),
+                    Console.WriteLine(formatString,
+                        StateToString(row) + row["id"].ToString(),
+                        row["description"], Convert.ToDateTime(row["opened"]).ToString("yyyy/MM/dd"),
                         row["customer"], row["state"], row["category"]);
 
                 Console.WriteLine(new String('-', Console.BufferWidth));
@@ -58,23 +84,32 @@ namespace TicketingDisconnected
         {
             try
             {
-                var table = _dataSet.Tables["ticket"];
+                var table = _dataSet.Tables["ticket_with_category"];
 
                 DataRow record = table.NewRow();
+
+                Console.WriteLine();
 
                 record["description"] = BaseIO.ReadFromConsole(
                     "Description: ",
                     s => !String.IsNullOrEmpty(s) && !String.IsNullOrWhiteSpace(s));
 
+                record["opened"] = DateTime.Now;
+
                 record["customer"] = BaseIO.ReadFromConsole(
                     "Customer: ",
                     s => !String.IsNullOrEmpty(s) && !String.IsNullOrWhiteSpace(s));
 
-                List<string> availableStates = new List<string> { "new", "ongoing", "resolved" };
-
                 record["state"] = "new";
 
-                _dataSet.Tables["ticket"].Rows.Add(record);
+                record["category_id"] = 1;
+
+                record["category"] = "NOT ASSIGNED";
+
+                _dataSet.Tables["ticket_with_category"].Rows.Add(record);
+
+                Console.WriteLine("Done!");
+                Console.WriteLine();
             }
             catch (Exception ex)
             {
@@ -86,26 +121,25 @@ namespace TicketingDisconnected
         {
             try
             {
-                var table = _dataSet.Tables["pizza"];
-                DataRow toDel = table.Rows.Find(5); // Find searches by primary key
+                var table = _dataSet.Tables["ticket_with_category"];
+
+                int id = 0;
+
+                BaseIO.ReadFromConsole(
+                    "ticket id: ",
+                    s => int.TryParse(s, out id));
+
+                DataRow toDel = table.Rows.Find(id); // Find searches by primary key
+
                 toDel?.Delete(); // ?. => NULL PROPAGATION
 
-                foreach (DataRow row in table.Rows)
-                    if (row.RowState != DataRowState.Deleted)
-                        Console.WriteLine($"{row["name"]} {row["name"]} {row["price"]}");
-                    else
-                        Console.WriteLine("Deleting...");
-
-                _adapter.Update(_dataSet, "pizza");
+                Console.WriteLine("Done!");
+                Console.WriteLine();
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"ERROR: {ex.Message}");
             }
-        }
-
-        public void UpdateDatabase()
-        {
         }
 
         private SqlDataAdapter InitDataSetAndDataAdapter()
@@ -126,7 +160,7 @@ namespace TicketingDisconnected
 
             SqlCommand insertCmd = _connection.CreateCommand();
 
-            insertCmd.CommandText = "INSERT INTO ticket VALUES(@description, GETDATE(), @customer, @state)";
+            insertCmd.CommandText = "INSERT INTO ticket VALUES(@description, GETDATE(), @customer, @state, @category_id)";
             insertCmd.CommandType = CommandType.Text;
             insertCmd.Parameters.Add(new SqlParameter
             {
@@ -149,6 +183,12 @@ namespace TicketingDisconnected
                 Size = 10,
                 SourceColumn = "state"
             });
+            insertCmd.Parameters.Add(new SqlParameter
+            {
+                ParameterName = "@category_id",
+                SqlDbType = SqlDbType.Int,
+                SourceColumn = "category_id"
+            });
 
             adapter.InsertCommand = insertCmd;
 
@@ -156,12 +196,13 @@ namespace TicketingDisconnected
 
             SqlCommand deleteCmd = _connection.CreateCommand();
 
-            deleteCmd.CommandText = "DELETE FROM pizza WHERE id = @id";
+            deleteCmd.CommandText = "DELETE FROM ticket WHERE id = @id";
             deleteCmd.CommandType = CommandType.Text;
+
             deleteCmd.Parameters.Add(new SqlParameter
             {
                 ParameterName = "@id",
-                SqlDbType = SqlDbType.TinyInt,
+                SqlDbType = SqlDbType.Int,
                 SourceColumn = "id"
             });
 
@@ -174,23 +215,30 @@ namespace TicketingDisconnected
 
             // ========================= FILL DATASETS =========================
 
-            adapter.Fill(_dataSet, "ticket");
+            adapter.Fill(_dataSet, "ticket_with_category");
 
             // ========================= RETURN =========================
 
             return adapter;
         }
 
-        private void Refresh()
+        public void UpdateDatabase()
         {
-            // Update local dataset
-            _adapter.Update(_dataSet, "ticket");
+            try
+            {
+                // Propagate changes to database
+                _adapter.Update(_dataSet, "ticket_with_category");
 
-            // Reset dataset
-            _dataSet.Reset();
+                // Reset dataset
+                _dataSet.Reset();
 
-            // Fill dataset with fresh data
-            _adapter.Fill(_dataSet, "ticket");
+                // Fill dataset with fresh data
+                _adapter.Fill(_dataSet, "ticket_with_category");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"ERROR: {ex.Message}");
+            }
         }
     }
 }

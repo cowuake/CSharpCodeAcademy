@@ -29,7 +29,7 @@ namespace TicketingDisconnected
 
                 MethodProvider provider = new MethodProvider(cs);
 
-                cli.AddAction("L", "List all tickets", () => provider.PrintAllTickets());
+                cli.AddAction("L", "List all tickets", () => provider.ListAllTickets());
                 cli.AddAction("I", "Insert ticket", () => provider.InsertTicket());
                 cli.AddAction("D", "Delete ticket", () => provider.DeleteTicket());
                 cli.AddAction("U", "Delete ticket", () => provider.UpdateDatabase());
