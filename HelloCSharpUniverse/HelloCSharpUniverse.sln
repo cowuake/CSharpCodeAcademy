@@ -51,11 +51,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaRestaurant.Client", "P
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticketing", "Ticketing\Ticketing.csproj", "{1E2864C4-31E2-4BC1-8BFF-55549EF734BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyConsoleFramework", "EasyConsoleFramework\EasyConsoleFramework.csproj", "{4ABA2CEF-8090-4DFD-8546-96EDC109D7DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyConsoleFramework", "EasyConsoleFramework\EasyConsoleFramework.csproj", "{4ABA2CEF-8090-4DFD-8546-96EDC109D7DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyConsoleFramework.Demo", "EasyConsoleFramework.Demo\EasyConsoleFramework.Demo.csproj", "{96F7CB2C-7F90-4125-8698-2CDB5527FB74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyConsoleFramework.Demo", "EasyConsoleFramework.Demo\EasyConsoleFramework.Demo.csproj", "{96F7CB2C-7F90-4125-8698-2CDB5527FB74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketingDisconnected", "TicketingDisconnected\TicketingDisconnected.csproj", "{27234190-4456-4D6E-9D15-23AA4BF0938B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketingDisconnected", "TicketingDisconnected\TicketingDisconnected.csproj", "{27234190-4456-4D6E-9D15-23AA4BF0938B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketingEFCore", "TicketingEFCore\TicketingEFCore.csproj", "{36D82B82-BE48-47B4-AEED-93C6352E6118}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -171,6 +173,10 @@ Global
 		{27234190-4456-4D6E-9D15-23AA4BF0938B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27234190-4456-4D6E-9D15-23AA4BF0938B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27234190-4456-4D6E-9D15-23AA4BF0938B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36D82B82-BE48-47B4-AEED-93C6352E6118}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36D82B82-BE48-47B4-AEED-93C6352E6118}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36D82B82-BE48-47B4-AEED-93C6352E6118}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36D82B82-BE48-47B4-AEED-93C6352E6118}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

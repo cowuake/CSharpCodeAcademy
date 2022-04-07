@@ -37,7 +37,9 @@ namespace EasyConsoleFramework
         private void ShowMenu()
         {
             Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(_commandInfo.ToFormattedString());
+            Console.ResetColor();
         }
 
         public void ExitProgram()
@@ -55,8 +57,10 @@ namespace EasyConsoleFramework
                 Console.WriteLine(line);
                 Console.Write(welcomeString);
                 Console.ForegroundColor = ConsoleColor.Green;
+
                 Console.WriteLine($"{ApplicationName}");
-                Console.ForegroundColor = ConsoleColor.White;
+
+                Console.ResetColor();
                 Console.WriteLine(line);
             }
 

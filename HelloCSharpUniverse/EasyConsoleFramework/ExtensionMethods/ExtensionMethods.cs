@@ -38,26 +38,35 @@ namespace EasyConsoleFramework.ExtensionMethods
         {
             StringBuilder sb = new StringBuilder();
 
-            int maxKeyLenght = dict.Max(d => d.Key.ToString().Length) + 4;
+            int maxKeyLenght = dict.Max(d => d.Key.ToString().Length) + 6;
             int maxValueLength = dict.Max(d => d.Value.ToString().Length) + 4;
 
-            int lineLength = maxKeyLenght + maxValueLength + 1;
-            string line = "\t+" + new string('-', lineLength) + "+";
+            int lineLength = maxKeyLenght + maxValueLength + 2;
+            string line = "\t" + new string('-', lineLength);
 
             sb.AppendLine(line);
 
             foreach (K key in dict.Keys)
-                sb.AppendLine($"\t|{key.ToString().PadUntilLimit(maxKeyLenght)}" +
-                    $"|{dict[key].ToString().PadUntilLimit(maxValueLength)}|");
+                sb.AppendLine($"\t{$"[ {key.ToString()} ]".PadUntilLimit(maxKeyLenght)}" +
+                    $" - {dict[key].ToString().PadUntilLimit(maxValueLength)}");
 
             sb.AppendLine(line);
 
             return sb.ToString();
         }
 
-        //public static void WriteColored(this Console console, ConsoleColor color)
-        //{
-        //    console.WriteColored(color);
-        //}
+
+        public static string CenterInConsoleBuffer(this string str)
+        {
+            return str.PadUntilLimit(Console.BufferWidth);
+        }
+
+        public static int GetMaximumLineLength(this string str)
+        {
+            if (str == null)
+                throw new ArgumentNullException(nameof(str));
+
+            return str.Split(Environment.NewLine).Max(l => l.Length);
+        }
     }
 }
