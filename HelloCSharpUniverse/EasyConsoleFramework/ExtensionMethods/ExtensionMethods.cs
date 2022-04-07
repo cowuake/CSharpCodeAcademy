@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EasyConsoleFramework.Constants;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,26 +48,51 @@ namespace EasyConsoleFramework.ExtensionMethods
             sb.AppendLine(line);
 
             foreach (K key in dict.Keys)
-                sb.AppendLine($"\t{$"[ {key.ToString()} ]".PadUntilLimit(maxKeyLenght)}" +
-                    $" - {dict[key].ToString().PadUntilLimit(maxValueLength)}");
+                sb.AppendLine($"\t{$"[ {key.ToString()} ]".PadUntilLimit(maxKeyLenght).ToBold()}" +
+                    $" - {dict[key].ToString().PadUntilLimit(maxValueLength).ToItalic()}");
 
             sb.AppendLine(line);
 
             return sb.ToString();
         }
 
-
+        /// <summary>
+        /// Pad a string so that it results to be approximately centered in Console buffer
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static string CenterInConsoleBuffer(this string str)
         {
             return str.PadUntilLimit(Console.BufferWidth);
         }
 
-        public static int GetMaximumLineLength(this string str)
+        /// <summary>
+        /// Get maximum line length for lines in a string
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static int GetMaxLineLength(this string str)
         {
             if (str == null)
                 throw new ArgumentNullException(nameof(str));
 
             return str.Split(Environment.NewLine).Max(l => l.Length);
+        }
+
+        public static string ToBold(this string str)
+        {
+            return ANSI_ESCAPE_CODE.BOLD + str + ANSI_ESCAPE_CODE.NOT_BOLD;
+        }
+
+        public static string ToItalic(this string str)
+        {
+            return ANSI_ESCAPE_CODE.ITALIC + str + ANSI_ESCAPE_CODE.NOT_ITALIC;
+        }
+
+        public static string ToUnderlined(this string str)
+        {
+            return ANSI_ESCAPE_CODE.UNDERLINED + str + ANSI_ESCAPE_CODE.NOT_UNDERLINED;
         }
     }
 }

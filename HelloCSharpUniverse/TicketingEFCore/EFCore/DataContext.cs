@@ -10,7 +10,7 @@ namespace TicketingEFCore.EFCore
     public class DataContext : DbContext
     {
         public DataContext() : base() { }
-            //=> Database.EnsureCreated();
+            //> Database.EnsureCreated();
 
         public DataContext(DbContextOptions<DataContext> options) { }
 

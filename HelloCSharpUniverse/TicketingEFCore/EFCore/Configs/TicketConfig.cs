@@ -8,7 +8,7 @@ namespace TicketingEFCore.EFCore.Configs
     {
         public void Configure(EntityTypeBuilder<Ticket> builder)
         {
-            builder.HasKey(t => t.Id).HasName("id");
+            builder.HasKey(t => t.Id);
 
             builder.Property(t => t.Description)
                 .IsRequired()
@@ -33,6 +33,10 @@ namespace TicketingEFCore.EFCore.Configs
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(10)
                 .HasDefaultValue("new");
+
+            builder.HasOne<Category>(t => t.Category)
+                .WithMany(c => c.Tickets)
+                .HasForeignKey(x => x.Id);
         }
     }
 }

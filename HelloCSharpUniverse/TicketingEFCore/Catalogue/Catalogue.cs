@@ -1,11 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using TicketingEFCore.EFCore;
 using TicketingEFCore.Entities;
 using EasyConsoleFramework.IO;
+using EasyConsoleFramework.Utils;
 
 namespace TicketingEFCore.Catalogue
 {
@@ -33,7 +32,7 @@ namespace TicketingEFCore.Catalogue
                 tickets.ForEach(t =>
                     Console.WriteLine(
                         $"{t.Id,3}  {t.Description,-55}" +
-                        $"{Convert.ToDateTime(t.CreatedDate).ToString("d"),-12}" +
+                        $"{Convert.ToDateTime(t.CreatedDate).ToString("MM/dd/yyyy"),-12}" +
                         $"{t.Customer,-17}{t.State,-10}{t.Category.Name,-8}"));
 
                 Console.WriteLine(line);
@@ -66,10 +65,10 @@ namespace TicketingEFCore.Catalogue
                     Customer = customer,
                     State = "new",
 
-                    Category = new Category
-                    {
-                        Name = category,
-                    }
+                    //Category = new Category
+                    //{
+                    //    Name = category,
+                    //}
                 };
 
                 try
@@ -79,7 +78,7 @@ namespace TicketingEFCore.Catalogue
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"ERROR: {ex.Message}");
+                    ErrorHandling.Catch(ex);
                 }
             }
         }
@@ -90,28 +89,32 @@ namespace TicketingEFCore.Catalogue
 
             BaseIO.ReadFromConsole(
                 "\tTicket Id: ",
-                s => int.TryParse(s, out int id));
+                s => int.TryParse(s, out id));
 
-            using (var DataContext = new DataContext())
+            using (var context = new DataContext())
             {
-                var ticket = DataContext.Tickets.Find(id);
+                var ticket = context.Tickets.Find(id);
 
                 if (ticket != null)
                 {
-                    DataContext.Tickets.Remove(ticket);
+                    context.Tickets.Remove(ticket);
 
                     try
                     {
-                        DataContext.SaveChanges();
+                        context.SaveChanges();
+                        Console.WriteLine("Done!");
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"ERROR: {ex.Message}");
+                        ErrorHandling.Catch(ex);
                     }
                 }
+                else
+                {
+                    Console.WriteLine("Record not found!");
+                }
             }
-
-            Console.WriteLine("Done!");
+            
             Console.WriteLine();
         }
     }

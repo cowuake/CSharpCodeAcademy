@@ -9,7 +9,7 @@ namespace TicketingEFCore
         static void Main(string[] args)
         {
             CLI cli = new CLI();
-            cli.SetApplicationName("Ticketing on EFCore 5s");
+            cli.SetApplicationName("Ticketing on EFCore 5");
 
             cli.AddAction("L", "List all tickets", CRUD.ListTickets);
             cli.AddAction("I", "Insert new ticket", CRUD.InsertTicket);

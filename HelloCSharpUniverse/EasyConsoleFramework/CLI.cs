@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using EasyConsoleFramework.IO;
 using EasyConsoleFramework.ExtensionMethods;
+using EasyConsoleFramework.Utils;
 
 namespace EasyConsoleFramework
 {
@@ -49,22 +50,30 @@ namespace EasyConsoleFramework
 
         public void Run()
         {
-            if (ApplicationName != null)
+            try
             {
-                string welcomeString = "    Welcome to ";
-                string line = new string('-', welcomeString.Length + ApplicationName.Length + 4);
+                if (ApplicationName != null)
+                {
+                    string welcomeString = "    Welcome to ";
+                    string line = new string('-', welcomeString.Length + ApplicationName.Length + 4);
 
-                Console.WriteLine(line);
-                Console.Write(welcomeString);
-                Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine(line);
+                    Console.Write(welcomeString);
+                    Console.ForegroundColor = ConsoleColor.Green;
 
-                Console.WriteLine($"{ApplicationName}");
+                    Console.WriteLine($"{ApplicationName.ToItalic().ToBold()}");
 
-                Console.ResetColor();
-                Console.WriteLine(line);
+                    Console.ResetColor();
+                    Console.WriteLine(line);
+                }
+
+                ShowMenu();
             }
-
-            ShowMenu();
+            catch (Exception ex)
+            {
+                ErrorHandling.Catch(ex);
+                ExitProgram();
+            }
 
             do
             {
