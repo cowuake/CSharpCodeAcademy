@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace TicketingEFCore.Entities
 {
@@ -19,6 +15,8 @@ namespace TicketingEFCore.Entities
         public string State { get; set; }
 
         public Category Category { get; set; } // One-to-Many
+
+        public int CategoryId { get; set; }
     }
 }
 

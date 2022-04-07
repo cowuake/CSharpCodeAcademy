@@ -65,10 +65,10 @@ namespace TicketingEFCore.Catalogue
                     Customer = customer,
                     State = "new",
 
-                    //Category = new Category
-                    //{
-                    //    Name = category,
-                    //}
+                    Category = new Category
+                    {
+                        Name = category,
+                    }
                 };
 
                 try

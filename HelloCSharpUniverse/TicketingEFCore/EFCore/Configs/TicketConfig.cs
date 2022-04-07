@@ -34,9 +34,15 @@ namespace TicketingEFCore.EFCore.Configs
                 .HasMaxLength(10)
                 .HasDefaultValue("new");
 
+            builder.Property(t => t.CategoryId)
+                .IsRequired()
+                .HasColumnName("category_id")
+                .HasColumnType("INT");
+
             builder.HasOne<Category>(t => t.Category)
                 .WithMany(c => c.Tickets)
-                .HasForeignKey(x => x.Id);
+                .HasForeignKey(x => x.CategoryId)
+                .IsRequired();
         }
     }
 }

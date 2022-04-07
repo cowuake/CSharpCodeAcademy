@@ -20,10 +20,6 @@ namespace TicketingEFCore.EFCore.Configs
                 .HasColumnName("description")
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(200);
-
-            builder.HasMany<Ticket>(c => c.Tickets)
-                .WithOne(t => t.Category)
-                .HasForeignKey(x => x.Id).IsRequired();
         }
     }
 }
