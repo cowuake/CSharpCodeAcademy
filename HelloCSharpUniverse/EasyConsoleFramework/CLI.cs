@@ -24,9 +24,9 @@ namespace EasyConsoleFramework
             AddAction("Q", "Exit program", ExitProgram);
         }
 
-        public void AddAction(string command, string name, Action action)
+        public void AddAction(string command, string description, Action action)
         {
-            _commandInfo.Add(command, name);
+            _commandInfo.Add(command, description);
             _commandAction.Add(command, action);
         }
 
@@ -86,7 +86,14 @@ namespace EasyConsoleFramework
                 input = input.ToUpper();
 
                 // Launch the command
-                _commandAction[input]();
+                try
+                {
+                    _commandAction[input]();
+                }
+                catch (Exception e)
+                {
+                    ErrorHandling.Catch(e);
+                }
             } while (true);
         }
     }
