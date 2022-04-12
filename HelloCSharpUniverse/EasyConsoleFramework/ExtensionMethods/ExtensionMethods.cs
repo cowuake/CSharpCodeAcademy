@@ -119,17 +119,17 @@ namespace EasyConsoleFramework.ExtensionMethods
 
         public static string ToBold(this string str)
         {
-            return ANSI_ESCAPE_CODE.BOLD + str + ANSI_ESCAPE_CODE.NOT_BOLD;
+            return $"{ANSI_ESCAPE_CODE.BOLD}{str}{ANSI_ESCAPE_CODE.NOT_BOLD}";
         }
 
         public static string ToItalic(this string str)
         {
-            return ANSI_ESCAPE_CODE.ITALIC + str + ANSI_ESCAPE_CODE.NOT_ITALIC;
+            return $"{ANSI_ESCAPE_CODE.ITALIC}{str}{ANSI_ESCAPE_CODE.NOT_ITALIC}";
         }
 
         public static string ToUnderlined(this string str)
         {
-            return ANSI_ESCAPE_CODE.UNDERLINED + str + ANSI_ESCAPE_CODE.NOT_UNDERLINED;
+            return $"{ANSI_ESCAPE_CODE.UNDERLINED}{str}{ANSI_ESCAPE_CODE.NOT_UNDERLINED}";
         }
     }
 }

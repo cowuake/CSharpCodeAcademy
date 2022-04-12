@@ -4,12 +4,7 @@ using Employees.Core.EF.Repository;
 using Employees.Core.Entities;
 using Employees.Core.Interface;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
 
 namespace Employees.WCF
 {
