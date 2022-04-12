@@ -57,9 +57,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyConsoleFramework.Demo",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketingDisconnected", "TicketingDisconnected\TicketingDisconnected.csproj", "{27234190-4456-4D6E-9D15-23AA4BF0938B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketingEFCore", "TicketingEFCore\TicketingEFCore.csproj", "{36D82B82-BE48-47B4-AEED-93C6352E6118}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicketingEFCore", "TicketingEFCore\TicketingEFCore.csproj", "{36D82B82-BE48-47B4-AEED-93C6352E6118}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectionStringChecker", "ConnectionStringChecker\ConnectionStringChecker.csproj", "{3D7201F4-D9F3-4CD6-9F80-0DEF4DCA0975}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectionStringChecker", "ConnectionStringChecker\ConnectionStringChecker.csproj", "{3D7201F4-D9F3-4CD6-9F80-0DEF4DCA0975}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWCF", "HelloWCF\HelloWCF.csproj", "{D0CC9332-E855-4C5B-9B7D-950DEC1C2195}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Core", "Employees.Core\Employees.Core.csproj", "{91E5B766-37BA-4FE4-B8DE-B2F3F8F2A85C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Core.EF", "Employees.Core.EF\Employees.Core.EF.csproj", "{EA756062-7DB7-4583-B952-3FC2F5E80694}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Core.ADONET", "Employees.Core.ADONET\Employees.Core.ADONET.csproj", "{0EED29A8-B189-41FF-8631-4AB2CFFE30BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -183,6 +191,22 @@ Global
 		{3D7201F4-D9F3-4CD6-9F80-0DEF4DCA0975}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D7201F4-D9F3-4CD6-9F80-0DEF4DCA0975}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D7201F4-D9F3-4CD6-9F80-0DEF4DCA0975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0CC9332-E855-4C5B-9B7D-950DEC1C2195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0CC9332-E855-4C5B-9B7D-950DEC1C2195}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0CC9332-E855-4C5B-9B7D-950DEC1C2195}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0CC9332-E855-4C5B-9B7D-950DEC1C2195}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91E5B766-37BA-4FE4-B8DE-B2F3F8F2A85C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91E5B766-37BA-4FE4-B8DE-B2F3F8F2A85C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91E5B766-37BA-4FE4-B8DE-B2F3F8F2A85C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91E5B766-37BA-4FE4-B8DE-B2F3F8F2A85C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA756062-7DB7-4583-B952-3FC2F5E80694}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA756062-7DB7-4583-B952-3FC2F5E80694}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA756062-7DB7-4583-B952-3FC2F5E80694}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA756062-7DB7-4583-B952-3FC2F5E80694}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EED29A8-B189-41FF-8631-4AB2CFFE30BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EED29A8-B189-41FF-8631-4AB2CFFE30BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EED29A8-B189-41FF-8631-4AB2CFFE30BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EED29A8-B189-41FF-8631-4AB2CFFE30BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
