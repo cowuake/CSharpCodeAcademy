@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EasyConsoleFramework\EasyConsoleFramework.csproj" />
+    <ProjectReference Include="..\..\EasyConsoleFramework\EasyConsoleFramework.csproj" />
     <ProjectReference Include="..\Employees.Core.ADONET\Employees.Core.ADONET.csproj" />
     <ProjectReference Include="..\Employees.Core.EF\Employees.Core.EF.csproj" />
     <ProjectReference Include="..\Employees.Core\Employees.Core.csproj" />

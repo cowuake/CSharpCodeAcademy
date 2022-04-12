@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EasyConsoleFramework\EasyConsoleFramework.csproj" />
     <ProjectReference Include="..\Employees.Core\Employees.Core.csproj" />
   </ItemGroup>
 
