@@ -78,7 +78,7 @@ namespace EasyConsoleFramework.ExtensionMethods
             if (str == null)
                 throw new ArgumentNullException(nameof(str));
 
-            return str.Split(Environment.NewLine).Max(l => l.Length);
+            return str.Split(Environment.NewLine.ToCharArray()).Max(l => l.Length);
         }
 
         //public static string ToFormattedString(

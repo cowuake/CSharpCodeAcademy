@@ -83,7 +83,40 @@ namespace Employees.Core.ADONET.Repository
 
         public Employee GetById(object id)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT TOP(1) id, code, first_name, last_name FROM employee WHERE @id = id";
+                cmd.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@id",
+                    SqlDbType = System.Data.SqlDbType.Int,
+                    Value = id
+                });
+
+                var reader = cmd.ExecuteReader();
+
+                if (!reader.Read())
+                    return null;
+
+                Employee emp = new Employee
+                {
+                    Id = reader.GetInt32(0),
+                    Code = reader.GetString(1),
+                    FirstName = reader.GetString(2),
+                    LastName = reader.GetString(3),
+                    AnnualSalary = reader.GetDecimal(4),
+                };
+
+                try
+                {
+                    return emp;
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            }
         }
 
         public bool Update(Employee entity)

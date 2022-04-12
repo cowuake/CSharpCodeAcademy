@@ -62,6 +62,12 @@ namespace Employees.Core.EF
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(25)
                 .IsRequired();
+
+            builder.Entity<Employee>()
+                .Property(e => e.AnnualSalary)
+                .HasColumnName("annual_salary")
+                .HasColumnType("MONEY")
+                .IsRequired();
         }
     }
 }
