@@ -16,9 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\EasyConsoleFramework\EasyConsoleFramework.csproj" />
-    <ProjectReference Include="..\..\Employees\Employees.Core.EF\Employees.Core.EF.csproj" />
-    <ProjectReference Include="..\..\Employees\Employees.Core\Employees.Core.csproj" />
-    <ProjectReference Include="..\..\Employees\Employees.ServiceWCF\Employees.ServiceWCF.csproj" />
   </ItemGroup>
 
 </Project>
