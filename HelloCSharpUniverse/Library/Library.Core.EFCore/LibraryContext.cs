@@ -9,18 +9,28 @@ namespace Library.Core.EFCore
     {
         public DbSet<Book> Books { get; set; }
 
-        public LibraryContext() : base() { }
+        public LibraryContext() : base()
+        {
+            Database.EnsureCreated();
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
             if (!builder.IsConfigured)
             {
-                IConfigurationRoot config = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("appsettings.json")
-                    .Build();
+                string connectionStringSQL;
 
-                string connectionStringSQL = config.GetConnectionString("library");
+                //IConfigurationRoot config = new ConfigurationBuilder()
+                //    .SetBasePath(Directory.GetCurrentDirectory())
+                //    .AddJsonFile("appsettings.json")
+                //    .Build();
+
+                //connectionStringSQL = config.GetConnectionString("library");
+
+                //builder.UseSqlServer(connectionStringSQL);
+
+                connectionStringSQL =
+                    "Data Source=.\\SQLEXPRESS;Initial Catalog=library;Integrated Security=True;MultipleActiveResultSets=true;";
 
                 builder.UseSqlServer(connectionStringSQL);
             }
@@ -37,21 +47,21 @@ namespace Library.Core.EFCore
             builder.Entity<Book>()
                 .Property(b => b.Title)
                 .HasColumnName("title")
-                .HasColumnType("VARCHAR")
+                .HasColumnType("VARCHAR(100)") // Length not needed in newer EF releases
                 .HasMaxLength(100)
                 .IsRequired();
 
             builder.Entity<Book>()
                 .Property(b => b.Summary)
                 .HasColumnName("description")
-                .HasColumnType("VARCHAR")
+                .HasColumnType("VARCHAR(250)") // Length not needed in newer EF releases
                 .HasMaxLength(250)
                 .IsRequired();
 
             builder.Entity<Book>()
                 .Property(b => b.Author)
                 .HasColumnName("author")
-                .HasColumnType("VARCHAR")
+                .HasColumnType("VARCHAR(25)") // Length not needed in newer EF releases
                 .HasMaxLength(25)
                 .IsRequired();
         }

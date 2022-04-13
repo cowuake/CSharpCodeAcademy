@@ -2,35 +2,97 @@
 using Library.Core.Interface;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Library.Core.EFCore.Repository
 {
     public class EFCoreBookRepository : IBookRepository
     {
-        public bool Add(Book entity)
+        private readonly LibraryContext _context;
+
+        public EFCoreBookRepository(LibraryContext context)
         {
-            throw new NotImplementedException();
+            // Context must be injected
+            _context = context;
         }
 
-        public bool Delete(object key)
+        public bool Add(Book book)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Books.Add(book);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
-        public Book Get(object key)
+        public bool Delete(object isbn)
         {
-            throw new NotImplementedException();
+            var book = _context.Books.Find(isbn);
+
+            try
+            {
+                _context.Books.Remove(book);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public Book Get(object isbn)
+        {
+            if (string.IsNullOrEmpty(isbn as string))
+                return null;
+
+            try
+            {
+                return _context.Books.Find(isbn);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public IEnumerable<Book> GetAll(Func<Book, bool> filter = null)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (filter != null)
+                    return _context.Books.Where(filter).ToList();
+
+                return _context.Books.ToList();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
-        public bool Update(Book entity)
+        public bool Update(Book book)
         {
-            throw new NotImplementedException();
+            if (book == null)
+                return false;
+
+            try
+            {
+                _context.Update(book); // This is good if working in disconnected mode
+                //_context.Books.Update(book);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
