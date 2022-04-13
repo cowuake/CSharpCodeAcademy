@@ -1,5 +1,5 @@
 ﻿using EasyConsoleFramework;
-using Library.ConsoleClient.Proxy;
+//using Library.ConsoleClient.Proxy;
 using System.ServiceModel;
 using System;
 
