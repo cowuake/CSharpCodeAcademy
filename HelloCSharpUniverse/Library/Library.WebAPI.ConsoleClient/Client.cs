@@ -79,12 +79,12 @@ namespace Library.WebAPI.ConsoleClient
         private void PrintBookList(List<BookContract> books)
         {
             const byte isbnStringLength = 15;
-            const byte titleStringLength = 10;
+            const byte titleStringLength = 35;
             const byte authorStringLength = 20;
-            const byte summaryStringLength = 60;
+            const byte summaryStringLength = 47;
 
-            string header = String.Format(
-                $"{"ISBN", isbnStringLength}{"Title", titleStringLength}{"Author", authorStringLength}{"Summary", summaryStringLength}");
+            string header = $"{"ISBN", isbnStringLength}   {"Title", -titleStringLength}" +
+                $"{"Author", -authorStringLength}{"Summary", -summaryStringLength}";
 
             string line = new string('-', Console.BufferWidth);
 
@@ -95,7 +95,8 @@ namespace Library.WebAPI.ConsoleClient
 
             books.ForEach(b =>
                 Console.WriteLine(
-                    $"{b.ISBN,15}{b.Title,-10}{b.Author,-20}{b.Summary,-60}"));
+                    $"{b.ISBN, isbnStringLength}   {b.Title,-titleStringLength}" +
+                    $"{b.Author,-authorStringLength}{b.Summary,-summaryStringLength}"));
 
             Console.WriteLine(line);
             Console.WriteLine();
