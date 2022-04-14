@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Library.WebAPI.ConsoleClient
@@ -32,11 +33,9 @@ namespace Library.WebAPI.ConsoleClient
             //    RequestUri = new Uri("https://localhost:44375/api/library")
             //};
 
-            HttpResponseMessage response = null;
-
             try
             {
-                response = await _http.GetAsync("api/library");
+                HttpResponseMessage response = await _http.GetAsync("api/library");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -48,7 +47,7 @@ namespace Library.WebAPI.ConsoleClient
             catch (Exception ex)
             {
                 ErrorHandling.Catch(ex);
-            } 
+            }
         }
 
         internal async Task InsertBook()
@@ -70,6 +69,39 @@ namespace Library.WebAPI.ConsoleClient
             summary = BaseIO.ReadFromConsole(
                 "Book summary: ",
                 s => !String.IsNullOrEmpty(s));
+
+            BookContract book = new BookContract
+            {
+                ISBN = isbn,
+                Title = title,
+                Author = author,
+                Summary = summary
+            };
+
+            try
+            {
+                var content = new StringContent(JsonConvert.SerializeObject(book), Encoding.UTF8);
+                HttpResponseMessage response = await _http.PostAsync("api/library", content);
+
+                Console.WriteLine(response.ToString());
+
+                if (response.IsSuccessStatusCode)
+                {
+                    //string jsonResponse = await response.Content.ReadAsStringAsync();
+                    //var data = JsonConvert.DeserializeObject<List<BookContract>>(jsonResponse);
+                    //PrintBookList(data);
+                    Console.WriteLine("Done!");
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.WriteLine("FAILURE!");
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorHandling.Catch(ex);
+            }
         }
 
         #endregion ========================= INTERNAL METHODS =========================
