@@ -16,5 +16,7 @@ namespace Library.Core.Interface
         bool UpdateBook(Book book);
 
         bool RemoveBook(Book book);
+
+        bool RemoveBookByISBN(string isbn);
     }
 }

@@ -13,6 +13,7 @@ namespace Library.Core.Interface
         // CUD
         bool Add(TEntity entity);
         bool Update(TEntity entity);
-        bool Delete(object key);
+        bool Remove(TEntity entity);
+        bool RemoveByKey(object key);
     }
 }

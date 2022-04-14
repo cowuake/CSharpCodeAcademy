@@ -14,25 +14,28 @@ namespace Library.Core.EFCore
             Database.EnsureCreated();
         }
 
+        // Needed in order to eventually pass the options externally from a Web API!
+        public LibraryContext(DbContextOptions<LibraryContext> options) : base(options) { }
+
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
             if (!builder.IsConfigured)
             {
                 string connectionStringSQL;
 
-                //IConfigurationRoot config = new ConfigurationBuilder()
-                //    .SetBasePath(Directory.GetCurrentDirectory())
-                //    .AddJsonFile("appsettings.json")
-                //    .Build();
+                IConfigurationRoot config = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile("appsettings.json")
+                    .Build();
 
-                //connectionStringSQL = config.GetConnectionString("library");
-
-                //builder.UseSqlServer(connectionStringSQL);
-
-                connectionStringSQL =
-                    "Data Source=.\\SQLEXPRESS;Initial Catalog=library;Integrated Security=True;MultipleActiveResultSets=true;";
+                connectionStringSQL = config.GetConnectionString("library");
 
                 builder.UseSqlServer(connectionStringSQL);
+
+                //connectionStringSQL =
+                //    "Data Source=.\\SQLEXPRESS;Initial Catalog=library;Integrated Security=True;MultipleActiveResultSets=true;";
+
+                //builder.UseSqlServer(connectionStringSQL);
             }
         }
 

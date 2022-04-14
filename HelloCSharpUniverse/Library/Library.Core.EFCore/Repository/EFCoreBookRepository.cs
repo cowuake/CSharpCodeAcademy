@@ -31,13 +31,27 @@ namespace Library.Core.EFCore.Repository
             }
         }
 
-        public bool Delete(object isbn)
+        public bool RemoveByKey(object isbn)
         {
             var book = _context.Books.Find(isbn);
 
             try
             {
                 _context.Books.Remove(book);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Remove(Book book)
+        {
+            try
+            {
+                _context.Books.Remove(book as Book);
                 _context.SaveChanges();
                 return true;
             }

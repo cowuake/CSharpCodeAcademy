@@ -11,33 +11,24 @@ namespace Library.Core.BusinessLogic
         private readonly IBookRepository _repository;
 
         public MainBusinessLogic(IBookRepository repository)
-        {
-            _repository = repository;
-        }
+            => _repository = repository;
 
         public bool AddBook(Book book)
-        {
-            return _repository.Add(book);
-        }
+            => _repository.Add(book);
 
         public IList<Book> GetAllBooks(Func<Book, bool> filter = null)
-        {
-            return _repository.GetAll(filter) as IList<Book>;
-        }
+            => _repository.GetAll(filter) as IList<Book>;
 
         public Book GetBook(string isbn)
-        {
-            return _repository.Get(isbn);
-        }
+            => _repository.Get(isbn);
 
         public bool RemoveBook(Book book)
-        {
-            return _repository.Delete(book);
-        }
+            => _repository.Remove(book);
+
+        public bool RemoveBookByISBN(string isbn)
+            => _repository.RemoveByKey(isbn);
 
         public bool UpdateBook(Book book)
-        {
-            return _repository.Update(book);
-        }
+            => _repository.Update(book);
     }
 }

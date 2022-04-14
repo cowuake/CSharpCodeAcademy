@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\EasyConsoleFramework\EasyConsoleFramework.csproj" />
+    <ProjectReference Include="..\..\Employees\Employees.Core.EF\Employees.Core.EF.csproj" />
+    <ProjectReference Include="..\..\Employees\Employees.Core\Employees.Core.csproj" />
+    <ProjectReference Include="..\..\Employees\Employees.WebAPI\Employees.WebAPI.csproj" />
+  </ItemGroup>
+
+</Project>

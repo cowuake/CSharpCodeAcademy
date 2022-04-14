@@ -7,5 +7,6 @@ namespace Library.Core.Interface
 {
     public interface IBookRepository : IRepository<Book>
     {
+        
     }
 }

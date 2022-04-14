@@ -17,6 +17,6 @@ namespace Employees.Core.Interface
 
         bool UpdateEmployee(Employee employee);
 
-        bool DeleteEmployeeById(Employee employee);
+        bool DeleteEmployeeById(int id);
     }
 }
