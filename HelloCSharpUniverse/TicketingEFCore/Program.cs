@@ -15,7 +15,7 @@ namespace TicketingEFCore
             cli.AddAction("I", "Insert new ticket", CRUD.InsertTicket);
             cli.AddAction("D", "Delete ticket", CRUD.DeleteTicket);
 
-            cli.Run();
+            cli.RunAsync();
         }
     }
 }

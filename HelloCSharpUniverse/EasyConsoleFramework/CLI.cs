@@ -4,6 +4,7 @@ using System.Linq;
 using EasyConsoleFramework.IO;
 using EasyConsoleFramework.ExtensionMethods;
 using EasyConsoleFramework.Utils;
+using System.Threading.Tasks;
 
 namespace EasyConsoleFramework
 {
@@ -89,6 +90,7 @@ namespace EasyConsoleFramework
                 try
                 {
                     _commandAction[input]();
+                    //await Task.Run(() => _commandAction[input]());
                 }
                 catch (Exception e)
                 {

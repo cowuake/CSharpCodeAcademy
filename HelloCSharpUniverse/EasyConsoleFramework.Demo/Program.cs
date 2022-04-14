@@ -9,7 +9,7 @@ namespace EasyConsoleFramework.Demo
         {
             CLI cli = new CLI();
 
-            cli.Run();
+            cli.RunAsync();
         }
     }
 }

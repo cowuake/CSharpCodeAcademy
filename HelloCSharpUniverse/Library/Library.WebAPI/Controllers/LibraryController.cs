@@ -32,7 +32,7 @@ namespace Library.WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Book))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult AddBook(Book book)
+        public IActionResult AddBook([FromBody] Book book)
         {
             if (book == null)
                 return BadRequest("Invalid book data.");

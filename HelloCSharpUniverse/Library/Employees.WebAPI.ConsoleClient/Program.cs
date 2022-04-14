@@ -13,7 +13,7 @@ namespace Employees.WebAPI.ConsoleClient
 
             cli.AddAction("L", "List all employees", async () => await client.EmployeeList());
 
-            cli.Run();
+            cli.RunAsync();
         }
     }
 }

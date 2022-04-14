@@ -39,7 +39,7 @@ namespace Library.ConsoleClient
                 host.Open();
             }
 
-            cli.Run();
+            cli.RunAsync();
         }
     }
 }
