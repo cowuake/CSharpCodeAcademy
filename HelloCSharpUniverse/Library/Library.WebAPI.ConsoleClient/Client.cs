@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -54,20 +55,18 @@ namespace Library.WebAPI.ConsoleClient
         {
             string isbn, title, author, summary;
 
-            isbn = BaseIO.ReadFromConsole(
-                "Book ISBN: ",
-                s => !String.IsNullOrEmpty(s));
+            isbn = ReadISBN();
 
             title = BaseIO.ReadFromConsole(
-                "Book title: ",
+                "\tBook title: ",
                 s => !String.IsNullOrEmpty(s));
 
             author = BaseIO.ReadFromConsole(
-                "Book author: ",
+                "\tBook author: ",
                 s => !String.IsNullOrEmpty(s));
 
             summary = BaseIO.ReadFromConsole(
-                "Book summary: ",
+                "\tBook summary: ",
                 s => !String.IsNullOrEmpty(s));
 
             BookContract book = new BookContract
@@ -81,15 +80,12 @@ namespace Library.WebAPI.ConsoleClient
             try
             {
                 var content = new StringContent(JsonConvert.SerializeObject(book), Encoding.UTF8);
-                HttpResponseMessage response = await _http.PostAsync("api/library", content);
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-                Console.WriteLine(response.ToString());
+                HttpResponseMessage response = await _http.PostAsync("api/library", content);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    //string jsonResponse = await response.Content.ReadAsStringAsync();
-                    //var data = JsonConvert.DeserializeObject<List<BookContract>>(jsonResponse);
-                    //PrintBookList(data);
                     Console.WriteLine("Done!");
                     Console.WriteLine();
                 }
@@ -104,9 +100,41 @@ namespace Library.WebAPI.ConsoleClient
             }
         }
 
+        //internal async Task RemoveBookByISBN()
+        //{
+        //    string isbn = ReadISBN();
+
+        //    try
+        //    {
+
+        //        HttpResponseMessage response = await _http.DeleteAsync("api/library", content);
+
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            Console.WriteLine("Done!");
+        //            Console.WriteLine();
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("FAILURE!");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ErrorHandling.Catch(ex);
+        //    }
+        //}
+
         #endregion ========================= INTERNAL METHODS =========================
 
         #region ========================= PRIVATE METHODS =========================
+
+        private string ReadISBN()
+        {
+            return BaseIO.ReadFromConsole(
+                "\tBook ISBN: ",
+                s => !String.IsNullOrEmpty(s));
+        }
 
         private void PrintBookList(List<BookContract> books)
         {
