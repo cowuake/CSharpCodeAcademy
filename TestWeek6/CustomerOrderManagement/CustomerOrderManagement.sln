@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerOrderManagement.Core", "CustomerOrderManagement.Core\CustomerOrderManagement.Core.csproj", "{44EF0F4B-9EB7-44FA-8B40-507050D30840}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerOrderManagement.Core.EF", "CustomerOrderManagement.Core.EF\CustomerOrderManagement.Core.EF.csproj", "{B93947C8-96F6-46AA-93C0-3C58F18DC2FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerOrderManagement.Services.WCF", "CustomerOrderManagement.Services.WCF\CustomerOrderManagement.Services.WCF.csproj", "{73D2334E-86A2-4E28-B23C-F9B4EB7E3419}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerOrderManagement.Services.WebAPI", "CustomerOrderManagement.Services.WebAPI\CustomerOrderManagement.Services.WebAPI.csproj", "{62779904-5883-4305-8FAD-06E53B7435B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerOrderManagement.ConsoleClient", "CustomerOrderManagement.ConsoleClient\CustomerOrderManagement.ConsoleClient.csproj", "{A86D9514-B81A-43BD-B4C4-0105EF4CF32C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyConsoleFramework", "..\EasyConsoleFramework\EasyConsoleFramework.csproj", "{4BD92631-056C-4ECF-ADE8-0661E23729AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44EF0F4B-9EB7-44FA-8B40-507050D30840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44EF0F4B-9EB7-44FA-8B40-507050D30840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44EF0F4B-9EB7-44FA-8B40-507050D30840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44EF0F4B-9EB7-44FA-8B40-507050D30840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B93947C8-96F6-46AA-93C0-3C58F18DC2FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B93947C8-96F6-46AA-93C0-3C58F18DC2FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B93947C8-96F6-46AA-93C0-3C58F18DC2FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B93947C8-96F6-46AA-93C0-3C58F18DC2FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73D2334E-86A2-4E28-B23C-F9B4EB7E3419}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73D2334E-86A2-4E28-B23C-F9B4EB7E3419}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73D2334E-86A2-4E28-B23C-F9B4EB7E3419}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73D2334E-86A2-4E28-B23C-F9B4EB7E3419}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62779904-5883-4305-8FAD-06E53B7435B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62779904-5883-4305-8FAD-06E53B7435B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62779904-5883-4305-8FAD-06E53B7435B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62779904-5883-4305-8FAD-06E53B7435B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A86D9514-B81A-43BD-B4C4-0105EF4CF32C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A86D9514-B81A-43BD-B4C4-0105EF4CF32C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A86D9514-B81A-43BD-B4C4-0105EF4CF32C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A86D9514-B81A-43BD-B4C4-0105EF4CF32C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BD92631-056C-4ECF-ADE8-0661E23729AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BD92631-056C-4ECF-ADE8-0661E23729AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BD92631-056C-4ECF-ADE8-0661E23729AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BD92631-056C-4ECF-ADE8-0661E23729AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DFA87208-21F7-4326-81D1-2FD5AE61C23F}
+	EndGlobalSection
+EndGlobal

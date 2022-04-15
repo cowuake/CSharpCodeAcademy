@@ -1,7 +1,7 @@
-using Library.Core.BusinessLogic;
-using Library.Core.EFCore;
-using Library.Core.EFCore.Repository;
-using Library.Core.Interface;
+using CustomerOrderManagement.Core.BusinessLogic;
+using CustomerOrderManagement.Core.EF.DataContext;
+using CustomerOrderManagement.Core.EF.Repositories;
+using CustomerOrderManagement.Core.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -19,7 +19,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace Library.WebAPI
+namespace CustomerOrderManagement.Services.WebAPI
 {
     public class Startup
     {
@@ -55,19 +55,22 @@ namespace Library.WebAPI
                     Title = _applicationName,
                     Version = _applicationVersion
                 });
+
                 string fileName = $"{typeof(Startup).Assembly.GetName().Name}.xml";
+
                 c.IncludeXmlComments(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName));
             });
 
             // Dependency Injection
             services.AddTransient<IMainBusinessLogic, MainBusinessLogic>();
-            services.AddTransient<IBookRepository, EFCoreBookRepository>();
+            services.AddTransient<ICustomerRepository, EFCoreCustomerRepository>();
+            services.AddTransient<IOrderRepository, EFCoreOrderRepository>();
 
             // It also recycles open connection in a connected ADO.NET style!
-            services.AddDbContext<LibraryContext>(options =>
+            services.AddDbContext<CustomerOrderManagementContext>(options =>
             {
                 // Pay attention to identifier from connection string (read from JSON conf)
-                options.UseSqlServer(Configuration.GetConnectionString("library"));
+                options.UseSqlServer(Configuration.GetConnectionString("customer_order_management"));
             });
         }
 
@@ -79,7 +82,6 @@ namespace Library.WebAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            // Redirect from http to https, simply
             app.UseHttpsRedirection();
 
             // Swashbuckle Swagger
