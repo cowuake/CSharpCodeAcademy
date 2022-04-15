@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("CustomerOrderManagement.Services.WCF")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Avanade")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("CustomerOrderManagement.Services.WCF")]
-[assembly: AssemblyCopyright("Copyright © Avanade 2022")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
