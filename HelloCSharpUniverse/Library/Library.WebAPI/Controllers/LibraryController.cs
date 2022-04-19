@@ -37,9 +37,9 @@ namespace Library.WebAPI.Controllers
             if (book == null)
                 return BadRequest("Invalid book data.");
 
-            bool result = _logic.AddBook(book);
+            var result = _logic.AddBook(book);
 
-            if (!result)
+            if (!result.Success)
                 return StatusCode(500, "Cannot insert book.");
 
             return NoContent(); // 204
@@ -74,7 +74,7 @@ namespace Library.WebAPI.Controllers
 
             var result = _logic.RemoveBookByISBN(isbn);
 
-            if (!result)
+            if (!result.Success)
                 return StatusCode(500, "Cannot remove book.");
 
             return Ok(result);
@@ -94,7 +94,7 @@ namespace Library.WebAPI.Controllers
 
             var result = _logic.UpdateBook(book);
 
-            if (!result)
+            if (!result.Success)
                 return StatusCode(500, "Cannot update book data.");
 
             return Ok(book);

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Library\Library.Core.EFCore\Library.Core.EFCore.csproj" />
+    <ProjectReference Include="..\Library\Library.Core\Library.Core.csproj" />
+  </ItemGroup>
+
+</Project>

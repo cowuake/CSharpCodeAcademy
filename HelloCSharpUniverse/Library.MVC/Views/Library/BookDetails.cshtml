@@ -1,0 +1,67 @@
+﻿@using Library.MVC.Models.Library
+@model BookDetailsViewModel
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Details " + Model.ISBN;
+}
+<h1>
+    Details for book @Model.ISBN
+</h1>
+
+<@*div>
+    <span class="details-head">
+        ISBN
+    </span>
+    <span>
+        @Model.ISBN
+    </span>
+    <span class="details-head">
+        Title
+    </span>
+    <span>
+        @Model.Title
+    </span>
+</div>*@
+
+<div class="row">
+    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+        ISBN
+    </div>
+    <div class="col-md-7 col-xl-9">
+        @Model.ISBN
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+        Title
+    </div>
+    <div class="col-md-7 col-xl-9">
+        @Model.Title
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+        Author
+    </div>
+    <div class="col-md-7 col-xl-9">
+        @Model.Author
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 text-sm-right">
+        <a class="btn btn-primary" href="@Url.Action("Edit", new {isbn = Model.ISBN})">
+            Modify
+        </a>
+    </div>
+    <div class="col-sm-6">
+        <a class="btn btn-info" href="@Url.Action("Index")">
+            Back to list
+        </a>
+    </div>
+</div>

@@ -11,12 +11,12 @@ namespace Library.Core.Interface
 
         Book GetBook(string isbn);
 
-        bool AddBook(Book book);
+        Result AddBook(Book book);
 
-        bool UpdateBook(Book book);
+        Result UpdateBook(Book book);
 
-        bool RemoveBook(Book book);
+        Result RemoveBook(Book book);
 
-        bool RemoveBookByISBN(string isbn);
+        Result RemoveBookByISBN(string isbn);
     }
 }

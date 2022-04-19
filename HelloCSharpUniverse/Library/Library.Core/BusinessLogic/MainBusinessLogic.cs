@@ -10,11 +10,24 @@ namespace Library.Core.BusinessLogic
     {
         private readonly IBookRepository _repository;
 
+        // Constructor
         public MainBusinessLogic(IBookRepository repository)
             => _repository = repository;
 
-        public bool AddBook(Book book)
-            => _repository.Add(book);
+        public Result AddBook(Book book)
+        {
+            if (book == null)
+                return new Result(false, "Invalid book data");
+
+            var result = _repository.Add(book);
+
+            //if (result)
+            //    return new Result();
+
+            //return new Result(false, "Cannot add book");
+
+            return new Result(result, result ? null : "Cannot add book");
+        }
 
         public IList<Book> GetAllBooks(Func<Book, bool> filter = null)
             => _repository.GetAll(filter) as IList<Book>;
@@ -22,13 +35,34 @@ namespace Library.Core.BusinessLogic
         public Book GetBook(string isbn)
             => _repository.Get(isbn);
 
-        public bool RemoveBook(Book book)
-            => _repository.Remove(book);
+        public Result RemoveBook(Book book)
+        {
+            if (book == null)
+                return new Result(false, "Invalid book data");
 
-        public bool RemoveBookByISBN(string isbn)
-            => _repository.RemoveByKey(isbn);
+            var result = _repository.Remove(book);
 
-        public bool UpdateBook(Book book)
-            => _repository.Update(book);
+            return new Result(result, result ? null : "Cannot remove book");
+        }
+
+        public Result RemoveBookByISBN(string isbn)
+        {
+            if (string.IsNullOrEmpty(isbn))
+                return new Result(false, "Invalid ISBN");
+
+            var result = _repository.RemoveByKey(isbn);
+
+            return new Result(result, result ? null : "Cannot remove book");
+        }
+
+        public Result UpdateBook(Book book)
+        {
+            if (book == null)
+                return new Result(false, "Invalid book data");
+
+            var result = _repository.Update(book);
+
+            return new Result(result, result ? null : "Cannot update book");
+        }
     }
 }

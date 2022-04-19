@@ -91,13 +91,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.ConsoleClient", "Li
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.SelfHostingConsoleClient", "Library\Library.SelfHostingConsoleClient\Library.SelfHostingConsoleClient.csproj", "{2A46C903-015C-4FF9-AAC2-F90620371F69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.WebAPI", "Employees\Employees.WebAPI\Employees.WebAPI.csproj", "{DE2F65CC-94F7-4C12-9709-7693D3CDA7E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees.WebAPI", "Employees\Employees.WebAPI\Employees.WebAPI.csproj", "{DE2F65CC-94F7-4C12-9709-7693D3CDA7E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.WebAPI", "Library\Library.WebAPI\Library.WebAPI.csproj", "{8BEEDE9D-C112-48E2-8A2C-764E8BD0953D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.WebAPI", "Library\Library.WebAPI\Library.WebAPI.csproj", "{8BEEDE9D-C112-48E2-8A2C-764E8BD0953D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.WebAPI.ConsoleClient", "Library\Employees.WebAPI.ConsoleClient\Employees.WebAPI.ConsoleClient.csproj", "{097784B5-C75B-45BE-8595-53C2F425FB70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees.WebAPI.ConsoleClient", "Library\Employees.WebAPI.ConsoleClient\Employees.WebAPI.ConsoleClient.csproj", "{097784B5-C75B-45BE-8595-53C2F425FB70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.WebAPI.ConsoleClient", "Library\Library.WebAPI.ConsoleClient\Library.WebAPI.ConsoleClient.csproj", "{6AFE9C7C-BE08-4482-8248-A914B919255F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.WebAPI.ConsoleClient", "Library\Library.WebAPI.ConsoleClient\Library.WebAPI.ConsoleClient.csproj", "{6AFE9C7C-BE08-4482-8248-A914B919255F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.MVC", "Library.MVC\Library.MVC.csproj", "{4358A3AF-B3A1-41EB-83E0-84B7252BBB4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -289,6 +291,10 @@ Global
 		{6AFE9C7C-BE08-4482-8248-A914B919255F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AFE9C7C-BE08-4482-8248-A914B919255F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AFE9C7C-BE08-4482-8248-A914B919255F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4358A3AF-B3A1-41EB-83E0-84B7252BBB4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4358A3AF-B3A1-41EB-83E0-84B7252BBB4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4358A3AF-B3A1-41EB-83E0-84B7252BBB4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4358A3AF-B3A1-41EB-83E0-84B7252BBB4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -310,6 +316,7 @@ Global
 		{8BEEDE9D-C112-48E2-8A2C-764E8BD0953D} = {7FAF6FC9-6A3D-4574-AED8-0C46C909B5DB}
 		{097784B5-C75B-45BE-8595-53C2F425FB70} = {56735CAF-8BFA-4742-A3BF-7B14EE63244E}
 		{6AFE9C7C-BE08-4482-8248-A914B919255F} = {7FAF6FC9-6A3D-4574-AED8-0C46C909B5DB}
+		{4358A3AF-B3A1-41EB-83E0-84B7252BBB4B} = {7FAF6FC9-6A3D-4574-AED8-0C46C909B5DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {65C86BF8-0679-41FC-8BF4-5D9B39D24F26}

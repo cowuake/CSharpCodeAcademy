@@ -23,8 +23,8 @@ namespace Library.WebAPI.ConsoleClient
                 CLI cli = new CLI();
                 cli.SetApplicationName(Constants.APPLICATION_NAME);
 
-                cli.AddAction("I", "Insert a book", async () => await client.InsertBook());
-                cli.AddAction("L", "List all books", async () => await client.ListAllBooks());
+                cli.AddAction("I", "Insert a book", () => client.InsertBook().Wait());
+                cli.AddAction("L", "List all books", () => client.ListAllBooks().Wait());
 
                 cli.Run();
             }
