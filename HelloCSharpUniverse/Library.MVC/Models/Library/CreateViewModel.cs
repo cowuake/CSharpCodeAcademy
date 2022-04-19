@@ -1,6 +1,6 @@
 ﻿namespace Library.MVC.Models.Library
 {
-    public class InsertBookViewModel
+    public class CreateViewModel
     {
         public string ISBN { get; set; }
 

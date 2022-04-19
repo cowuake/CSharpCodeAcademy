@@ -46,15 +46,15 @@ namespace Library.MVC.Controllers
             return View(model);
         }
 
-        public IActionResult InsertBook()
+        public IActionResult Create()
         {
-            var model = new InsertBookViewModel();
+            var model = new CreateViewModel();
 
-            return View();
+            return View(model);
         }
 
         [HttpPost]
-        public IActionResult InsertBook(InsertBookViewModel model) // We exploit ASP.NET Core's MODEL BINDING
+        public IActionResult Create(CreateViewModel model) // We exploit ASP.NET Core's MODEL BINDING
         {
             Book book = new Book
             {

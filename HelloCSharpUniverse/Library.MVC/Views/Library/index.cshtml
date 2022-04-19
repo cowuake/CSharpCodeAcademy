@@ -47,8 +47,11 @@
                     @book.Title
                 </td>
                 <td>
-                    <a href="Library/BookDetails/@book.ISBN">Details</a>
+                    <a href="@Url.Action("BookDetails",new{isbn = @book.ISBN})">
+                        Details
+                    </a>
                 </td>
+                    
             </tr>
         }
     </tbody>
