@@ -18,5 +18,17 @@ namespace Library.Core.Interface
         Result RemoveBook(Book book);
 
         Result RemoveBookByISBN(string isbn);
+
+        IList<BookGenre> GetAllBookCategories(Func<BookGenre, bool> filter = null);
+
+        Book GetBookCategory(int id);
+
+        Result AddBookCategory(BookGenre category);
+
+        Result UpdateBookCategory(BookGenre category);
+
+        Result RemoveBookCategory(BookGenre category);
+
+        Result RemoveBookCategoryByID(int id);
     }
 }

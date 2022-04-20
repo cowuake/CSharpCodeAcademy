@@ -1,7 +1,9 @@
 ﻿using Library.Core.Entities;
 using Library.Core.Interface;
+using Library.MVC.Helpers;
 using Library.MVC.Models.Library;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -35,26 +37,17 @@ namespace Library.MVC.Controllers
         {
             var book = _logic.GetBook(isbn);
 
-            BookDetailsViewModel model = new BookDetailsViewModel
-            {
-                Author = book.Author,
-                ISBN = book.ISBN,
-                Summary = book.Summary,
-                Title = book.Title,
-                Pages = book.Pages,
-                Publisher = book.Publisher,
-                Year = book.Year,
-                Edition = book.Edition,
-                Language = book.Language,
-                Note = book.Note,
-            };
+            BookDetailsViewModel model = book.ToBookDetailsViewModel();
 
             return View(model);
         }
 
         public IActionResult Create()
         {
-            var model = new CreateEditBookViewModel();
+            var model = new CreateEditBookViewModel()
+            {
+                AvailableCategories = GetAvailableCategories(),
+            };
 
             return View(model);
         }
@@ -62,6 +55,13 @@ namespace Library.MVC.Controllers
         [HttpPost]
         public IActionResult Create(CreateEditBookViewModel model) // We exploit ASP.NET Core's MODEL BINDING
         {
+            if (model == null)
+            {
+                ModelState.AddModelError(string.Empty, "Model binding failed.");
+                model.AvailableCategories = GetAvailableCategories();
+                return View(model);
+            }
+
             if (!ModelState.IsValid)
                 return View(model);
 
@@ -76,19 +76,7 @@ namespace Library.MVC.Controllers
             if (existing)
                 ModelState.AddModelError(string.Empty, $"A book with provided data already exists.");
 
-            Book book = new Book
-            {
-                Author = model.Author,
-                Title = model.Title,
-                ISBN = model.ISBN,
-                Summary = model.Summary,
-                Pages = model.Pages,
-                Publisher = model.Publisher,
-                Year = model.Year,
-                Edition = model.Edition,
-                Language = model.Language,
-                Note = model.Note,
-            };
+            Book book = model.ToBook();
 
             var result = _logic.AddBook(book);
             
@@ -102,42 +90,24 @@ namespace Library.MVC.Controllers
 
             Book book = _logic.GetBook(isbn);
 
-            var model = new CreateEditBookViewModel()
-            {
-                Author = book.Author,
-                ISBN = book.ISBN,
-                Title = book.Title,
-                Summary = book.Summary,
-                Pages = book.Pages,
-                Edition = book.Edition,
-                Year = book.Year,
-                Note = book.Note,
-                Language = book.Language,
-                Publisher = book.Publisher,
-            };
+            var model = book.ToCreateEditBookViewModel();
 
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult Edit(CreateEditBookViewModel model)
+        public IActionResult Edit(string isbn, CreateEditBookViewModel model)
         {
+            if (model == null)
+                ModelState.AddModelError(string.Empty, "Model binding failed.");
+
+            if (isbn != model.ISBN)
+                ModelState.AddModelError(string.Empty, "Not-matching ISBN.");
+
             if (!ModelState.IsValid)
                 return View(model);
 
-            Book book = new Book
-            {
-                Author = model.Author,
-                Title = model.Title,
-                ISBN = model.ISBN,
-                Summary = model.Summary,
-                Pages = model.Pages,
-                Publisher = model.Publisher,
-                Year = model.Year,
-                Edition = model.Edition,
-                Language = model.Language,
-                Note = model.Note,
-            };
+            Book book = model.ToBook();
 
             var result = _logic.UpdateBook(book);
 
@@ -148,6 +118,17 @@ namespace Library.MVC.Controllers
             }
 
             return RedirectToAction(nameof(Index));
+        }
+
+        private IEnumerable<SelectListItem> GetAvailableCategories()
+        {
+            var categories = _logic.GetAllBookCategories();
+
+            return categories.Select(c => new SelectListItem
+            {
+                Value = c.Id.ToString(),
+
+            });
         }
     }
 }

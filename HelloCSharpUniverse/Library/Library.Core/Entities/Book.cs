@@ -37,5 +37,11 @@ namespace Library.Core.Entities
 
         [DataMember]
         public string Language { get; set; }
+
+        [DataMember]
+        public BookGenre BookCategory { get; set; }
+
+        [DataMember]
+        public int? BookCategoryId { get; set; }
     }
 }

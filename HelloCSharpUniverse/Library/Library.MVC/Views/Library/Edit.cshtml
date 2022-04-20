@@ -14,8 +14,10 @@
             <label asp-for="ISBN" class="control-label"></label>
         </div>
         <div class="col-sm-8">
-            <input required asp-for="ISBN" class="form-control" />
-            <span asp-validation-for=ISBN class="text-danger"></span>
+            @*<input required asp-for="ISBN" class="form-control" />
+            <span asp-validation-for=ISBN class="text-danger"></span>*@
+            @Html.DisplayFor(b => b.ISBN)
+            <input type="hidden" asp-for=ISBN />
         </div>
     </div>
     

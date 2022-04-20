@@ -8,6 +8,7 @@ namespace Library.Core.EFCore
     public class LibraryContext : DbContext
     {
         public DbSet<Book> Books { get; set; }
+        public DbSet<BookGenre> BookGenres { get; set; }
 
         public LibraryContext() : base()
         {
@@ -108,6 +109,25 @@ namespace Library.Core.EFCore
                 .HasColumnName("note")
                 .HasColumnType("VARCHAR(250)") // Length not needed in newer EF releases
                 .HasMaxLength(250);
+
+            builder
+               .Entity<BookGenre>()
+               .ToTable("book_category")
+               .HasKey(c => c.Id);
+
+            builder
+                .Entity<BookGenre>()
+                .Property(c => c.Name) // REQUIRED!
+                .HasColumnName("name")
+                .HasColumnType("VARCHAR(50)") // Length not needed in newer EF releases
+                .HasMaxLength(50)
+                .IsRequired();
+
+            builder
+                .Entity<BookGenre>()
+                .HasMany(c => c.Books)
+                .WithOne(b => b.BookCategory)
+                .HasForeignKey(b => b.BookCategoryId);
         }
     }
 }

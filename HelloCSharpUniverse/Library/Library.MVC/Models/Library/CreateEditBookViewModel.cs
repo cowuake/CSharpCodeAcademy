@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Library.MVC.Models.Library
@@ -34,5 +36,10 @@ namespace Library.MVC.Models.Library
 
         [DisplayName("Language")]
         public string Language { get; set; }
+
+        [DisplayName("Category ID")]
+        public string BookCategoryId { get; set; }
+
+        public IEnumerable<SelectListItem> AvailableCategories;
     }
 }
