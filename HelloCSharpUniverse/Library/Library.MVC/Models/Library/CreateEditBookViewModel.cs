@@ -3,15 +3,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Library.MVC.Models.Library
 {
-    public class CreateViewModel
+    public class CreateEditBookViewModel
     {
-        [DisplayName("ISBN code"), Required]
+        [DisplayName("ISBN code"), Required(ErrorMessage = "ISBN is mandatory.")]
         public string ISBN { get; set; }
 
-        [DisplayName("Title"), Required]
+        [DisplayName("Title"), Required(ErrorMessage = "Title is mandatory.")]
         public string Title { get; set; }
 
-        [DisplayName("Author"), Required]
+        [DisplayName("Author"), Required(ErrorMessage = "Author is mandatory.")]
         public string Author { get; set; }
 
         [DisplayName("Summary")]
