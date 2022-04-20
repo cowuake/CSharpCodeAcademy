@@ -7,6 +7,8 @@ namespace Library.Core.Interface
 {
     public interface IMainBusinessLogic
     {
+        #region ========================= BOOKS =========================
+
         IList<Book> GetAllBooks(Func<Book, bool> filter = null);
 
         Book GetBook(string isbn);
@@ -19,6 +21,10 @@ namespace Library.Core.Interface
 
         Result RemoveBookByISBN(string isbn);
 
+        #endregion ========================= BOOKS =========================
+
+        #region ========================= BOOK GENRES =========================
+
         IList<BookGenre> GetAllBookGenres(Func<BookGenre, bool> filter = null);
 
         BookGenre GetBookGenre(int id);
@@ -30,5 +36,15 @@ namespace Library.Core.Interface
         Result RemoveBookGenre(BookGenre genre);
 
         Result RemoveBookGenreByID(int id);
+
+        #endregion ========================= BOOK GENRES =========================
+
+        #region ========================= ACCOUNTS =========================
+
+        Account GetUser(string username);
+
+        //Result CheckLogin(string username, string passoword);
+
+        #endregion ========================= ACCOUNT =========================
     }
 }

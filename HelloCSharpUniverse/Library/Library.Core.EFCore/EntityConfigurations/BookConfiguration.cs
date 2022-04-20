@@ -70,6 +70,11 @@ namespace Library.Core.EFCore.EntityConfigurations
             builder
                 .Property(b => b.BookGenreId)
                 .HasColumnName("book_genre_id");
+
+            builder
+                .HasOne(b => b.BookGenre)
+                .WithMany(g => g.Books)
+                .HasForeignKey(b => b.BookGenreId);
         }
     }
 }

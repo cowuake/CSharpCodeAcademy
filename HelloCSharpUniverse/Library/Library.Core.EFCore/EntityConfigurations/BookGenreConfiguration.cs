@@ -21,11 +21,6 @@ namespace Library.Core.EFCore.EntityConfigurations
                 .HasColumnType("VARCHAR(50)") // Length not needed in newer EF releases
                 .HasMaxLength(50)
                 .IsRequired();
-
-            builder
-                .HasMany(c => c.Books)
-                .WithOne(b => b.BookGenre)
-                .HasForeignKey(b => b.BookGenreId);
         }
     }
 }

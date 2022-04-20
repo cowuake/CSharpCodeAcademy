@@ -1,4 +1,5 @@
 ﻿using Library.Core.Entities;
+using Library.MVC.Models.BookGenres;
 using Library.MVC.Models.Library;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,6 +70,43 @@ namespace Library.MVC.Helpers
                 Language = model.Language,
                 Note = model.Note,
                 BookGenreId = model.BookGenreId,
+            };
+        }
+
+        public static IEnumerable<ListBookGenresViewModel> ToEnumerableListBookCategoryViewModel(this IEnumerable<BookGenre> genres)
+        {
+            return genres.Select(bc => new ListBookGenresViewModel
+            {
+                BooksCount = bc.Books.Count(),
+                Name = bc.Name,
+                Id = bc.Id
+            });
+        }
+
+        public static BookGenre ToBookGenre(this CreateEditBookGenreViewModel model)
+        {
+            return new BookGenre
+            {
+                Id = model.Id,
+                Name = model.Name
+            };
+        }
+
+        public static CreateEditBookGenreViewModel ToCreateEditBookGenreViewModel(this BookGenre genre)
+        {
+            return new CreateEditBookGenreViewModel()
+            {
+                Id = genre.Id,
+                Name = genre.Name
+            };
+        }
+        public static DetailsBookGenreViewModel ToDetailsBookCategoryViewModel(this BookGenre bookCategory, IEnumerable<Book> books)
+        {
+            return new DetailsBookGenreViewModel
+            {
+                Id = bookCategory.Id,
+                Name = bookCategory.Name,
+                Books = books.ToEnumerableLibraryViewModel()
             };
         }
     }

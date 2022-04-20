@@ -1,0 +1,55 @@
+﻿@using Library.MVC.Models.BookGenres
+@model IEnumerable<ListBookGenresViewModel>
+@{
+    ViewData["Title"] = "Categorie Libri";
+}
+
+<h1>
+    Book genres
+</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">
+        Insert new book genre
+    </a>
+</p>
+
+<table class="table table-striped table-hover table-light">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.BooksCount)
+            </th>
+            <th>
+                Azioni
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var bc in Model)
+        {
+            <tr>
+                <td>
+                    @bc.Name
+                </td>
+                <td>
+                    @bc.BooksCount
+                </td>
+                <td>
+                    <a href="@Url.Action("Details",new{id = bc.Id})">
+                        Details
+                    </a> |
+                    <a href="@Url.Action("Edit", new {id = bc.Id})">
+                        Modify
+                    </a> | 
+                    <a asp-action="Delete" asp-route-id=@bc.Id>
+                        Delete
+                    </a>  
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

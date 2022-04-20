@@ -10,12 +10,18 @@ namespace Library.Core.BusinessLogic
     {
         private readonly IBookRepository _bookRepository;
         private readonly IBookGenreRepository _bookGenreRepository;
+        private readonly IAccountRepository _userRepository;
 
         // Constructor
-        public MainBusinessLogic(IBookRepository bookRepository, IBookGenreRepository bookGenreRepository)
+        public MainBusinessLogic(
+            IBookRepository bookRepository,
+            IBookGenreRepository bookGenreRepository,
+            IAccountRepository userRepository
+            )
         {
             _bookRepository = bookRepository;
             _bookGenreRepository = bookGenreRepository;
+            _userRepository = userRepository;
         }
 
         public Result AddBook(Book book)
@@ -54,6 +60,14 @@ namespace Library.Core.BusinessLogic
 
         public BookGenre GetBookGenre(int id)
             => _bookGenreRepository.Get(id);
+
+        public Account GetUser(string username)
+        {
+            if (string.IsNullOrEmpty(username))
+                return null;
+
+            return _userRepository.GetByUsername(username);
+        }
 
         public Result RemoveBook(Book book)
         {

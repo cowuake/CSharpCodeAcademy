@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Library.Core.Interface
 {
-    public interface IUserRepository : IRepository<User>
+    public interface IAccountRepository : IRepository<Account>
     {
-        User GetByUsername(string username);
+        Account GetByUsername(string username);
     }
 }

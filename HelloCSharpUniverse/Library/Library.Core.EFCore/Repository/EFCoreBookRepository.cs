@@ -1,5 +1,6 @@
 ﻿using Library.Core.Entities;
 using Library.Core.Interface;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -80,10 +81,19 @@ namespace Library.Core.EFCore.Repository
         {
             try
             {
-                if (filter != null)
-                    return _context.Books.Where(filter).ToList();
+                //if (filter != null)
+                //    return _context.Books.Where(filter).ToList();
 
-                return _context.Books.ToList();
+                //return _context.Books.ToList();
+
+                // ========================= IMPORTANT! =========================
+                // If using Entity Framework Core 3.1.24, the ToList method is MANDATORY!
+                // Otherwise, a null object will be passed to the business logic!
+
+                if (filter != null)
+                    return _context.Books.Include(x => x.BookGenre).Where(filter).ToList();
+
+                return _context.Books.Include(x => x.BookGenre).ToList();
             }
             catch (Exception)
             {

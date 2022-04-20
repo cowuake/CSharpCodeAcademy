@@ -2,8 +2,10 @@ using Library.Core.BusinessLogic;
 using Library.Core.EFCore;
 using Library.Core.EFCore.Repository;
 using Library.Core.Interface;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -30,12 +32,13 @@ namespace Library.MVC
         {
             services.AddControllersWithViews();
 
+            // Business logic
             services.AddScoped<IMainBusinessLogic, MainBusinessLogic>();
 
             // Data repositories
             services.AddScoped<IBookRepository, EFCoreBookRepository>();
             services.AddScoped<IBookGenreRepository, EFCoreBookGenreRepository>();
-            services.AddScoped<IUserRepository, EFCoreUserRepository>();
+            services.AddScoped<IAccountRepository, EFCoreAccountRepository>();
 
             services.AddDbContext<LibraryContext>(c =>
             {
@@ -47,6 +50,14 @@ namespace Library.MVC
                 options.AddPolicy("Admin", p => p.RequireRole("Administrator"));
                 options.AddPolicy("User", p => p.RequireRole("User"));
             });
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = new PathString("/Account/Login");
+                    options.AccessDeniedPath = new PathString("/Account/Forbidden");
+                    options.Cookie.Name = "Library.Cookie";
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,14 +79,15 @@ namespace Library.MVC
 
             app.UseRouting();
 
+            // These two, in this order!
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    //pattern: "{controller=Home}/{action=Index}/{id?}");
-                    pattern: "{controller=Library}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

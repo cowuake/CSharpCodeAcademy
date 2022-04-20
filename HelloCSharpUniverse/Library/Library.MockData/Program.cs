@@ -438,36 +438,38 @@ namespace Library.MockData
                     },
                 };
 
-                List<User> mockedUsers = new List<User>()
+                List<Account> mockedAccounts = new List<Account>()
                 {
-                    new User
+                    new Account
                     {
                         Username = "count.zero",
-                        Password = "count.zero"
+                        Password = "count.zero",
+                        Role = Role.Administrator,
                     },
-                    new User
+                    new Account
                     {
                         Username = "r.mura",
-                        Password = "r.mura"
+                        Password = "r.mura",
+                        Role = Role.User,
                     },
                 };
 
-                mockedUsers.ForEach(u =>
+                mockedAccounts.ForEach(a =>
                 {
-                    var alreadyThere = context.Users.FirstOrDefault(uu => uu.Username == u.Username);
+                    var alreadyThere = context.Accounts.FirstOrDefault(aa => aa.Username == a.Username);
 
                     if (alreadyThere == null)
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"\tUSER: Adding {u.Username.ToUnderlined()}...");
+                        Console.WriteLine($"\tACCOUNT: Adding {a.Username.ToUnderlined()}...");
                         Console.ResetColor();
 
-                        context.Users.Add(u);
+                        context.Accounts.Add(a);
                     }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine($"\tUSER: {u.Username.ToUnderlined()} already in database.");
+                        Console.WriteLine($"\tACCOUNT: {a.Username.ToUnderlined()} already in database.");
                         Console.ResetColor();
                     }
                 });

@@ -7,12 +7,12 @@ using System.Text;
 
 namespace Library.Core.EFCore.EntityConfigurations
 {
-    public class UserConfiguration : IEntityTypeConfiguration<User>
+    public class AccountConfiguration : IEntityTypeConfiguration<Account>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<Account> builder)
         {
             builder
-                .ToTable("user")
+                .ToTable("account")
                 .HasKey(u => u.Id);
 
             builder
