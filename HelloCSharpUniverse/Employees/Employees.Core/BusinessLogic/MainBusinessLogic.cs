@@ -26,6 +26,11 @@ namespace Employees.Core.BusinessLogic
             return _repository.DeleteById(employee.Id);
         }
 
+        public bool DeleteEmployeeById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Employee> GetAllEmployees()
         {
             return _repository.Fetch().ToList();

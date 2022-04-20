@@ -438,6 +438,42 @@ namespace Library.MockData
                     },
                 };
 
+                List<User> mockedUsers = new List<User>()
+                {
+                    new User
+                    {
+                        Username = "count.zero",
+                        Password = "count.zero"
+                    },
+                    new User
+                    {
+                        Username = "r.mura",
+                        Password = "r.mura"
+                    },
+                };
+
+                mockedUsers.ForEach(u =>
+                {
+                    var alreadyThere = context.Users.FirstOrDefault(uu => uu.Username == u.Username);
+
+                    if (alreadyThere == null)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine($"\tUSER: Adding {u.Username.ToUnderlined()}...");
+                        Console.ResetColor();
+
+                        context.Users.Add(u);
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"\tUSER: {u.Username.ToUnderlined()} already in database.");
+                        Console.ResetColor();
+                    }
+                });
+
+                Console.WriteLine();
+
                 mockedGenres.ForEach(g =>
                 {
                     var alreadyThere = context.BookGenres.FirstOrDefault(gg => gg.Name == g.Name);

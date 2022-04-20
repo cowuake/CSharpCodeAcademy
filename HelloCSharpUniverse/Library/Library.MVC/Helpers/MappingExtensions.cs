@@ -1,5 +1,7 @@
 ﻿using Library.Core.Entities;
 using Library.MVC.Models.Library;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Library.MVC.Helpers
 {
@@ -23,7 +25,7 @@ namespace Library.MVC.Helpers
             };
         }
 
-        public static BookDetailsViewModel ToBookDetailsViewModel(this Book book)
+        public static BookDetailsViewModel ToBookDetailsViewModel(this Book book, BookGenre genre)
         {
             return new BookDetailsViewModel()
             {
@@ -37,29 +39,22 @@ namespace Library.MVC.Helpers
                 Edition = book.Edition,
                 Language = book.Language,
                 Note = book.Note,
-                BookGenreId = book.BookGenreId,
+                Genre = genre.Name, // The genre name is what we want to visualize among book details
             };
+        }
+
+        public static IEnumerable<LibraryViewModel> ToEnumerableLibraryViewModel(this IEnumerable<Book> books)
+        {
+            return books.Select(book => new LibraryViewModel
+            {
+                Author = book.Author,
+                ISBN = book.ISBN,
+                Title = book.Title,
+                Genre = book.BookGenre.Name,
+            });
         }
 
         public static Book ToBook(this CreateEditBookViewModel model)
-        {
-            return new Book
-            {
-                Author = model.Author,
-                Title = model.Title,
-                ISBN = model.ISBN,
-                Summary = model.Summary,
-                Pages = model.Pages,
-                Publisher = model.Publisher,
-                Year = model.Year,
-                Edition = model.Edition,
-                Language = model.Language,
-                Note = model.Note,
-                BookGenreId = model.BookGenreId,
-            };
-        }
-
-        public static Book ToBook(this BookDetailsViewModel model)
         {
             return new Book
             {

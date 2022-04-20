@@ -22,6 +22,6 @@
 
         public string Language { get; set; }
 
-        public int? BookGenreId { get; set; }
+        public string Genre { get; set; }
     }
 }

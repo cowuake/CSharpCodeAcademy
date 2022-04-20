@@ -9,13 +9,13 @@ namespace Library.Core.BusinessLogic
     public class MainBusinessLogic : IMainBusinessLogic
     {
         private readonly IBookRepository _bookRepository;
-        private readonly IBookGenreRepository _bookCategoryRepository;
+        private readonly IBookGenreRepository _bookGenreRepository;
 
         // Constructor
-        public MainBusinessLogic(IBookRepository bookRepository, IBookGenreRepository bookCategoryRepository)
+        public MainBusinessLogic(IBookRepository bookRepository, IBookGenreRepository bookGenreRepository)
         {
             _bookRepository = bookRepository;
-            _bookCategoryRepository = bookCategoryRepository;
+            _bookGenreRepository = bookGenreRepository;
         }
 
         public Result AddBook(Book book)
@@ -33,18 +33,18 @@ namespace Library.Core.BusinessLogic
             return new Result(result, result ? null : "Cannot add book");
         }
 
-        public Result AddBookCategory(BookGenre category)
+        public Result AddBookGenre(BookGenre genre)
         {
-            if (category == null)
-                return new Result(false, "Invalid category data");
+            if (genre == null)
+                return new Result(false, "Invalid genre data");
 
-            var result = _bookCategoryRepository.Add(category);
+            var result = _bookGenreRepository.Add(genre);
 
-            return new Result(result, result ? null : "Cannot add category");
+            return new Result(result, result ? null : "Cannot add genre");
         }
 
-        public IList<BookGenre> GetAllBookCategories(Func<BookGenre, bool> filter = null)
-            => _bookCategoryRepository.GetAll(filter) as IList<BookGenre>;
+        public IList<BookGenre> GetAllBookGenres(Func<BookGenre, bool> filter = null)
+            => _bookGenreRepository.GetAll(filter) as IList<BookGenre>;
 
         public IList<Book> GetAllBooks(Func<Book, bool> filter = null)
             => _bookRepository.GetAll(filter) as IList<Book>;
@@ -52,8 +52,8 @@ namespace Library.Core.BusinessLogic
         public Book GetBook(string isbn)
             => _bookRepository.Get(isbn);
 
-        public BookGenre GetBookCategory(int id)
-            => _bookCategoryRepository.Get(id);
+        public BookGenre GetBookGenre(int id)
+            => _bookGenreRepository.Get(id);
 
         public Result RemoveBook(Book book)
         {
@@ -75,24 +75,24 @@ namespace Library.Core.BusinessLogic
             return new Result(result, result ? null : "Cannot remove book");
         }
 
-        public Result RemoveBookCategory(BookGenre category)
+        public Result RemoveBookGenre(BookGenre genre)
         {
-            if (category == null)
-                return new Result(false, "Invalid category data");
+            if (genre == null)
+                return new Result(false, "Invalid genre data");
 
-            var result = _bookCategoryRepository.Remove(category);
+            var result = _bookGenreRepository.Remove(genre);
 
-            return new Result(result, result ? null : "Cannot remove category");
+            return new Result(result, result ? null : "Cannot remove genre");
         }
 
-        public Result RemoveBookCategoryByID(int id)
+        public Result RemoveBookGenreByID(int id)
         {
             if (id <= 0)
                 return new Result(false, "Invalid ID");
 
-            var result = _bookCategoryRepository.RemoveByKey(id);
+            var result = _bookGenreRepository.RemoveByKey(id);
 
-            return new Result(result, result ? null : "Cannot remove category");
+            return new Result(result, result ? null : "Cannot remove genre");
         }
 
         public Result UpdateBook(Book book)
@@ -105,19 +105,14 @@ namespace Library.Core.BusinessLogic
             return new Result(result, result ? null : "Cannot update book");
         }
 
-        public Result UpdateBookCategory(BookGenre category)
+        public Result UpdateBookGenre(BookGenre genre)
         {
-            if (category == null)
-                return new Result(false, "Invalid category data");
+            if (genre == null)
+                return new Result(false, "Invalid genre data");
 
-            var result = _bookCategoryRepository.Update(category);
+            var result = _bookGenreRepository.Update(genre);
 
             return new Result(result, result ? null : "Cannot update category");
-        }
-
-        Book IMainBusinessLogic.GetBookCategory(int id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

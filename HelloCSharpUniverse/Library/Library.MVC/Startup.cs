@@ -31,11 +31,21 @@ namespace Library.MVC
             services.AddControllersWithViews();
 
             services.AddScoped<IMainBusinessLogic, MainBusinessLogic>();
+
+            // Data repositories
             services.AddScoped<IBookRepository, EFCoreBookRepository>();
             services.AddScoped<IBookGenreRepository, EFCoreBookGenreRepository>();
+            services.AddScoped<IUserRepository, EFCoreUserRepository>();
+
             services.AddDbContext<LibraryContext>(c =>
             {
                 c.UseSqlServer(Configuration.GetConnectionString("library"));
+            });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Admin", p => p.RequireRole("Administrator"));
+                options.AddPolicy("User", p => p.RequireRole("User"));
             });
         }
 
@@ -53,6 +63,7 @@ namespace Library.MVC
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();

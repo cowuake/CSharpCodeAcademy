@@ -19,16 +19,16 @@ namespace Library.Core.Interface
 
         Result RemoveBookByISBN(string isbn);
 
-        IList<BookGenre> GetAllBookCategories(Func<BookGenre, bool> filter = null);
+        IList<BookGenre> GetAllBookGenres(Func<BookGenre, bool> filter = null);
 
-        Book GetBookCategory(int id);
+        BookGenre GetBookGenre(int id);
 
-        Result AddBookCategory(BookGenre category);
+        Result AddBookGenre(BookGenre genre);
 
-        Result UpdateBookCategory(BookGenre category);
+        Result UpdateBookGenre(BookGenre genre);
 
-        Result RemoveBookCategory(BookGenre category);
+        Result RemoveBookGenre(BookGenre genre);
 
-        Result RemoveBookCategoryByID(int id);
+        Result RemoveBookGenreByID(int id);
     }
 }

@@ -13,7 +13,8 @@ namespace Library.Core.EFCore.EntityConfigurations
         {
             builder
                 .ToTable("book")
-                .HasKey(b => b.ISBN);
+                .HasKey(b => b.ISBN)
+                .HasName("isbn");
 
             builder
                 .Property(b => b.Title) // REQUIRED!

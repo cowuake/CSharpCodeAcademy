@@ -12,8 +12,8 @@ namespace Library.Core.EFCore.EntityConfigurations
         public void Configure(EntityTypeBuilder<BookGenre> builder)
         {
             builder
-               .ToTable("book_category")
-               .HasKey(c => c.Id);
+                .ToTable("book_category")
+                .HasKey(c => c.Id);
 
             builder
                 .Property(c => c.Name) // REQUIRED!

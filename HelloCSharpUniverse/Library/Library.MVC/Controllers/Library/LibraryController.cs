@@ -21,23 +21,22 @@ namespace Library.MVC.Controllers
         // ... localhost.../Library/Index
         public IActionResult Index()
         {
-            IEnumerable<Book> data = _logic.GetAllBooks();
+            IEnumerable<Book> books = _logic.GetAllBooks();
 
-            IEnumerable<LibraryViewModel> model = data.Select(book => new LibraryViewModel
-            {
-                Author = book.Author,
-                ISBN = book.ISBN,
-                Title = book.Title,
-            });
+            IEnumerable<LibraryViewModel> model = books.ToEnumerableLibraryViewModel();
 
             return View(model);
         }
 
         public IActionResult BookDetails(string isbn)
         {
-            var book = _logic.GetBook(isbn);
+            if (string.IsNullOrEmpty(isbn))
+                return View();
 
-            BookDetailsViewModel model = book.ToBookDetailsViewModel();
+            var book = _logic.GetBook(isbn);
+            var genre = _logic.GetBookGenre((int)book.BookGenreId);
+
+            BookDetailsViewModel model = book.ToBookDetailsViewModel(genre);
 
             return View(model);
         }
@@ -62,9 +61,6 @@ namespace Library.MVC.Controllers
                 return View(model);
             }
 
-            if (!ModelState.IsValid)
-                return View(model);
-
             bool existing = _logic.GetAllBooks(b =>
                     b.Title == model.Title &&
                     b.Author == model.Author &&
@@ -75,6 +71,9 @@ namespace Library.MVC.Controllers
 
             if (existing)
                 ModelState.AddModelError(string.Empty, $"A book with provided data already exists.");
+
+            if (!ModelState.IsValid)
+                return View(model);
 
             Book book = model.ToBook();
 
@@ -99,14 +98,25 @@ namespace Library.MVC.Controllers
         public IActionResult Edit(string isbn, CreateEditBookViewModel model)
         {
             if (model == null)
+            {
                 ModelState.AddModelError(string.Empty, "Model binding failed.");
+                model.AvailableCategories = GetAvailableCategories();
+                return View();
+            }
 
             if (isbn != model.ISBN)
+            {
                 ModelState.AddModelError(string.Empty, "Not-matching ISBN.");
-
+                model.AvailableCategories = GetAvailableCategories();
+                return View();
+            }
+               
             if (!ModelState.IsValid)
+            {
+                model.AvailableCategories = GetAvailableCategories();
                 return View(model);
-
+            }
+                
             Book book = model.ToBook();
 
             var result = _logic.UpdateBook(book);
@@ -114,6 +124,7 @@ namespace Library.MVC.Controllers
             if (!result.Success)
             {
                 ModelState.AddModelError(string.Empty, result.Message);
+                model.AvailableCategories = GetAvailableCategories();
                 return View(model);
             }
 
@@ -122,12 +133,12 @@ namespace Library.MVC.Controllers
 
         private IEnumerable<SelectListItem> GetAvailableCategories()
         {
-            var categories = _logic.GetAllBookCategories();
+            var categories = _logic.GetAllBookGenres();
 
-            return categories.Select(c => new SelectListItem
+            return categories.Select(g => new SelectListItem
             {
-                Value = c.Id.ToString(),
-
+                Value = g.Id.ToString(),
+                Text = g.Name
             });
         }
     }
