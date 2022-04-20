@@ -41,6 +41,12 @@ namespace Library.MVC.Controllers
                 ISBN = book.ISBN,
                 Summary = book.Summary,
                 Title = book.Title,
+                Pages = book.Pages,
+                Publisher = book.Publisher,
+                Year = book.Year,
+                Edition = book.Edition,
+                Language = book.Language,
+                Note = book.Note,
             };
 
             return View(model);
