@@ -96,9 +96,9 @@
     </div>
 
     <div class="row form-group">
-        <label asp-for=BookCategoryId class="col-sm-4 custom-control-label text-sm-right"></label>
+        <label asp-for=BookGenreId class="col-sm-4 custom-control-label text-sm-right"></label>
         <div class="col-sm-8">
-            @Html.DropDownListFor(b => b.BookCategoryId, Model.AvailableCategories, new { @class="form-control", required="required"})
-            <span asp-validation-for=BookCategoryId class="text-danger"></span>
+            @Html.DropDownListFor(b => b.BookGenreId, Model.AvailableCategories, new { @class="form-control", required="required"})
+            <span asp-validation-for=BookGenreId class="text-danger"></span>
         </div>
     </div>

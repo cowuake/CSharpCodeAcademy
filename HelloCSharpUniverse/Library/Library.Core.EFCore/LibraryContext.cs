@@ -124,10 +124,15 @@ namespace Library.Core.EFCore
                 .IsRequired();
 
             builder
+                .Entity<Book>()
+                .Property(b => b.BookGenreId)
+                .HasColumnName("book_genre_id");
+
+            builder
                 .Entity<BookGenre>()
                 .HasMany(c => c.Books)
-                .WithOne(b => b.BookCategory)
-                .HasForeignKey(b => b.BookCategoryId);
+                .WithOne(b => b.BookGenre)
+                .HasForeignKey(b => b.BookGenreId);
         }
     }
 }

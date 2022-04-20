@@ -7,11 +7,11 @@ using System.Text;
 
 namespace Library.Core.EFCore.Repository
 {
-    public class EFCoreBookCategoryRepository : IBookCategoryRepository
+    public class EFCoreBookGenreRepository : IBookGenreRepository
     {
         private readonly LibraryContext _context;
 
-        public EFCoreBookCategoryRepository(LibraryContext context)
+        public EFCoreBookGenreRepository(LibraryContext context)
         {
             // Context must be injected
             _context = context;

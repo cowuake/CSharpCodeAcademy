@@ -30,13 +30,13 @@ namespace Library.WCF.ServiceLibrary
         public IList<Book> GetAllBooks(Func<Book, bool> filter)
             => _logic.GetAllBooks(filter);
 
-        public bool AddBook(Book book)
+        public Result AddBook(Book book)
             => _logic.AddBook(book);
 
-        public bool UpdateBook(Book book)
+        public Result UpdateBook(Book book)
             => _logic.UpdateBook(book);
 
-        public bool RemoveBook(Book book)
+        public Result RemoveBook(Book book)
             => _logic.RemoveBook(book);
     }
 }

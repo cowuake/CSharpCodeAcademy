@@ -9,10 +9,10 @@ namespace Library.Core.BusinessLogic
     public class MainBusinessLogic : IMainBusinessLogic
     {
         private readonly IBookRepository _bookRepository;
-        private readonly IBookCategoryRepository _bookCategoryRepository;
+        private readonly IBookGenreRepository _bookCategoryRepository;
 
         // Constructor
-        public MainBusinessLogic(IBookRepository bookRepository, IBookCategoryRepository bookCategoryRepository)
+        public MainBusinessLogic(IBookRepository bookRepository, IBookGenreRepository bookCategoryRepository)
         {
             _bookRepository = bookRepository;
             _bookCategoryRepository = bookCategoryRepository;

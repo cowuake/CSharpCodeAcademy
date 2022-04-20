@@ -32,6 +32,7 @@ namespace Library.MVC
 
             services.AddScoped<IMainBusinessLogic, MainBusinessLogic>();
             services.AddScoped<IBookRepository, EFCoreBookRepository>();
+            services.AddScoped<IBookGenreRepository, EFCoreBookGenreRepository>();
             services.AddDbContext<LibraryContext>(c =>
             {
                 c.UseSqlServer(Configuration.GetConnectionString("library"));

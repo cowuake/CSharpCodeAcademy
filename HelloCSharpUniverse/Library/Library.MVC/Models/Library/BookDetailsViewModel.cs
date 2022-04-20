@@ -21,5 +21,7 @@
         public string Note { get; set; }
 
         public string Language { get; set; }
+
+        public int? BookGenreId { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace Library.ConsoleClient
 
             cli.SetApplicationName("LIBRARY CONSOLE CLIENT");
 
-            cli.RunAsync();
+            cli.Run();
         }
     }
 }

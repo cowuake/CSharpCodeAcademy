@@ -19,7 +19,7 @@ namespace Library.MVC.Helpers
                 Edition = book.Edition,
                 Language = book.Language,
                 Note = book.Note,
-                BookCategoryId = book.BookCategoryId,
+                BookGenreId = book.BookGenreId,
             };
         }
 
@@ -37,6 +37,7 @@ namespace Library.MVC.Helpers
                 Edition = book.Edition,
                 Language = book.Language,
                 Note = book.Note,
+                BookGenreId = book.BookGenreId,
             };
         }
 
@@ -54,6 +55,7 @@ namespace Library.MVC.Helpers
                 Edition = model.Edition,
                 Language = model.Language,
                 Note = model.Note,
+                BookGenreId = model.BookGenreId,
             };
         }
 
@@ -71,6 +73,7 @@ namespace Library.MVC.Helpers
                 Edition = model.Edition,
                 Language = model.Language,
                 Note = model.Note,
+                BookGenreId = model.BookGenreId,
             };
         }
     }

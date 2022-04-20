@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Library.Core.Interface
 {
-    public interface IBookCategoryRepository : IRepository<BookGenre>
+    public interface IBookGenreRepository : IRepository<BookGenre>
     {
         
     }

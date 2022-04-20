@@ -15,12 +15,12 @@ namespace Library.WCF.ServiceLibrary
         IList<Book> GetAllBooks(Func<Book, bool> filter);
 
         [OperationContract]
-        bool AddBook(Book book);
+        Result AddBook(Book book);
 
         [OperationContract]
-        bool UpdateBook(Book book);
+        Result UpdateBook(Book book);
 
         [OperationContract]
-        bool RemoveBook(Book book);
+        Result RemoveBook(Book book);
     }
 }
