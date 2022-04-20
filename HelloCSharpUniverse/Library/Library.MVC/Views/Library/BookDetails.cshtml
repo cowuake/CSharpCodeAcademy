@@ -53,68 +53,89 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
-        Summary
+@if (Model.Summary != null)
+{
+    <div class="row">
+        <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+            Summary
+        </div>
+        <div class="col-md-7 col-xl-9">
+            @Model.Summary
+        </div>
     </div>
-    <div class="col-md-7 col-xl-9">
-        @Model.Summary
-    </div>
-</div>
+}
 
-<div class="row">
-    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
-        Pages
+@if (Model.Pages != null)
+{
+    <div class="row">
+        <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+            Pages
+        </div>
+        <div class="col-md-7 col-xl-9">
+            @Model.Pages
+        </div>
     </div>
-    <div class="col-md-7 col-xl-9">
-        @Model.Pages
-    </div>
-</div>
+}
 
-<div class="row">
-    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
-        Publisher
+@if (Model.Publisher != null)
+{
+    <div class="row">
+        <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+            Publisher
+        </div>
+        <div class="col-md-7 col-xl-9">
+            @Model.Publisher
+        </div>
     </div>
-    <div class="col-md-7 col-xl-9">
-        @Model.Publisher
-    </div>
-</div>
+}
 
-<div class="row">
-    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
-        Year
+@if (Model.Year != null)
+{
+    <div class="row">
+        <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+            Year
+        </div>
+        <div class="col-md-7 col-xl-9">
+            @Model.Year
+        </div>
     </div>
-    <div class="col-md-7 col-xl-9">
-        @Model.Year
-    </div>
-</div>
+}
 
-<div class="row">
-    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
-        Edition
+@if (Model.Edition != null)
+{
+    <div class="row">
+        <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+            Edition
+        </div>
+        <div class="col-md-7 col-xl-9">
+            @Model.Edition
+        </div>
     </div>
-    <div class="col-md-7 col-xl-9">
-        @Model.Edition
-    </div>
-</div>
+}
 
-<div class="row">
-    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
-        Language
+@if (Model.Language != null)
+{
+    <div class="row">
+        <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+            Language
+        </div>
+        <div class="col-md-7 col-xl-9">
+            @Model.Language
+        </div>
     </div>
-    <div class="col-md-7 col-xl-9">
-        @Model.Language
-    </div>
-</div>
+}
 
-<div class="row">
-    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
-        Note
+@if (Model.Note != null)
+{
+    <div class="row">
+        <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+            Note
+        </div>
+        <div class="col-md-7 col-xl-9">
+            @Model.Note
+        </div>
     </div>
-    <div class="col-md-7 col-xl-9">
-        @Model.Note
-    </div>
-</div>
+}
 
 <div class="row">
     <div class="col-sm-6 text-sm-right">

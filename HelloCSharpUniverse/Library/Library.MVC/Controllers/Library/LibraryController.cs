@@ -62,12 +62,21 @@ namespace Library.MVC.Controllers
         [HttpPost]
         public IActionResult Create(CreateViewModel model) // We exploit ASP.NET Core's MODEL BINDING
         {
+            if (!ModelState.IsValid)
+                return View(model);
+
             Book book = new Book
             {
                 Author = model.Author,
                 Title = model.Title,
                 ISBN = model.ISBN,
                 Summary = model.Summary,
+                Pages = model.Pages,
+                Publisher = model.Publisher,
+                Year = model.Year,
+                Edition = model.Edition,
+                Language = model.Language,
+                Note = model.Note,
             };
 
             var result = _logic.AddBook(book);
