@@ -19,5 +19,23 @@ namespace Library.Core.Entities
 
         [DataMember]
         public string Author { get; set; }
+
+        [DataMember]
+        public int? Pages { get; set; }
+
+        [DataMember]
+        public string Publisher { get; set; }
+
+        [DataMember]
+        public int? Year { get; set; }
+
+        [DataMember]
+        public int? Edition { get; set; }
+
+        [DataMember]
+        public string Note { get; set; }
+
+        [DataMember]
+        public string Language { get; set; }
     }
 }

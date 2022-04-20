@@ -54,6 +54,69 @@
 </div>
 
 <div class="row">
+    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+        Summary
+    </div>
+    <div class="col-md-7 col-xl-9">
+        @Model.Summary
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+        Pages
+    </div>
+    <div class="col-md-7 col-xl-9">
+        @Model.Pages
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+        Publisher
+    </div>
+    <div class="col-md-7 col-xl-9">
+        @Model.Publisher
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+        Year
+    </div>
+    <div class="col-md-7 col-xl-9">
+        @Model.Year
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+        Edition
+    </div>
+    <div class="col-md-7 col-xl-9">
+        @Model.Edition
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+        Language
+    </div>
+    <div class="col-md-7 col-xl-9">
+        @Model.Language
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+        Note
+    </div>
+    <div class="col-md-7 col-xl-9">
+        @Model.Note
+    </div>
+</div>
+
+<div class="row">
     <div class="col-sm-6 text-sm-right">
         <a class="btn btn-primary" href="@Url.Action("Edit", new {isbn = Model.ISBN})">
             Modify

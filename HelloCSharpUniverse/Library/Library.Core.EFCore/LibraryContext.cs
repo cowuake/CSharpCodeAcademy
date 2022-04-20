@@ -41,32 +41,73 @@ namespace Library.Core.EFCore
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.HasDefaultSchema("dbo");
+            builder
+                .HasDefaultSchema("dbo");
 
-            builder.Entity<Book>()
+            builder
+                .Entity<Book>()
                 .ToTable("book")
                 .HasKey(b => b.ISBN);
 
-            builder.Entity<Book>()
-                .Property(b => b.Title)
+            builder
+                .Entity<Book>()
+                .Property(b => b.Title) // REQUIRED!
                 .HasColumnName("title")
+                .HasColumnType("VARCHAR(MAX)") // Length not needed in newer EF releases
+                .IsRequired();
+
+            builder
+                .Entity<Book>()
+                .Property(b => b.Summary) // Not required
+                .HasColumnName("summary")
+                .HasColumnType("VARCHAR(MAX)"); // Length not needed in newer EF releases
+
+            builder
+                .Entity<Book>()
+                .Property(b => b.Author) // REQUIRED!
+                .HasColumnName("author")
                 .HasColumnType("VARCHAR(100)") // Length not needed in newer EF releases
                 .HasMaxLength(100)
                 .IsRequired();
 
-            builder.Entity<Book>()
-                .Property(b => b.Summary)
-                .HasColumnName("description")
-                .HasColumnType("VARCHAR(250)") // Length not needed in newer EF releases
-                .HasMaxLength(250)
-                .IsRequired();
-
-            builder.Entity<Book>()
-                .Property(b => b.Author)
-                .HasColumnName("author")
+            builder
+                .Entity<Book>()
+                .Property(b => b.Language) // Not required
+                .HasColumnName("language")
                 .HasColumnType("VARCHAR(25)") // Length not needed in newer EF releases
-                .HasMaxLength(25)
-                .IsRequired();
+                .HasMaxLength(25);
+
+            builder
+                .Entity<Book>()
+                .Property(b => b.Year) // Not required
+                .HasColumnName("year")
+                .HasColumnType("INT");
+
+            builder
+                .Entity<Book>() 
+                .Property(b => b.Publisher) // Not required
+                .HasColumnName("publisher")
+                .HasColumnType("VARCHAR(50)")
+                .HasMaxLength(50);
+
+            builder
+                .Entity<Book>()
+                .Property(b => b.Edition) // Not required
+                .HasColumnName("edition")
+                .HasColumnType("INT");
+
+            builder
+                .Entity<Book>()
+                .Property(b => b.Pages) // Not required
+                .HasColumnName("pages")
+                .HasColumnType("INT");
+
+            builder
+                .Entity<Book>()
+                .Property(b => b.Note) // Not required
+                .HasColumnName("note")
+                .HasColumnType("VARCHAR(250)") // Length not needed in newer EF releases
+                .HasMaxLength(250);
         }
     }
 }
