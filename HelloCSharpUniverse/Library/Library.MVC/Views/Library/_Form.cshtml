@@ -98,7 +98,7 @@
     <div class="row form-group">
         <label asp-for=BookGenreId class="col-sm-4 custom-control-label text-sm-right"></label>
         <div class="col-sm-8">
-            @Html.DropDownListFor(b => b.BookGenreId, Model.AvailableCategories, "Select book genre", new { @class="form-control", required="required"})
+            @Html.DropDownListFor(b => b.BookGenreId, Model.AvailableCategories, "=== [ SELECT BOOK GENRE ] ===", new { @class="form-control", required="required"})
             <span asp-validation-for=BookGenreId class="text-danger"></span>
         </div>
     </div>

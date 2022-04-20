@@ -45,7 +45,7 @@ namespace Library.MVC.Controllers
         {
             var model = new CreateEditBookViewModel()
             {
-                AvailableCategories = GetAvailableCategories(),
+                AvailableCategories = GetAvailableGenres(),
             };
 
             return View(model);
@@ -57,7 +57,7 @@ namespace Library.MVC.Controllers
             if (model == null)
             {
                 ModelState.AddModelError(string.Empty, "Model binding failed.");
-                model.AvailableCategories = GetAvailableCategories();
+                model.AvailableCategories = GetAvailableGenres();
                 return View(model);
             }
 
@@ -90,6 +90,7 @@ namespace Library.MVC.Controllers
             Book book = _logic.GetBook(isbn);
 
             var model = book.ToCreateEditBookViewModel();
+            model.AvailableCategories = GetAvailableGenres();
 
             return View(model);
         }
@@ -100,20 +101,20 @@ namespace Library.MVC.Controllers
             if (model == null)
             {
                 ModelState.AddModelError(string.Empty, "Model binding failed.");
-                model.AvailableCategories = GetAvailableCategories();
+                model.AvailableCategories = GetAvailableGenres();
                 return View();
             }
 
             if (isbn != model.ISBN)
             {
                 ModelState.AddModelError(string.Empty, "Not-matching ISBN.");
-                model.AvailableCategories = GetAvailableCategories();
+                model.AvailableCategories = GetAvailableGenres();
                 return View();
             }
                
             if (!ModelState.IsValid)
             {
-                model.AvailableCategories = GetAvailableCategories();
+                model.AvailableCategories = GetAvailableGenres();
                 return View(model);
             }
                 
@@ -124,14 +125,14 @@ namespace Library.MVC.Controllers
             if (!result.Success)
             {
                 ModelState.AddModelError(string.Empty, result.Message);
-                model.AvailableCategories = GetAvailableCategories();
+                model.AvailableCategories = GetAvailableGenres();
                 return View(model);
             }
 
             return RedirectToAction(nameof(Index));
         }
 
-        private IEnumerable<SelectListItem> GetAvailableCategories()
+        private IEnumerable<SelectListItem> GetAvailableGenres()
         {
             var categories = _logic.GetAllBookGenres();
 

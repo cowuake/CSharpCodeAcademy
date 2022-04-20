@@ -24,7 +24,7 @@
                 @Html.DisplayNameFor(m => m.BooksCount)
             </th>
             <th>
-                Azioni
+                Actions
             </th>
         </tr>
     </thead>
@@ -41,10 +41,10 @@
                 <td>
                     <a href="@Url.Action("Details",new{id = bc.Id})">
                         Details
-                    </a> |
+                    </a>|
                     <a href="@Url.Action("Edit", new {id = bc.Id})">
                         Modify
-                    </a> | 
+                    </a>|
                     <a asp-action="Delete" asp-route-id=@bc.Id>
                         Delete
                     </a>  

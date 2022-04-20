@@ -37,7 +37,7 @@ namespace Library.MVC.Models.Library
         [DisplayName("Language")]
         public string Language { get; set; }
 
-        [DisplayName("Category ID")]
+        [DisplayName("Genre ID")]
         public int? BookGenreId { get; set; }
 
         public IEnumerable<SelectListItem> AvailableCategories;
