@@ -10,11 +10,14 @@
     List of books in library
 </h1>
 
-<p>
-    <a href="@Url.Action("Create")" class="btn btn-success">
-        Insert a book
-    </a>
-</p>
+@if (User.IsInRole("Administrator"))
+{
+    <p>
+        <a href="@Url.Action("Create")" class="btn btn-success">
+            Insert a book
+        </a>
+    </p>
+}
 
 <table class="table table-striped table-hover table light">
     <thead>
@@ -49,16 +52,44 @@
                 <td>
                     <a href="@Url.Action("BookDetails", new {isbn = @book.ISBN})">
                         Details
-                    </a>|
-                    <a href="@Url.Action("Edit", new {isbn = @book.ISBN})">
-                        Modify
-                    </a>|
-                    <a href="@Url.Action("Delete", new {isbn = @book.ISBN})">
-                        Delete
                     </a>
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        <a href="@Url.Action("Edit", new {isbn = @book.ISBN})">
+                            Modify
+                        </a>
+                        <a href="#" onclick="deleteBook(@book.ISBN); return false;">
+                            Delete
+                        </a>
+                    }
                 </td>
                     
             </tr>
         }
     </tbody>
 </table>
+
+<script>
+    function deleteBook(isbn) {
+        // Using jQuery
+        $.ajax({
+            url: '@Url.Action("Delete")',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                isbn : isbn
+            },
+            success: function(data) {
+                if (data.success) {
+                    location.href = '@Url.Action("Index", "Library")'; // Reload the page
+                } else {
+                    alert('Error when trying to delete');
+
+                    if (data.message) {
+                        console.log(data.message);
+                    }
+                }
+            }
+        });
+    }
+</script>

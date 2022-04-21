@@ -43,7 +43,7 @@ namespace Library.MVC.Controllers
                 bool existing = _logic.GetAllBookGenres(b => b.Name.Equals(model.Name)).Any();
 
                 if (existing)
-                    ModelState.AddModelError(string.Empty, $"Esiste già una categoria con nome '{model.Name}'");
+                    ModelState.AddModelError(string.Empty, $"A genre with name '{model.Name}' is already there");
             }
 
             if (ModelState.IsValid)
@@ -110,9 +110,15 @@ namespace Library.MVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Delete()
+        [HttpPost]
+        public IActionResult Delete(int id)
         {
-            return View();
+            if (id <= 0)
+                return null;
+
+            var result = _logic.RemoveBookGenreByID(id);
+
+            return null;
         }
     }
 }

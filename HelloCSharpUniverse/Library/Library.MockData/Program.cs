@@ -3,9 +3,11 @@ using EasyConsoleFramework.ExtensionMethods;
 using EasyConsoleFramework.Utils;
 using Library.Core.EFCore;
 using Library.Core.Entities;
+using Library.Core.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 
 namespace Library.MockData
 {
@@ -443,13 +445,14 @@ namespace Library.MockData
                     new Account
                     {
                         Username = "count.zero",
-                        Password = "count.zero",
+                        Password = AccountUtils.Hash("count.zero", "SHA256"),
+
                         Role = Role.Administrator,
                     },
                     new Account
                     {
                         Username = "r.mura",
-                        Password = "r.mura",
+                        Password = AccountUtils.Hash("r.mura", "SHA256"),
                         Role = Role.User,
                     },
                 };

@@ -2,6 +2,7 @@
 using Library.Core.Interface;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Library.Core.BusinessLogic
@@ -10,18 +11,19 @@ namespace Library.Core.BusinessLogic
     {
         private readonly IBookRepository _bookRepository;
         private readonly IBookGenreRepository _bookGenreRepository;
-        private readonly IAccountRepository _userRepository;
+        private readonly IAccountRepository _accountRepository;
+        private const string HashAlg = "SHA256";
 
         // Constructor
         public MainBusinessLogic(
             IBookRepository bookRepository,
             IBookGenreRepository bookGenreRepository,
-            IAccountRepository userRepository
+            IAccountRepository accountRepository
             )
         {
             _bookRepository = bookRepository;
             _bookGenreRepository = bookGenreRepository;
-            _userRepository = userRepository;
+            _accountRepository = accountRepository;
         }
 
         public Result AddBook(Book book)
@@ -61,12 +63,12 @@ namespace Library.Core.BusinessLogic
         public BookGenre GetBookGenre(int id)
             => _bookGenreRepository.Get(id);
 
-        public Account GetUser(string username)
+        public Account GetAccount(string username)
         {
             if (string.IsNullOrEmpty(username))
                 return null;
 
-            return _userRepository.GetByUsername(username);
+            return _accountRepository.GetByUsername(username);
         }
 
         public Result RemoveBook(Book book)
@@ -127,6 +129,52 @@ namespace Library.Core.BusinessLogic
             var result = _bookGenreRepository.Update(genre);
 
             return new Result(result, result ? null : "Cannot update category");
+        }
+
+        public Result AddAccount(Account account)
+        {
+            if (account == null)
+                return new Result(false, "Invalid account data");
+
+            var result = _accountRepository.Add(account);
+
+            return new Result(result, result ? null : "Cannot add account");
+        }
+
+        public Result RegisterAccount(string username, string password)
+        {
+            var account = new Account
+            {
+                Username = username,
+                Role = Role.User,
+                Password = Utils.AccountUtils.Hash(password, HashAlg)
+            };
+
+            try
+            {
+                bool result = _accountRepository.Add(account);
+
+                return new Result(result, result ? null : "Cannot register account");
+            }
+            catch (Exception ex)
+            {
+                return new Result(false, "Cannot add account", ex);
+            }
+        }
+
+        public Result CheckAccount(string username, string password)
+        {
+            var account = GetAccount(username);
+
+            if (account == null)
+                return new Result(false, "Account not found)");
+
+            string hashedPassword = Utils.AccountUtils.Hash(password, HashAlg);
+
+            if (!account.Password.Equals(hashedPassword))
+                return new Result(false, "Password for the account does not match");
+
+            return new Result();
         }
     }
 }

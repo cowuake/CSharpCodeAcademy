@@ -41,9 +41,13 @@ namespace Library.Core.Interface
 
         #region ========================= ACCOUNTS =========================
 
-        Account GetUser(string username);
+        Account GetAccount(string username);
 
-        //Result CheckLogin(string username, string passoword);
+        Result AddAccount(Account account);
+
+        Result RegisterAccount(string username, string password);
+
+        Result CheckAccount(string username, string password);
 
         #endregion ========================= ACCOUNT =========================
     }

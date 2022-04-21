@@ -29,27 +29,55 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var bc in Model)
+        @foreach(var genre in Model)
         {
             <tr>
                 <td>
-                    @bc.Name
+                    @genre.Name
                 </td>
                 <td>
-                    @bc.BooksCount
+                    @genre.BooksCount
                 </td>
                 <td>
-                    <a href="@Url.Action("Details",new{id = bc.Id})">
+                    <a href="@Url.Action("Details",new{id = genre.Id})">
                         Details
                     </a>|
-                    <a href="@Url.Action("Edit", new {id = bc.Id})">
+                    <a href="@Url.Action("Edit", new {id = genre.Id})">
                         Modify
                     </a>|
-                    <a asp-action="Delete" asp-route-id=@bc.Id>
+                    @*<a asp-action="Delete" asp-route-id=@genre.Id>
                         Delete
-                    </a>  
+                    </a>*@
+                    <a href="#" onclick="deleteBookGenre(@genre.Id); return false;">
+                        Delete
+                    </a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<script>
+    function deleteBookGenre(id) {
+        // Using jQuery
+        $.ajax({
+            url: '@Url.Action("Delete")',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                id : id
+            },
+            success: function(data) {
+                if (data.success) {
+                    location.href = '@Url.Action("Index", "BookGenres")'; // Reload the page
+                } else {
+                    alert('Error when trying to delete');
+
+                    if (data.message) {
+                        console.log(data.message);
+                    }
+                }
+            }
+        });
+    }
+</script>

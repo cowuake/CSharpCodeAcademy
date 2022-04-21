@@ -1,4 +1,5 @@
 ﻿using Library.Core.Entities;
+using Library.MVC.Models.Account;
 using Library.MVC.Models.BookGenres;
 using Library.MVC.Models.Library;
 using System.Collections.Generic;
@@ -107,6 +108,16 @@ namespace Library.MVC.Helpers
                 Id = bookCategory.Id,
                 Name = bookCategory.Name,
                 Books = books.ToEnumerableLibraryViewModel()
+            };
+        }
+
+        public static Account ToUserAccount(this RegisterAccountViewModel model)
+        {
+            return new Account
+            {
+                Username = model.Username,
+                Password = model.Password,
+                Role = Role.User,
             };
         }
     }

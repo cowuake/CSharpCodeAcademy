@@ -2,6 +2,7 @@
 using Library.Core.Interface;
 using Library.MVC.Helpers;
 using Library.MVC.Models.Library;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
@@ -82,6 +83,7 @@ namespace Library.MVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "Administrator")]
         public IActionResult Edit(string isbn)
         {
             if (string.IsNullOrEmpty(isbn))
@@ -95,7 +97,7 @@ namespace Library.MVC.Controllers
             return View(model);
         }
 
-        [HttpPost]
+        [HttpPost, Authorize(Roles = "Administrator")]
         public IActionResult Edit(string isbn, CreateEditBookViewModel model)
         {
             if (model == null)
@@ -130,6 +132,17 @@ namespace Library.MVC.Controllers
             }
 
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost, Authorize(Roles = "Administrator")]
+        public IActionResult Delete(string isbn)
+        {
+            if (string.IsNullOrEmpty(isbn))
+                return null;
+
+            var result = _logic.RemoveBookByISBN(isbn);
+
+            return null;
         }
 
         private IEnumerable<SelectListItem> GetAvailableGenres()
