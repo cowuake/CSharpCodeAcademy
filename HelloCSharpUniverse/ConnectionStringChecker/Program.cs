@@ -14,7 +14,7 @@ namespace ConnectionStringChecker
             cli.AddAction("CLI", "Insert connection string through CLI", Methods.CheckConnectionFromCLI);
             cli.AddAction("ASCII", "Read one or more connections string from ASCII file", Methods.CheckConnectionFromCLI);
             
-            cli.RunAsync();
+            cli.Run();
         }
     }
 }

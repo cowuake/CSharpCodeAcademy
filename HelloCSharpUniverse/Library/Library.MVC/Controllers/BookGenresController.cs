@@ -114,11 +114,9 @@ namespace Library.MVC.Controllers
         public IActionResult Delete(int id)
         {
             if (id <= 0)
-                return null;
+                return Json(false);
 
-            var result = _logic.RemoveBookGenreByID(id);
-
-            return null;
+            return Json(_logic.RemoveBookGenreByID(id));
         }
     }
 }

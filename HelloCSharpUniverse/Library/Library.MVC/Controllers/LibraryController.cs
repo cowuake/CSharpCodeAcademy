@@ -138,11 +138,9 @@ namespace Library.MVC.Controllers
         public IActionResult Delete(string isbn)
         {
             if (string.IsNullOrEmpty(isbn))
-                return null;
+                return Json(false);
 
-            var result = _logic.RemoveBookByISBN(isbn);
-
-            return null;
+            return Json(_logic.RemoveBookByISBN(isbn));
         }
 
         private IEnumerable<SelectListItem> GetAvailableGenres()

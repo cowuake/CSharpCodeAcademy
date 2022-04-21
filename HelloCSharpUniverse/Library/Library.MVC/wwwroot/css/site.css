@@ -104,7 +104,7 @@ span.details-head {
     }
 }
 
-#Username {
+form#Register #Username {
     width: 90%;
     display: inline-block;
 }
@@ -123,6 +123,14 @@ span.details-head {
 }
 
 #checkUsernameBtn img {
-    width: 15px;
-    height: 15px;
+    width: 10%;
+    height: 10%;
+}
+
+img {
+    border: 5px solid #ddd;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 25px;
+    width: 60%;
 }
