@@ -15,5 +15,8 @@ namespace Library.MVC.Models.Library
 
         [DisplayName("Genre")]
         public string Genre { get; set; }
+
+        [DisplayName("Return Url")]
+        public string ReturnUrl { get; set; }
     }
 }

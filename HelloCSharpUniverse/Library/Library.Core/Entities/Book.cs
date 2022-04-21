@@ -43,5 +43,8 @@ namespace Library.Core.Entities
 
         [DataMember]
         public int? BookGenreId { get; set; }
+
+        [DataMember]
+        public IList<BookLoan> BookLoans { get; set; }
     }
 }

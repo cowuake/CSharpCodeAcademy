@@ -17,6 +17,12 @@ namespace Library.Core.EFCore.EntityConfigurations
                 .HasName("isbn");
 
             builder
+                .Property(b => b.ISBN)
+                .HasColumnName("isbn")
+                .HasColumnType("VARCHAR(17)")
+                .HasMaxLength(17);
+
+            builder
                 .Property(b => b.Title) // REQUIRED!
                 .HasColumnName("title")
                 .HasColumnType("VARCHAR(MAX)") // Length not needed in newer EF releases

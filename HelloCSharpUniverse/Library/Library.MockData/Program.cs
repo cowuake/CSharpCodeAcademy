@@ -309,6 +309,11 @@ namespace Library.MockData
                         Family = "Nonfiction",
                         Name = "True crime",
                     },
+                    new BookGenre
+                    {
+                        Family = "Nonfiction",
+                        Name = "Programming language textbook",
+                    },
                 };
 
                 List<Book> mockedBooks = new List<Book>
@@ -438,22 +443,109 @@ namespace Library.MockData
                         Language = "Italiano",
                         Pages = 776,
                     },
+                    new Book
+                    {
+                        ISBN = "978-1491903995",
+                        Author = "Scott Meyers",
+                        Title = "Effective Modern C++: 42 Specific Ways to Improve Your Use of C++11 and C++14",
+                        BookGenre = mockedGenres.Find(c => c.Name == "Programming language textbook"),
+                        Year = 2014,
+                        Publisher = "O'Reilly Media",
+                        Language = "English",
+                        Pages = 451,
+                    },
                 };
 
                 List<Account> mockedAccounts = new List<Account>()
                 {
-                    new Account
+                    new Account // 1
                     {
                         Username = "count.zero",
                         Password = AccountUtils.Hash("count.zero", "SHA256"),
 
                         Role = Role.Administrator,
                     },
-                    new Account
+                    new Account // 2
                     {
                         Username = "r.mura",
                         Password = AccountUtils.Hash("r.mura", "SHA256"),
                         Role = Role.User,
+                    },
+                    new Account // 3
+                    {
+                        Username = "j.carmack",
+                        Password = AccountUtils.Hash("j.carmack", "SHA256"),
+                        Role = Role.User,
+                    },
+                    new Account // 4
+                    {
+                        Username = "n.n.taleb",
+                        Password = AccountUtils.Hash("n.n.taleb", "SHA256"),
+                        Role = Role.User,
+                    },
+                    new Account // 5
+                    {
+                        Username = "w.spector",
+                        Password = AccountUtils.Hash("w.spector", "SHA256"),
+                        Role = Role.User,
+                    },
+                    new Account // 6
+                    {
+                        Username = "m.fowler",
+                        Password = AccountUtils.Hash("m.fowler", "SHA256"),
+                        Role = Role.User,
+                    },
+                    new Account // 7
+                    {
+                        Username = "i.kant",
+                        Password = AccountUtils.Hash("i.kant", "SHA256"),
+                        Role = Role.User,
+                    },
+                    new Account // 8
+                    {
+                        Username = "f.petrarca",
+                        Password = AccountUtils.Hash("f.petrarca", "SHA256"),
+                        Role = Role.User,
+                    },
+                };
+
+                List<BookLoan> mockedLoans = new List<BookLoan>()
+                {
+                    new BookLoan
+                    {
+                        //Account = mockedAccounts.Find(a => a.Username == "j.carmack"),
+                        //Book = mockedBooks.Find(b => b.ISBN == "978-1491903995"),
+                        AccountId = 3,
+                        BookIsbn = "978-1491903995",
+                        StartTime = DateTimeUtils.RandomDateTime(),
+                        EndTime = null,
+                    },
+                    new BookLoan
+                    {
+                        //Account = mockedAccounts.Find(a => a.Username == "n.n.taleb"),
+                        //Book = mockedBooks.Find(b => b.Title == "Pensieri"),
+                        AccountId = 4,
+                        BookIsbn = "9788804492733",
+                        StartTime = DateTimeUtils.RandomDateTime(),
+                        EndTime = null,
+                    },
+                    new BookLoan
+                    {
+                        //Account = mockedAccounts.Find(a => a.Username == "f.petrarca"),
+                        //Book = mockedBooks.Find(b => b.Title == "Pensieri"),
+                        AccountId = 8,
+                        BookIsbn = "9788804492733",
+                        StartTime = DateTimeUtils.RandomDateTime(),
+                        EndTime = DateTime.Now,
+                    },
+                    new BookLoan
+                    {
+                        //Account = mockedAccounts.Find(a => a.Username == "w.spector"),
+                        //Book = mockedBooks.Find(b => b.Title == "Metro 2034"),
+                        AccountId = 5,
+                        BookIsbn = "978-1473204300",
+                        StartTime = DateTimeUtils.RandomDateTime(),
+                        EndTime = null,
                     },
                 };
 
@@ -517,6 +609,30 @@ namespace Library.MockData
                     {
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine($"\tBOOK: {b.Title.ToUnderlined()} already in database.");
+                        Console.ResetColor();
+                    }
+                });
+
+                Console.WriteLine();
+
+                mockedLoans.ForEach(l =>
+                {
+                    var alreadyThere = context.BookLoans.Find(l.AccountId, l.BookIsbn);
+
+                    string accountBook = $"{l.AccountId} : {l.BookIsbn}";
+
+                    if (alreadyThere == null)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine($"\tLOAN: Adding {accountBook.ToUnderlined()}...");
+                        Console.ResetColor();
+
+                        context.BookLoans.Add(l);
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"\tLOAN: {accountBook.ToUnderlined()} already in database.");
                         Console.ResetColor();
                     }
                 });

@@ -31,7 +31,7 @@ namespace Library.MVC.Controllers
             return View(model);
         }
 
-        [HttpPost]
+        [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Create(CreateEditBookGenreViewModel model)
         {
             if(model == null)
@@ -86,7 +86,7 @@ namespace Library.MVC.Controllers
             return View(model);
         }
 
-        [HttpPost]
+        [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Edit(int id, CreateEditBookGenreViewModel model)
         {
             if (model == null)
@@ -110,7 +110,7 @@ namespace Library.MVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpPost]
+        [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
         {
             if (id <= 0)

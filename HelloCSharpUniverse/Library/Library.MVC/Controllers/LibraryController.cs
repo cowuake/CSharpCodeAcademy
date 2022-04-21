@@ -52,7 +52,7 @@ namespace Library.MVC.Controllers
             return View(model);
         }
 
-        [HttpPost]
+        [HttpPost, ValidateAntiForgeryToken]
         public IActionResult Create(CreateEditBookViewModel model) // We exploit ASP.NET Core's MODEL BINDING
         {
             if (model == null)
@@ -97,7 +97,7 @@ namespace Library.MVC.Controllers
             return View(model);
         }
 
-        [HttpPost, Authorize(Roles = "Administrator")]
+        [HttpPost, Authorize(Roles = "Administrator"), ValidateAntiForgeryToken]
         public IActionResult Edit(string isbn, CreateEditBookViewModel model)
         {
             if (model == null)
@@ -134,7 +134,7 @@ namespace Library.MVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpPost, Authorize(Roles = "Administrator")]
+        [HttpPost, Authorize(Roles = "Administrator"), ValidateAntiForgeryToken]
         public IActionResult Delete(string isbn)
         {
             if (string.IsNullOrEmpty(isbn))

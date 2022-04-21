@@ -10,6 +10,7 @@ namespace Library.Core.EFCore
     {
         public DbSet<Book> Books { get; set; }
         public DbSet<BookGenre> BookGenres { get; set; }
+        public DbSet<BookLoan> BookLoans { get; set; }
         public DbSet<Account> Accounts { get; set; }
 
         public LibraryContext() : base()
@@ -49,6 +50,7 @@ namespace Library.Core.EFCore
 
             builder.ApplyConfiguration(new BookConfiguration());
             builder.ApplyConfiguration(new BookGenreConfiguration());
+            builder.ApplyConfiguration(new BookLoanConfiguration());
             builder.ApplyConfiguration(new AccountConfiguration());
         }
     }
