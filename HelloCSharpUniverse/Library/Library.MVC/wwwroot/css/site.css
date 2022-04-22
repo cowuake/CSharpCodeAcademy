@@ -134,3 +134,7 @@ img {
     margin: 25px;
     width: 60%;
 }
+
+container-centered {
+    text-align: center;
+}
