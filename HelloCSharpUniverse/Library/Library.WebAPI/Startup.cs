@@ -62,6 +62,9 @@ namespace Library.WebAPI
             // Dependency Injection
             services.AddTransient<IMainBusinessLogic, MainBusinessLogic>();
             services.AddTransient<IBookRepository, EFCoreBookRepository>();
+            services.AddTransient<IBookGenreRepository, EFCoreBookGenreRepository>();
+            services.AddTransient<IBookLoanRepository, EFCoreBookLoanRepository>();
+            services.AddTransient<IAccountRepository, EFCoreAccountRepository>();
 
             // It also recycles open connection in a connected ADO.NET style!
             services.AddDbContext<LibraryContext>(options =>
