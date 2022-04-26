@@ -1,0 +1,25 @@
+﻿@using Restaurant.MVC.Models.Menu
+@model AddEditDishViewModel
+@{
+    ViewData["Title"] = "Add dish to menu";
+}
+
+<h1>
+    Add dish to menu
+</h1>
+
+<form asp-action="AddDish" asp-controller="Menu">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    
+    <partial name="_AddEditDish" model=Model />
+
+    <div class="row">
+        <div class="col col-sm-12 text-sm-center">
+            <a class="btn btn-warning" href="@Url.Action("Index")">
+                Cancel
+            </a>
+            <input type="submit" value="Save dish data" class="btn btn-success"/>
+        </div>
+    </div>
+</form>

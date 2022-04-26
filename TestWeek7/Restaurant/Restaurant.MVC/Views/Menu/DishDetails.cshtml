@@ -1,0 +1,73 @@
+﻿@using Restaurant.MVC.Models.Menu
+@model DishDetailsViewModel
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Details " + Model.ID;
+}
+<h1>
+    Details for dish @Model.ID
+</h1>
+
+<div class="row">
+    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+        ID
+    </div>
+    <div class="col-md-7 col-xl-9">
+        @Model.ID
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+        Title
+    </div>
+    <div class="col-md-7 col-xl-9">
+        @Model.Name
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+        Type
+    </div>
+    <div class="col-md-7 col-xl-9">
+        @Model.Type
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5 col-xl-3 text-md-right font-weight-bold">
+        Price
+    </div>
+    <div class="col-md-7 col-xl-9">
+        @Model.Price
+    </div>
+</div>
+
+<div class="row">
+    @if (User.IsInRole("Administrator"))
+    {
+        <div class="col-sm-6 text-sm-right">
+            <a class="btn btn-primary" href="@Url.Action("EditDish", new {id = Model.ID})">
+                Edit
+            </a>
+        </div>
+        <div class="col-sm-6">
+            <a class="btn btn-info" href="@Url.Action("Index")">
+                Back to menu
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="col-sm-12 text-sm-center">
+            <a class="btn btn-info" href="@Url.Action("Index")">
+                Back to menu
+            </a>
+        </div>
+    }
+
+</div>
