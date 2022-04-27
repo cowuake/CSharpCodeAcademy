@@ -1,0 +1,29 @@
+﻿<Window x:Class="WpfExamples.DataBindingExample2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library.DataBindingExample2"
+        mc:Ignorable="d"
+        Title="Data Binding Example 2" Height="450" Width="800">
+    <StackPanel>
+        <WrapPanel>
+            <TextBlock Text="Window Title: "/>
+
+            <TextBlock Text="{Binding Path=Title, UpdateSourceTrigger=LostFocus}"/>
+        </WrapPanel>
+
+        <WrapPanel Margin="0,10,0,0">
+            <TextBlock Text="Window size: "/>
+            <TextBox Text="{Binding Width, UpdateSourceTrigger=PropertyChanged}"
+                     Width="50"/>
+            <TextBlock Text=" x "/>
+            <TextBox x:Name="heightText"
+                     Text="{Binding Height, UpdateSourceTrigger=PropertyChanged}"
+                     Width="50"/>
+            <Button Click="updateSourceClick"
+                    Margin="10,0,0,0"
+                    Width="20"/>
+        </WrapPanel>
+    </StackPanel>
+</Window>

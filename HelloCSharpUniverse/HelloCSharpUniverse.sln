@@ -105,7 +105,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees.WebAPI.ConsoleCli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.InsertBookWPF", "Library\Library.InsertBookWPF\Library.InsertBookWPF.csproj", "{7362A486-8A37-42B3-AE83-CAD702FECD63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyConsoleFramework.Test", "EasyConsoleFramework.Test\EasyConsoleFramework.Test.csproj", "{3587A2AA-BAF1-4FB2-835C-B724C7688DDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyConsoleFramework.Test", "EasyConsoleFramework.Test\EasyConsoleFramework.Test.csproj", "{3587A2AA-BAF1-4FB2-835C-B724C7688DDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.DataBindingExample", "Library\Library.DataBindingExample\Library.DataBindingExample.csproj", "{456F9EE1-898A-4E3C-B1DF-6938A2828D05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.DataBindingExample2", "Library\Library.DataBindingExample2\Library.DataBindingExample2.csproj", "{B66EA028-7156-4BA9-99C5-E3EE0E230D1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfExamples.DataBindingExample3", "WpfExamples\WpfExamples.DataBindingExample3\WpfExamples.DataBindingExample3.csproj", "{4C4784A8-C52A-44A8-BFD8-CFF06234DF70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -313,6 +319,18 @@ Global
 		{3587A2AA-BAF1-4FB2-835C-B724C7688DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3587A2AA-BAF1-4FB2-835C-B724C7688DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3587A2AA-BAF1-4FB2-835C-B724C7688DDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{456F9EE1-898A-4E3C-B1DF-6938A2828D05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{456F9EE1-898A-4E3C-B1DF-6938A2828D05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{456F9EE1-898A-4E3C-B1DF-6938A2828D05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{456F9EE1-898A-4E3C-B1DF-6938A2828D05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B66EA028-7156-4BA9-99C5-E3EE0E230D1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B66EA028-7156-4BA9-99C5-E3EE0E230D1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B66EA028-7156-4BA9-99C5-E3EE0E230D1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B66EA028-7156-4BA9-99C5-E3EE0E230D1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C4784A8-C52A-44A8-BFD8-CFF06234DF70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C4784A8-C52A-44A8-BFD8-CFF06234DF70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C4784A8-C52A-44A8-BFD8-CFF06234DF70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C4784A8-C52A-44A8-BFD8-CFF06234DF70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -337,6 +355,8 @@ Global
 		{62D5016D-CBAC-4143-9A98-427ABE4C9A97} = {7FAF6FC9-6A3D-4574-AED8-0C46C909B5DB}
 		{2F38A8AC-9A48-4039-8D95-1E5C83AF1A0F} = {56735CAF-8BFA-4742-A3BF-7B14EE63244E}
 		{7362A486-8A37-42B3-AE83-CAD702FECD63} = {7FAF6FC9-6A3D-4574-AED8-0C46C909B5DB}
+		{456F9EE1-898A-4E3C-B1DF-6938A2828D05} = {7FAF6FC9-6A3D-4574-AED8-0C46C909B5DB}
+		{B66EA028-7156-4BA9-99C5-E3EE0E230D1A} = {7FAF6FC9-6A3D-4574-AED8-0C46C909B5DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {65C86BF8-0679-41FC-8BF4-5D9B39D24F26}

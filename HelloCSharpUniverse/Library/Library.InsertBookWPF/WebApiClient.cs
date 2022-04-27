@@ -38,6 +38,20 @@ namespace Library.InsertBookWPF
             return false;
         }
 
+        public async Task<IEnumerable<BookGenreContract>> GetBookGenres()
+        {
+            HttpResponseMessage response = _client.GetAsync("api/BookGenre").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = response.Content.ReadAsStringAsync().Result;
+
+                JsonConvert.DeserializeObject<IEnumerable<BookGenreContract>>(responseContent);
+            }
+
+            return new List<BookGenreContract>();
+        }
+
         public void Dispose()
         {
             _client?.Dispose();

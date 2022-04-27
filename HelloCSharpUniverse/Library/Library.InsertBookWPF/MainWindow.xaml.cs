@@ -73,7 +73,6 @@ namespace Library.InsertBookWPF
             msg = null;
 
             string isbn = tbxISBN.Text;
-
             if (string.IsNullOrEmpty(isbn))
             {
                 msg = "Null ISBN field";
@@ -81,7 +80,6 @@ namespace Library.InsertBookWPF
             }
 
             string title = tbxTitle.Text;
-
             if (string.IsNullOrEmpty(title))
             {
                 msg = "Null Title field";
@@ -89,10 +87,16 @@ namespace Library.InsertBookWPF
             }
 
             string author = tbxAuthor.Text;
-
             if (string.IsNullOrEmpty(author))
             {
                 msg = "Null Author field";
+                return null;
+            }
+
+            var selectedGenre = cbGenre.SelectedItem;
+            if (selectedGenre == null || !(selectedGenre is BookGenreContract))
+            {
+                msg = "Invalid book genre";
                 return null;
             }
 
@@ -111,6 +115,13 @@ namespace Library.InsertBookWPF
                 Summary = tbxSummary.Text,
                 BookGenreId = 1
             };
+        }
+
+        private void LoadGenreData()
+        {
+            var data = _client.GetBookGenres().Result;
+
+            cbGenre.ItemsSource = data;
         }
 
         #endregion ========================= ACTIONS =========================

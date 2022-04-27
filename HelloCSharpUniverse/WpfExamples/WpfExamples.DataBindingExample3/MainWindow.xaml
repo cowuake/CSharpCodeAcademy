@@ -1,0 +1,35 @@
+﻿<Window x:Class="WpfExamples.DataBindingExample3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfExamples.DataBindingExample3"
+        mc:Ignorable="d"
+        Title="Data Binding Example 3" Height="150" Width="300">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Right"
+                    Margin="10,0,0,0">
+            
+            <Button x:Name="btnAddUser"
+                    Click="btnAddUser_Click">
+                Add User
+            </Button>
+
+            <Button x:Name="btnEditUser"
+                    Click="btnEditUser_Click"
+                    Margin="0,5">
+                Edit User
+            </Button>
+
+            <Button x:Name="btnDeleteUser"
+                    Click="btnDeleteUser_Click">
+                Delete User
+            </Button>
+        </StackPanel>
+
+        <ListBox x:Name="lbUsers"
+                 DisplayMemberPath="Name">
+            
+        </ListBox>
+    </DockPanel>
+</Window>
