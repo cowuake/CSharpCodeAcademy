@@ -103,60 +103,62 @@ namespace EasyConsoleFramework.ExtensionMethods
         /// <param name="columnWidths">The widhts to be used for each column</param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public static string ToFormattedString(
-            this IEnumerable<object> enumerable,
-            IList<int> columnWidths,
-            IList<string> columnTitles = null)
-        {
-            if (columnTitles != null && columnTitles.Count != columnWidths.Count)
-                throw new ArgumentException();
+        //public static string ToFormattedString(
+        //    this IEnumerable<object> enumerable,
+        //    IList<int> columnWidths,
+        //    IList<string> columnTitles = null)
+        //{
+        //    if (columnTitles != null && columnTitles.Count != columnWidths.Count)
+        //        throw new ArgumentException();
 
-            Type type = enumerable.First().GetType();
+        //    Type type = enumerable.First().GetType();
 
-            IList<string> properties =
-                type.GetProperties()
-                    .Where(p => columnTitles.Contains(p.Name))
-                    .Select(p => p.Name)
-                    .ToList();
+        //    List<string> properties =
+        //        type.GetProperties()
+        //            .Where(p => columnTitles.Contains(p.Name)) // null
+        //            .Select(p => p.Name)
+        //            .ToList();
 
-            if (columnTitles == null)
-                columnTitles = properties;
+        //    properties.ForEach(p => Console.WriteLine(p));
 
-            int lineLength = columnWidths.Sum();
+        //    if (columnTitles == null)
+        //        columnTitles = properties;
+
+        //    int lineLength = columnWidths.Sum();
             
-            string ruleLine = new string(' ', lineLength);
+        //    string ruleLine = new string(' ', lineLength);
 
-            string header = "";
+        //    string header = "";
 
-            for (int i = 0; i < columnTitles.Count; i++)
-                header += $"{columnTitles[i].PadLeft(columnWidths[i])}";
+        //    for (int i = 0; i < columnTitles.Count; i++)
+        //        header += $"{columnTitles[i].PadLeft(columnWidths[i])}";
 
-            var sb = new StringBuilder();
+        //    var sb = new StringBuilder();
 
-            sb.AppendLine(ruleLine);
-            sb.AppendLine(header);
-            sb.AppendLine(ruleLine);
+        //    sb.AppendLine(ruleLine);
+        //    sb.AppendLine(header);
+        //    sb.AppendLine(ruleLine);
 
-            foreach (object item in enumerable)
-            {
-                string row = "";
+        //    foreach (object item in enumerable)
+        //    {
+        //        string row = "";
 
-                for (int i = 0; i < properties.Count; i++)
-                {
-                    row += item.GetType()
-                        .GetProperty(properties[i])
-                        .GetValue(item, null)
-                        .ToString()
-                        .PadLeft(columnWidths[i]);
-                }
+        //        for (int i = 0; i < properties.Count; i++)
+        //        {
+        //            row += item.GetType()
+        //                .GetProperty(properties[i])
+        //                .GetValue(item, null)
+        //                .ToString()
+        //                .PadLeft(columnWidths[i]);
+        //        }
 
-                sb.AppendLine(row);
-            }
+        //        sb.AppendLine(row);
+        //    }
 
-            sb.AppendLine(ruleLine);
+        //    sb.AppendLine(ruleLine);
                 
-            return sb.ToString();
-        }
+        //    return sb.ToString();
+        //}
 
         /// <summary>
         /// Returns string in bold

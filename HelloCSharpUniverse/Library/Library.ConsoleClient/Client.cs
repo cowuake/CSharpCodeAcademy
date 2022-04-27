@@ -1,4 +1,5 @@
 ﻿using Library.ConsoleClient;
+using EasyConsoleFramework.ExtensionMethods;
 using EasyConsoleFramework.Utils;
 using Library.ConsoleClient.Model;
 using Microsoft.Extensions.Configuration;
@@ -91,6 +92,8 @@ namespace Library.ConsoleClient
 
             Console.WriteLine(line);
             Console.WriteLine();
+
+            //books.ToFormattedString(new List<int> { 10, 20, 25, 10, 38, 7 });
         }
 
         #endregion ========================= PRINTING UTILITIES =========================
