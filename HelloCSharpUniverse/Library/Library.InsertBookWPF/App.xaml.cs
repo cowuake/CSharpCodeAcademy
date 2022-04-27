@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Library.BasicWPF
+namespace Library.InsertBookWPF
 {
     /// <summary>
     /// Interaction logic for App.xaml

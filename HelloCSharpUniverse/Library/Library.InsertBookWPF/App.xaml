@@ -1,7 +1,7 @@
-﻿<Application x:Class="Library.BasicWPF.App"
+﻿<Application x:Class="Library.InsertBookWPF.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Library.BasicWPF"
+             xmlns:local="clr-namespace:Library.InsertBookWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

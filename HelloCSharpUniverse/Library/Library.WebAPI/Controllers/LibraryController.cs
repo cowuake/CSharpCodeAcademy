@@ -18,11 +18,21 @@ namespace Library.WebAPI.Controllers
             _logic = logic;
         }
 
+        /// <summary>
+        /// Get all books in library
+        /// </summary>
+        /// <returns></returns>
         [HttpGet] // REST requires the action to be specified by the method
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Book>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(string))]
         public IActionResult GetAllBooks()
         {
-            var result = _logic.GetAllBooks();
+            var result = _logic.GetAllBooks() as List<Book>;
+
+            if (result == null)
+                return NotFound("Order not found."); // Error 404
 
             // View or HTTP request response (here we don't have views)
             return Ok(result);

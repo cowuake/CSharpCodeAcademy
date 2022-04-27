@@ -91,9 +91,15 @@ namespace Library.Core.EFCore.Repository
                 // Otherwise, a null object will be passed to the business logic!
 
                 if (filter != null)
-                    return _context.Books.Include(x => x.BookGenre).Where(filter).ToList();
+                    return _context.Books
+                        .Include(b => b.BookGenre)
+                        .Include(b => b.BookLoans)
+                        .Where(filter).ToList();
 
-                return _context.Books.Include(x => x.BookGenre).ToList();
+                return _context.Books
+                    .Include(b => b.BookGenre)
+                    .Include(b => b.BookLoans)
+                    .ToList();
             }
             catch (Exception)
             {

@@ -47,6 +47,10 @@ namespace Library.WebAPI
         {
             services.AddControllers();
 
+            services.AddControllers().AddNewtonsoftJson(
+                x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+
             // Swashbuckle Swagger | Quite standard, can be easily migrated
             services.AddSwaggerGen(c =>
             {
