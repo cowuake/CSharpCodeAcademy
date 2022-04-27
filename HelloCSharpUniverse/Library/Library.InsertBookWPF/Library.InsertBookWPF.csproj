@@ -138,6 +138,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\InsertCommands.cs" />
     <Compile Include="Model\BookContract.cs" />
     <Compile Include="Model\BookGenreContract.cs" />
     <Compile Include="WebApiClient.cs" />

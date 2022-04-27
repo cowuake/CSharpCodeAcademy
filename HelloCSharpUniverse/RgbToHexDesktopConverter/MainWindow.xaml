@@ -1,0 +1,61 @@
+﻿<Window x:Class="RgbToHexDesktopConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RgbToHexDesktopConverter"
+        xmlns:converter="clr-namespace:RgbToHexDesktopConverter.Converters"
+        mc:Ignorable="d"
+        Title="RBG-HEX Converter" Height="400" Width="500">
+
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Margin" Value="25,0"/>
+            <Setter Property="Foreground" Value="DarkGray"/>
+        </Style>
+
+        <Style TargetType="StackPanel">
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <converter:HexBrushConverter x:Key="HexBrushConverter"/>
+    </Window.Resources>
+    
+    <StackPanel>
+        <Canvas Margin="20"
+                Width="400"
+                Height="200"
+                Background="{Binding Hex, UpdateSourceTrigger=PropertyChanged}">
+        </Canvas>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Foreground="Red">R</TextBlock>
+            <TextBox x:Name="txtRed"
+                     Text="{Binding Red, UpdateSourceTrigger=PropertyChanged}">
+            </TextBox>
+
+            <TextBlock Foreground="Green">G</TextBlock>
+            <TextBox x:Name="txtGreen"
+                     Text="{Binding Green, UpdateSourceTrigger=PropertyChanged}">
+            </TextBox>
+
+            <TextBlock Foreground="Blue">B</TextBlock>
+            <TextBox x:Name="txtBlue"
+                     Text="{Binding Blue, UpdateSourceTrigger=PropertyChanged}">
+            </TextBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock>HEX</TextBlock>
+            <TextBox Width="100"
+                     Text="{Binding Hex}">
+            </TextBox>
+        </StackPanel>
+    </StackPanel>
+</Window>

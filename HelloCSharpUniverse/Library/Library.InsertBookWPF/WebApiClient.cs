@@ -30,7 +30,7 @@ namespace Library.InsertBookWPF
                 "application/json"
                 );
 
-            HttpResponseMessage response = _client.PostAsync("api/Library", content).Result;
+            HttpResponseMessage response = await _client.PostAsync("api/Library", content);
 
             if (response.IsSuccessStatusCode)
                 return true;
@@ -40,7 +40,7 @@ namespace Library.InsertBookWPF
 
         public async Task<IEnumerable<BookGenreContract>> GetBookGenres()
         {
-            HttpResponseMessage response = _client.GetAsync("api/BookGenre").Result;
+            HttpResponseMessage response = await _client.GetAsync("api/BookGenre");
 
             if (response.IsSuccessStatusCode)
             {

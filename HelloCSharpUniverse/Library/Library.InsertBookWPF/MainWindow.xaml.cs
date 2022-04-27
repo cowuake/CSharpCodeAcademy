@@ -26,6 +26,7 @@ namespace Library.InsertBookWPF
         public MainWindow()
         {
             InitializeComponent();
+            LoadGenreData();
             _client = new WebApiClient();
         }
 
@@ -47,6 +48,7 @@ namespace Library.InsertBookWPF
                     MessageBoxImage.Error);
                 return;
             }
+
             var result = _client.InsertBook(book).Result;
             if (result)
             {
@@ -113,7 +115,7 @@ namespace Library.InsertBookWPF
                 Pages = pages,
                 Title = title,
                 Summary = tbxSummary.Text,
-                BookGenreId = 1
+                BookGenreId = (selectedGenre as BookGenreContract).Id,
             };
         }
 
@@ -138,5 +140,10 @@ namespace Library.InsertBookWPF
         }
 
         #endregion ========================= UTILITIES =========================
+
+        private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
+        }
     }
 }

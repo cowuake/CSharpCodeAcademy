@@ -4,32 +4,76 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfExamples.DataBindingExample3"
+        xmlns:converter="clr-namespace:WpfExamples.DataBindingExample3.Converters"
         mc:Ignorable="d"
         Title="Data Binding Example 3" Height="150" Width="300">
+
+    <Window.Resources>
+        <converter:AgeConverter x:Key="AgeConverterKey"/>
+        <converter:AgeBrushConverter x:Key="AgeBrushConverterKey" />
+    </Window.Resources>
+
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Replace"
+                        Executed="CommandBinding_Executed_Replace"
+                        CanExecute="CommandBinding_CanExecute_Replace"/>
+
+        <CommandBinding Command="ApplicationCommands.Delete"
+                        Executed="CommandBinding_Executed_Delete"
+                        CanExecute="CommandBinding_CanExecute_Delete"/>
+
+        <CommandBinding Command="ApplicationCommands.New"
+                        Executed="CommandBinding_Executed_New"
+                        CanExecute="CommandBinding_CanExecute_New"/>
+    </Window.CommandBindings>
+
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding ApplicationCommands.Replace}"
+                    Key="e"
+                    Modifiers="Ctrl"/>
+
+        <KeyBinding Command="{Binding ApplicationCommands.Delete}"
+                    Key="d"
+                    Modifiers="Ctrl"/>
+
+        <KeyBinding Command="{Binding ApplicationCommands.New}"
+                    Key="a"
+                    Modifiers="Ctrl"/>
+    </Window.InputBindings>
+
     <DockPanel>
         <StackPanel DockPanel.Dock="Right"
                     Margin="10,0,0,0">
-            
+
             <Button x:Name="btnAddUser"
-                    Click="btnAddUser_Click">
+                    Command="ApplicationCommands.Add">
+                    <!--Click="btnAddUser_Click">-->
                 Add User
             </Button>
 
             <Button x:Name="btnEditUser"
-                    Click="btnEditUser_Click"
-                    Margin="0,5">
+                    Margin="0,5"
+                    Command="ApplicationCommands.Replace">
+                    <!--Click="btnEditUser_Click">-->
                 Edit User
             </Button>
 
             <Button x:Name="btnDeleteUser"
-                    Click="btnDeleteUser_Click">
+                    Command="ApplicationCommands.Delete">
+                    <!--Click="btnDeleteUser_Click">-->
                 Delete User
             </Button>
+
+            <TextBlock x:Name="ageText"
+                       Text="{Binding Age, Converter={StaticResource AgeConverterKey}}"
+                       Foreground="{Binding Age, Converter={StaticResource AgeBrushConverterKey}}">
+
+            </TextBlock>
         </StackPanel>
 
         <ListBox x:Name="lbUsers"
-                 DisplayMemberPath="Name">
-            
+                 DisplayMemberPath="Name"
+                 SelectionChanged="ListBoxSelectionChange">
         </ListBox>
     </DockPanel>
 </Window>

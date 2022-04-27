@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SelHostingConsoleClient")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Avanade")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("SelHostingConsoleClient")]
-[assembly: AssemblyCopyright("Copyright © Avanade 2022")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
