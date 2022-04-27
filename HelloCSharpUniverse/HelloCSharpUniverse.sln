@@ -105,6 +105,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees.WebAPI.ConsoleCli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.InsertBookWPF", "Library\Library.InsertBookWPF\Library.InsertBookWPF.csproj", "{7362A486-8A37-42B3-AE83-CAD702FECD63}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyConsoleFramework.Test", "EasyConsoleFramework.Test\EasyConsoleFramework.Test.csproj", "{3587A2AA-BAF1-4FB2-835C-B724C7688DDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -307,6 +309,10 @@ Global
 		{7362A486-8A37-42B3-AE83-CAD702FECD63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7362A486-8A37-42B3-AE83-CAD702FECD63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7362A486-8A37-42B3-AE83-CAD702FECD63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3587A2AA-BAF1-4FB2-835C-B724C7688DDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3587A2AA-BAF1-4FB2-835C-B724C7688DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3587A2AA-BAF1-4FB2-835C-B724C7688DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3587A2AA-BAF1-4FB2-835C-B724C7688DDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

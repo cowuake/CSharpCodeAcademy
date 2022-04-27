@@ -81,55 +81,105 @@ namespace EasyConsoleFramework.ExtensionMethods
             return str.Split(Environment.NewLine.ToCharArray()).Max(l => l.Length);
         }
 
-        //public static string ToFormattedString(
-        //    this IEnumerable<object> enumerable,
-        //    ICollection<string> propertyNames,
-        //    ICollection<string> headerItems)
-        //{
-        //    if (propertyNames.Count != headerItems.Count)
-        //        throw new ArgumentException();
+        public static string Truncate(this string str, int maxLength, bool ellipsis = true)
+        {
+            if (string.IsNullOrEmpty(str))
+                return str;
 
-        //    Type type = enumerable.First().GetType();
+            if (maxLength <= 0)
+                return str;
 
-        //    IList<string> properties =
-        //        type.GetProperties()
-        //            .Where(p => propertyNames.Contains(p.Name))
-        //            .Select(p => p.Name)
-        //            .ToList();
+            if (ellipsis)
+                return str.Substring(0, maxLength - 3) + "...";
 
-        //    List<int> fieldLengths = new List<int>();
+            return str.Substring(0, maxLength);
+        }
 
-        //    foreach (string property in properties)
-        //        fieldLengths.Add(enumerable.Max(i => type.GetProperty(property).GetValue(i).ToString().Length));
+        /// <summary>
+        /// Formats enumerable object in tabular form
+        /// </summary>
+        /// <param name="enumerable">The Enumerable to be formatted</param>
+        /// <param name="columnTitles"></param>
+        /// <param name="columnWidths">The widhts to be used for each column</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public static string ToFormattedString(
+            this IEnumerable<object> enumerable,
+            IList<int> columnWidths,
+            IList<string> columnTitles = null)
+        {
+            if (columnTitles != null && columnTitles.Count != columnWidths.Count)
+                throw new ArgumentException();
 
-        //    int lineLength = (fieldLengths.Count - 1) * 2 + fieldLengths.Sum(n => n);
-        //    string line = new string(' ', lineLength);
+            Type type = enumerable.First().GetType();
 
-        //    string header = "";
-        //    //foreach (string name in headerItems)
+            IList<string> properties =
+                type.GetProperties()
+                    .Where(p => columnTitles.Contains(p.Name))
+                    .Select(p => p.Name)
+                    .ToList();
 
-        //    //foreach (var item in enumerable
+            if (columnTitles == null)
+                columnTitles = properties;
 
-        //    var sb = new StringBuilder();
-        //    sb.AppendLine(line);
-        //    sb.AppendLine(header);
-        //    sb.AppendLine(line);
-        //    return sb.ToString();
-        //}
+            int lineLength = columnWidths.Sum();
+            
+            string ruleLine = new string(' ', lineLength);
 
+            string header = "";
+
+            for (int i = 0; i < columnTitles.Count; i++)
+                header += $"{columnTitles[i].PadLeft(columnWidths[i])}";
+
+            var sb = new StringBuilder();
+
+            sb.AppendLine(ruleLine);
+            sb.AppendLine(header);
+            sb.AppendLine(ruleLine);
+
+            foreach (object item in enumerable)
+            {
+                string row = "";
+
+                for (int i = 0; i < properties.Count; i++)
+                {
+                    row += item.GetType()
+                        .GetProperty(properties[i])
+                        .GetValue(item, null)
+                        .ToString()
+                        .PadLeft(columnWidths[i]);
+                }
+
+                sb.AppendLine(row);
+            }
+
+            sb.AppendLine(ruleLine);
+                
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns string in bold
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static string ToBold(this string str)
-        {
-            return $"{ANSI_ESCAPE_CODE.BOLD}{str}{ANSI_ESCAPE_CODE.NOT_BOLD}";
-        }
+            => $"{ANSI_ESCAPE_CODE.BOLD}{str}{ANSI_ESCAPE_CODE.NOT_BOLD}";
 
+        /// <summary>
+        /// Returns string in italic
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static string ToItalic(this string str)
-        {
-            return $"{ANSI_ESCAPE_CODE.ITALIC}{str}{ANSI_ESCAPE_CODE.NOT_ITALIC}";
-        }
+            => $"{ANSI_ESCAPE_CODE.ITALIC}{str}{ANSI_ESCAPE_CODE.NOT_ITALIC}";
 
+        /// <summary>
+        /// Returns string underlined
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static string ToUnderlined(this string str)
-        {
-            return $"{ANSI_ESCAPE_CODE.UNDERLINED}{str}{ANSI_ESCAPE_CODE.NOT_UNDERLINED}";
-        }
+            => $"{ANSI_ESCAPE_CODE.UNDERLINED}{str}{ANSI_ESCAPE_CODE.NOT_UNDERLINED}";
     }
 }
