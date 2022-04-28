@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Library.BookGenreWPF"
         xmlns:viewmodel="clr-namespace:Library.BookGenreWPF.ViewModels"
         mc:Ignorable="d"
-        Title="Library: book genres" SizeToContent="WidthAndHeight">
+        Title="Library: book genres" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
 
     <Window.DataContext>
         <viewmodel:BookGenresViewModel/>
@@ -31,8 +31,7 @@
                   ScrollViewer.CanContentScroll="True"
                   ScrollViewer.VerticalScrollBarVisibility="Visible"
                   AlternationCount="2"
-                  Height="300"
-                  MaxHeight="300">
+                  Height="300">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID"
@@ -50,7 +49,7 @@
         </DataGrid>
 
         <StackPanel>
-            <Button>Insert</Button>
+            <Button Click="OpenInsertBookGenreWindow">Insert</Button>
             <Button>Edit</Button>
             <Button>Remove</Button>
             <TextBox></TextBox>

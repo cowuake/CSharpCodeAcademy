@@ -30,6 +30,22 @@ namespace Library.BookGenreWPF.Services
             return JsonConvert.DeserializeObject<IEnumerable<BookGenreModel>>(responseContent);
         }
 
+        public async Task<bool> InsertBookGenre(BookGenreModel genre)
+        {
+            var content = new StringContent(
+                JsonConvert.SerializeObject(genre),
+                Encoding.UTF8,
+                "application/json"
+                );
+
+            HttpResponseMessage response = _client.PostAsync("api/BookGenre", content).Result;
+
+            if (!response.IsSuccessStatusCode)
+                return false;
+
+            return true;
+        }
+
         public void Dispose()
         {
             _client?.Dispose();

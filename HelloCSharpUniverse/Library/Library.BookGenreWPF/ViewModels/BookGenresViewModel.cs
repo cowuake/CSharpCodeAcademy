@@ -36,5 +36,10 @@ namespace Library.BookGenreWPF.ViewModels
                 }
             }
         }
+
+        public void RefreshBookGenres()
+        {
+            Genres = new ObservableCollection<BookGenreModel>(_client.GetBookGenresAsync().Result);
+        }
     }
 }

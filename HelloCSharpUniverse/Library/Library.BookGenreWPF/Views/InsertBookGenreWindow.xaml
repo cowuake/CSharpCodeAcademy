@@ -1,0 +1,63 @@
+﻿<Window x:Class="Library.BookGenreWPF.Views.InsertBookGenreWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library.BookGenreWPF"
+        xmlns:viewmodel="clr-namespace:Library.BookGenreWPF.ViewModels"
+        mc:Ignorable="d"
+        Title="Library: insert book genre" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+
+    <!--<Window.DataContext>
+        <viewmodel:InsertBookGenreViewModel/>
+    </Window.DataContext>-->
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../AppStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0"
+               Grid.Column="0"
+               Content="New book genre's NAME"/>
+
+        <TextBox Grid.Row="0"
+                 Grid.Column="1"
+                 Text="{Binding Name}"/>
+
+        <Label Grid.Row="1"
+               Grid.Column="0"
+               Content="New book genre's FAMILY"/>
+
+        <TextBox Grid.Row="1"
+                 Grid.Column="1"
+                 Text="{Binding Family}"/>
+
+        <Button Grid.Row="2"
+                Grid.Column="0"
+                Background="LightCoral"
+                Content="Cancel"
+                Click="Button_Click_Cancel"/>
+
+        <Button Grid.Row="2"
+                Grid.Column="1"
+                Background="DarkSeaGreen"
+                Content="Insert"
+                Command="{Binding InsertCmd}"/>
+    </Grid>
+</Window>

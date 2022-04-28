@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.BookGenreWPF.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,16 @@ namespace Library.BookGenreWPF
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void OpenInsertBookGenreWindow(object sender, RoutedEventArgs e)
+        {
+            Views.InsertBookGenreWindow window = new Views.InsertBookGenreWindow();
+
+            bool? result = window.ShowDialog();
+
+            if (result == true)
+                (DataContext as BookGenresViewModel).RefreshBookGenres();
         }
     }
 }
