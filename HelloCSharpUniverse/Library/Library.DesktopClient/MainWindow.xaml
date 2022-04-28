@@ -17,7 +17,7 @@
     </Window.Resources>
 
     <Window.DataContext>
-        <vm:BooksViewModel/>
+        <vm:BooksViewModels/>
     </Window.DataContext>
 
     <DockPanel>
@@ -92,6 +92,10 @@
                     <DataGridTextColumn Header="Pages"
                                         Width="150"
                                         Binding="{Binding Pages}"/>
+
+                    <DataGridTextColumn Header="Genre"
+                                        Width="150"
+                                        Binding="{Binding BookGenre.Name}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

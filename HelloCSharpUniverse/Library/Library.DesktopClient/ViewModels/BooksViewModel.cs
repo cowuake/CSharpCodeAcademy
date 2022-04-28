@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
 
 namespace Library.DesktopClient.ViewModels
 {
@@ -12,6 +13,7 @@ namespace Library.DesktopClient.ViewModels
         private WebApiClient _webApiClient;
         private BookFilterModel _filterModel;
         private ObservableCollection<BookModel> _books;
+        private ICommand Search;
 
         public BooksViewModel()
         {

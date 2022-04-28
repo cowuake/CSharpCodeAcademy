@@ -119,11 +119,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RgbToHexDesktopConverter", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInfoDesktopDisplayer", "UserInfoDesktopDisplayer\UserInfoDesktopDisplayer.csproj", "{ADA67246-29E4-400A-8EAB-ADBEF84F2A22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfExamples.TriggerExamples", "WpfExamples\WpfExamples.TriggerExamples\WpfExamples.TriggerExamples.csproj", "{1C33DC72-7D9F-4ECE-A180-D6035C04A027}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfExamples.TriggerExamples", "WpfExamples\WpfExamples.TriggerExamples\WpfExamples.TriggerExamples.csproj", "{1C33DC72-7D9F-4ECE-A180-D6035C04A027}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfExamples.AnimationExample", "WpfExamples\WpfExamples.AnimationExample\WpfExamples.AnimationExample.csproj", "{D493098D-02E7-4F6C-AA69-C6BB2EA93631}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfExamples.AnimationExample", "WpfExamples\WpfExamples.AnimationExample\WpfExamples.AnimationExample.csproj", "{D493098D-02E7-4F6C-AA69-C6BB2EA93631}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.DesktopClient", "Library\Library.DesktopClient\Library.DesktopClient.csproj", "{09C2FE97-5744-44B7-A905-426C7198EF74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.DesktopClient", "Library\Library.DesktopClient\Library.DesktopClient.csproj", "{09C2FE97-5744-44B7-A905-426C7198EF74}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.BookGenreWPF", "Library\Library.BookGenreWPF\Library.BookGenreWPF.csproj", "{CBF9840C-2E3E-43D3-A160-69990636D23A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -363,6 +365,10 @@ Global
 		{09C2FE97-5744-44B7-A905-426C7198EF74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09C2FE97-5744-44B7-A905-426C7198EF74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09C2FE97-5744-44B7-A905-426C7198EF74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBF9840C-2E3E-43D3-A160-69990636D23A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF9840C-2E3E-43D3-A160-69990636D23A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF9840C-2E3E-43D3-A160-69990636D23A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF9840C-2E3E-43D3-A160-69990636D23A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -393,6 +399,7 @@ Global
 		{1C33DC72-7D9F-4ECE-A180-D6035C04A027} = {A0577D25-2065-44BA-84BE-4BB4A2374FB0}
 		{D493098D-02E7-4F6C-AA69-C6BB2EA93631} = {A0577D25-2065-44BA-84BE-4BB4A2374FB0}
 		{09C2FE97-5744-44B7-A905-426C7198EF74} = {7FAF6FC9-6A3D-4574-AED8-0C46C909B5DB}
+		{CBF9840C-2E3E-43D3-A160-69990636D23A} = {7FAF6FC9-6A3D-4574-AED8-0C46C909B5DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {65C86BF8-0679-41FC-8BF4-5D9B39D24F26}

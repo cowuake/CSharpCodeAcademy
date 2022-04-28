@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Library.DesktopClient
+namespace Library.BookGenreWPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,12 +23,6 @@ namespace Library.DesktopClient
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void OpenNewBookWindow(object sender, RoutedEventArgs e)
-        {
-            InsertBookWindow window = new InsertBookWindow();
-            window.ShowDialog();
         }
     }
 }
