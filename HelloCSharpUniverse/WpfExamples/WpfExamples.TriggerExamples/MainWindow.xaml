@@ -1,0 +1,89 @@
+﻿<Window x:Class="WpfExamples.TriggerExamples.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfExamples.TriggerExamples"
+        mc:Ignorable="d"
+        Title="MainWindow" SizeToContent="WidthAndHeight">
+
+    <StackPanel HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Margin="50">
+        <CheckBox Name="cbSample"
+                  Content="Check me, please, I beg you!"/>
+        <TextBlock HorizontalAlignment="Center"
+                   Margin="0,20,0,0"
+                   FontSize="40">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Text" Value="NO..." />
+                    <Setter Property="Foreground" Value="Red"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=cbSample, Path=IsChecked}">
+                            <Setter Property="Foreground" Value="Green"/>
+                            <Setter Property="Text" Value="YES!"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
+        <Border Name="sampleBorder"
+                Background="LightGreen"
+                Width="100"
+                Height="100"
+                BorderBrush="Green"
+                BorderThickness="3">
+            <!--<Border.Style>
+                <Style TargetType="Border">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Width" Value="120"/>
+                            <Setter Property="Height" Value="120"/>
+                            <Setter Property="Background" Value="AntiqueWhite"/>
+                            <Setter Property="BorderBrush" Value="Bisque"/>
+                            <Setter Property="BorderThickness" Value="10"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>-->
+
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Duration="0:0:0.600"
+                                                            Storyboard.TargetProperty="BorderThickness"
+                                                            From="3"
+                                                            To="8"/>
+                                        <DoubleAnimation Duration="0:0:0.500"
+                                                         Storyboard.TargetProperty="Width"
+                                                         From="100"
+                                                         To="120"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ThicknessAnimation Duration="0:0:0.400"
+                                                            Storyboard.TargetProperty="BorderThickness"
+                                                            From="8"
+                                                            To="3"/>
+                                        <DoubleAnimation Duration="0:0:0.500"
+                                                         Storyboard.TargetProperty="Width"
+                                                         From="120"
+                                                         To="100"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+        </Border>
+    </StackPanel>
+</Window>

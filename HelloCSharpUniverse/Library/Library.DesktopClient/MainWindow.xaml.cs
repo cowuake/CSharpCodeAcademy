@@ -12,9 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using UserInfoDesktopDisplayer.ViewModels;
 
-namespace UserInfoDesktopDisplayer
+namespace Library.DesktopClient
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -24,7 +23,6 @@ namespace UserInfoDesktopDisplayer
         public MainWindow()
         {
             InitializeComponent();
-            //DataContext = new UserViewModel();
         }
     }
 }

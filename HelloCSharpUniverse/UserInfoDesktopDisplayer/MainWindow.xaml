@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserInfoDesktopDisplayer"
+        xmlns:conv="clr-namespace:UserInfoDesktopDisplayer.Converters"
+        xmlns:vm="clr-namespace:UserInfoDesktopDisplayer.ViewModels"
         mc:Ignorable="d"
-        Title="User Info Displayer" Height="400" Width="500">
+        Title="User Info Displayer" SizeToContent="WidthAndHeight">
 
     <Window.Resources>
         <Style TargetType="Label">
@@ -17,22 +19,23 @@
         <Style TargetType="TextBox">
             <Setter Property="Width" Value="150"/>
             <Setter Property="Margin" Value="0,2"/>
+            <Setter Property="TextAlignment" Value="Center"/>
         </Style>
 
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Margin" Value="0,2"/>
+            <Setter Property="TextAlignment" Value="Center"/>
         </Style>
+
+        <conv:DateTimeNullableStringConverter x:Key="DateTimeNullableStringConverterKey"></conv:DateTimeNullableStringConverter>
     </Window.Resources>
 
+    <Window.DataContext>
+        <vm:UserViewModel/>
+    </Window.DataContext>
+
     <StackPanel>
-        <TextBlock Text="{Binding CompleteName, UpdateSourceTrigger=PropertyChanged}"
-                   Margin="20"
-                   HorizontalAlignment="Center"
-                   Width="300"
-                   Background="AntiqueWhite">
-        </TextBlock>
-        
         <Grid Margin="25"
               HorizontalAlignment="Center"
               Width="400">
@@ -46,42 +49,77 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0"
-                   Grid.Column="0">
-                First Name
-            </Label>
-            <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"
-                     Grid.Row="0"
-                     Grid.Column="1">
+            <TextBox Text="{Binding CompleteName}"
+                     Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                       Margin="20"
+                       HorizontalAlignment="Center"
+                       Width="300"
+                       Background="AntiqueWhite">
             </TextBox>
 
             <Label Grid.Row="1"
-                   Grid.Column="0">
-                Last Name
+                   Grid.Column="0"
+                   Target="{Binding ElementName=txtFirstName}">
+                First Name
             </Label>
-            <TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"
+            <TextBox x:Name="txtFirstName"
+                     Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"
                      Grid.Row="1"
                      Grid.Column="1">
+                <!--<TextBox.Style>
+                    <Style TargetType="TextBox">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="AntiqueWhite"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>-->
             </TextBox>
 
             <Label Grid.Row="2"
-                   Grid.Column="0">
-                Date of birth
+                   Grid.Column="0"
+                   Target="{Binding ElementName=txtLastName}">
+                Last Name
             </Label>
-            <TextBox Text="{Binding DateOfBirth, UpdateSourceTrigger=PropertyChanged}"
+            <TextBox x:Name="txtLastName"
+                     Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"
                      Grid.Row="2"
                      Grid.Column="1">
             </TextBox>
 
             <Label Grid.Row="3"
-                   Grid.Column="0">
+                   Grid.Column="0"
+                   Target="{Binding ElementName=txtDateOfBirth}">
+                Date of birth
+            </Label>
+            <!--<TextBox x:Name="txtDateOfBirth"
+                     Text="{Binding DateOfBirth, UpdateSourceTrigger=LostFocus}"
+                     Grid.Row="3"
+                     Grid.Column="1">
+            </TextBox>-->
+
+            <DatePicker x:Name="dpDateOfBirth"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        SelectedDate="{Binding DateOfBirth}">
+            </DatePicker>
+
+            <Label Grid.Row="4"
+                   Grid.Column="0"
+                   Target="{Binding ElementName=txtAge}">
                 Age
             </Label>
-            <TextBlock Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}"
-                       Grid.Row="3"
+            <TextBlock x:Name="txtAge"
+                       Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}"
+                       TextAlignment="Center"
+                       Grid.Row="4"
                        Grid.Column="1"
+                       Margin="25,0"
                        VerticalAlignment="Center"
                        Foreground="CadetBlue">
             </TextBlock>

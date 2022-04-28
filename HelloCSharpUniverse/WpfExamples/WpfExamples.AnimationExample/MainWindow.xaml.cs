@@ -9,12 +9,12 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using UserInfoDesktopDisplayer.ViewModels;
 
-namespace UserInfoDesktopDisplayer
+namespace WpfExamples.AnimationExample
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -24,7 +24,13 @@ namespace UserInfoDesktopDisplayer
         public MainWindow()
         {
             InitializeComponent();
-            //DataContext = new UserViewModel();
+
+            DoubleAnimation animation = new DoubleAnimation(360, 0, new Duration(TimeSpan.FromSeconds(3)));
+            RotateTransform rotateTransform = new RotateTransform();
+            img.RenderTransform = rotateTransform;
+            img.RenderTransformOrigin = new Point(0.5, 0.5);
+            animation.RepeatBehavior = RepeatBehavior.Forever;
+            rotateTransform.BeginAnimation(RotateTransform.AngleProperty, animation);
         }
     }
 }
