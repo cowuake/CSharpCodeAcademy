@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Library.BookGenreWPF"
         xmlns:viewmodel="clr-namespace:Library.BookGenreWPF.ViewModels"
         mc:Ignorable="d"
-        Title="Library: insert book genre" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+        Title="Library: insert book genre" SizeToContent="WidthAndHeight" ResizeMode="NoResize" Background="WhiteSmoke">
 
     <!--<Window.DataContext>
         <viewmodel:InsertBookGenreViewModel/>
@@ -19,6 +19,11 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Key="Return"
+                    Command="{Binding InsertCmd}"/>
+    </Window.InputBindings>
 
     <Grid>
         <Grid.RowDefinitions>

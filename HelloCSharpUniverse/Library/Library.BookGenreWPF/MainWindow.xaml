@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Library.BookGenreWPF"
         xmlns:viewmodel="clr-namespace:Library.BookGenreWPF.ViewModels"
         mc:Ignorable="d"
-        Title="Library: book genres" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+        Title="Library: book genres" SizeToContent="WidthAndHeight" ResizeMode="NoResize" Background="WhiteSmoke">
 
     <Window.DataContext>
         <viewmodel:BookGenresViewModel/>
@@ -36,15 +36,15 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID"
                                     Width="75"
-                                    Binding="{Binding Id}" />
+                                    Binding="{Binding Id}"/>
 
                 <DataGridTextColumn Header="Name"
                                     Width="250"
-                                    Binding="{Binding Name}" />
+                                    Binding="{Binding Name}"/>
 
                 <DataGridTextColumn Header="Family"
                                     Width="120"
-                                    Binding="{Binding Family}" />
+                                    Binding="{Binding Family}"/>
             </DataGrid.Columns>
         </DataGrid>
 
