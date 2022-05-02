@@ -96,42 +96,59 @@ namespace EasyConsoleFramework.ExtensionMethods
         }
 
         /// <summary>
-        /// Formats enumerable object in tabular form
+        /// Formats an enumerable object containing public objects in tabular form
         /// </summary>
         /// <param name="enumerable">The Enumerable to be formatted</param>
         /// <param name="columnTitles"></param>
         /// <param name="columnWidths">The widhts to be used for each column</param>
+        /// <param name="alignment">The desired text alignment (left/right/center)</param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public static string ToFormattedString(
+        public static string ToFormattedString
+            (
             this IEnumerable<object> enumerable,
             IList<int> columnWidths,
-            IList<string> columnTitles = null)
+            IList<string> columnTitles = null,
+            string alignment = "left"
+            )
         {
             if (columnTitles != null && columnTitles.Count != columnWidths.Count)
                 throw new ArgumentException();
 
+            if (!new string[] { "left", "right", "center" }.Contains(alignment))
+                throw new ArgumentException(nameof(alignment));
+
             Type type = enumerable.First().GetType();
 
-            List<string> properties =
-                type.GetProperties()
-                    .Where(p => columnTitles.Contains(p.Name)) // null
-                    .Select(p => p.Name)
-                    .ToList();
+            var properties = type.GetProperties();
 
-            properties.ForEach(p => Console.WriteLine(p));
+            var propertyNames = properties
+                .Select(p => p.Name)
+                .ToList();
+
+            var propertyTypes = properties
+                .Select(p => p.GetType())
+                .ToList();
 
             if (columnTitles == null)
-                columnTitles = properties;
+                columnTitles = propertyNames;
 
-            int lineLength = columnWidths.Sum();
+            int lineLength = columnWidths.Sum() + columnTitles.Count;
 
-            string ruleLine = new string(' ', lineLength);
+            string ruleLine = new string('-', lineLength);
 
             string header = "";
 
             for (int i = 0; i < columnTitles.Count; i++)
-                header += $"{columnTitles[i].PadLeft(columnWidths[i])}";
+            {
+                if (alignment == "left")
+                    header += $"{columnTitles[i].PadLeft(columnWidths[i])}";
+                else if (alignment == "right")
+                    header += $"{columnTitles[i].PadRight(columnWidths[i])}";
+                else if (alignment == "center")
+                    header += $"{columnTitles[i].PadUntilLimit(columnWidths[i])}";
+            }
+            
 
             var sb = new StringBuilder();
 
@@ -143,13 +160,20 @@ namespace EasyConsoleFramework.ExtensionMethods
             {
                 string row = "";
 
-                for (int i = 0; i < properties.Count; i++)
+                for (int i = 0; i < properties.Count(); i++)
                 {
-                    row += item.GetType()
-                        .GetProperty(properties[i])
+                    string value = item
+                        .GetType()
+                        .GetProperty(propertyNames[i])
                         .GetValue(item, null)
-                        .ToString()
-                        .PadLeft(columnWidths[i]);
+                        .ToString();
+
+                    if (alignment == "left")
+                        row += value.PadLeft(columnWidths[i]);
+                    else if (alignment == "right")
+                        row += value.PadRight(columnWidths[i]);
+                    else if (alignment == "center")
+                        row += value.PadUntilLimit(columnWidths[i]);
                 }
 
                 sb.AppendLine(row);
@@ -188,6 +212,6 @@ namespace EasyConsoleFramework.ExtensionMethods
             => number.ToString().Length;
 
         internal static decimal ToFractional(this int number)
-            => number / number.NDigits();
+            => number / 10 ^ (number.NDigits() - 1);
     }
 }

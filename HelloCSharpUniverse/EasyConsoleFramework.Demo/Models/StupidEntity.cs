@@ -5,19 +5,19 @@ using System.Text;
 
 namespace EasyConsoleFramework.Demo.Models
 {
-    internal class StupidEntity
+    public class StupidEntity
     {
-        internal int Id { get; }
+        public int Id { get; }
 
-        internal string Name { get; }
+        public string Name { get; }
 
-        internal DateTime ThatMoment { get; }
+        public DateTime ThatMoment { get; }
 
-        internal decimal Revenue { get; }
+        public decimal Revenue { get; }
 
-        internal PreferredTopic PreferredTopic { get; }
+        public PreferredTopic PreferredTopic { get; }
 
-        internal StupidEntity(int id, string name, DateTime moment, decimal revenue, PreferredTopic topic)
+        public StupidEntity(int id, string name, DateTime moment, decimal revenue, PreferredTopic topic)
         {
             Id = id;
             Name = name;
@@ -26,7 +26,7 @@ namespace EasyConsoleFramework.Demo.Models
             PreferredTopic = topic;
         }
 
-        internal StupidEntity()
+        public StupidEntity()
         {
             Id = Randomized.RandomId();
             Name = Randomized.RandomName();
@@ -36,7 +36,7 @@ namespace EasyConsoleFramework.Demo.Models
         }
     }
 
-    internal enum PreferredTopic : byte
+    public enum PreferredTopic : byte
     {
         Philosophy,
         ProgrammingLanguages,

@@ -22,6 +22,8 @@ namespace EasyConsoleFramework.Constants
                 "Nicholas",
                 "Rachel",
                 "Richard",
+                "Steve",
+                "Umberto",
                 "William",
             };
 
@@ -30,13 +32,17 @@ namespace EasyConsoleFramework.Constants
             {
                 "Cameron",
                 "Camus",
+                "Eco",
                 "Halsey",
                 "Kant",
                 "Peterson",
+                "Ripley",
                 "Ryan",
+                "Satriani",
                 "Schopenhauer",
                 "Scott",
                 "Taleb",
+                "Vai",
                 "Weyland"
             };
     }

@@ -17,9 +17,11 @@ namespace EasyConsoleFramework.Demo
             foreach (int _ in Enumerable.Range(1, number))
                 stupidEntities.Add(new StupidEntity());
 
-            IList<int> columnWidths = new List<int>() { 20, 20, 20, 20, 20 };
+            IList<int> columnWidths = new List<int>() { 20, 25, 25, 20, 20 };
 
-            Console.WriteLine(stupidEntities.ToFormattedString(columnWidths));
+            Console.WriteLine(stupidEntities.ToFormattedString(columnWidths, alignment: "left"));
+            Console.WriteLine(stupidEntities.ToFormattedString(columnWidths, alignment: "right"));
+            Console.WriteLine(stupidEntities.ToFormattedString(columnWidths, alignment: "center"));
         }
     }
 }
