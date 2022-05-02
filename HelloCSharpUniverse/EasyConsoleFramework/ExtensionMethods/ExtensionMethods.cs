@@ -107,13 +107,16 @@ namespace EasyConsoleFramework.ExtensionMethods
         public static string ToFormattedString
             (
             this IEnumerable<object> enumerable,
-            IList<int> columnWidths,
+            IList<int> columnWidths = null,
             IList<string> columnTitles = null,
             string alignment = "left"
             )
         {
-            if (columnTitles != null && columnTitles.Count != columnWidths.Count)
-                throw new ArgumentException();
+            if (columnWidths != null && columnWidths.Count != enumerable.Count())
+                throw new ArgumentException(nameof(columnTitles));
+
+            if (columnTitles != null && columnTitles.Count != enumerable.Count())
+                throw new ArgumentException(nameof(columnTitles));
 
             if (!new string[] { "left", "right", "center" }.Contains(alignment))
                 throw new ArgumentException(nameof(alignment));
