@@ -4,8 +4,6 @@ using System.Text;
 
 namespace Library.Core.Utils
 {
-    
-
     public static class DateTimeUtils
     {
         public static DateTime RandomDateTime(int minYear = 1950)

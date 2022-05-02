@@ -103,62 +103,62 @@ namespace EasyConsoleFramework.ExtensionMethods
         /// <param name="columnWidths">The widhts to be used for each column</param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        //public static string ToFormattedString(
-        //    this IEnumerable<object> enumerable,
-        //    IList<int> columnWidths,
-        //    IList<string> columnTitles = null)
-        //{
-        //    if (columnTitles != null && columnTitles.Count != columnWidths.Count)
-        //        throw new ArgumentException();
+        public static string ToFormattedString(
+            this IEnumerable<object> enumerable,
+            IList<int> columnWidths,
+            IList<string> columnTitles = null)
+        {
+            if (columnTitles != null && columnTitles.Count != columnWidths.Count)
+                throw new ArgumentException();
 
-        //    Type type = enumerable.First().GetType();
+            Type type = enumerable.First().GetType();
 
-        //    List<string> properties =
-        //        type.GetProperties()
-        //            .Where(p => columnTitles.Contains(p.Name)) // null
-        //            .Select(p => p.Name)
-        //            .ToList();
+            List<string> properties =
+                type.GetProperties()
+                    .Where(p => columnTitles.Contains(p.Name)) // null
+                    .Select(p => p.Name)
+                    .ToList();
 
-        //    properties.ForEach(p => Console.WriteLine(p));
+            properties.ForEach(p => Console.WriteLine(p));
 
-        //    if (columnTitles == null)
-        //        columnTitles = properties;
+            if (columnTitles == null)
+                columnTitles = properties;
 
-        //    int lineLength = columnWidths.Sum();
-            
-        //    string ruleLine = new string(' ', lineLength);
+            int lineLength = columnWidths.Sum();
 
-        //    string header = "";
+            string ruleLine = new string(' ', lineLength);
 
-        //    for (int i = 0; i < columnTitles.Count; i++)
-        //        header += $"{columnTitles[i].PadLeft(columnWidths[i])}";
+            string header = "";
 
-        //    var sb = new StringBuilder();
+            for (int i = 0; i < columnTitles.Count; i++)
+                header += $"{columnTitles[i].PadLeft(columnWidths[i])}";
 
-        //    sb.AppendLine(ruleLine);
-        //    sb.AppendLine(header);
-        //    sb.AppendLine(ruleLine);
+            var sb = new StringBuilder();
 
-        //    foreach (object item in enumerable)
-        //    {
-        //        string row = "";
+            sb.AppendLine(ruleLine);
+            sb.AppendLine(header);
+            sb.AppendLine(ruleLine);
 
-        //        for (int i = 0; i < properties.Count; i++)
-        //        {
-        //            row += item.GetType()
-        //                .GetProperty(properties[i])
-        //                .GetValue(item, null)
-        //                .ToString()
-        //                .PadLeft(columnWidths[i]);
-        //        }
+            foreach (object item in enumerable)
+            {
+                string row = "";
 
-        //        sb.AppendLine(row);
-        //    }
+                for (int i = 0; i < properties.Count; i++)
+                {
+                    row += item.GetType()
+                        .GetProperty(properties[i])
+                        .GetValue(item, null)
+                        .ToString()
+                        .PadLeft(columnWidths[i]);
+                }
 
-        //    sb.AppendLine(ruleLine);
-                
-        //    return sb.ToString();
-        //}
+                sb.AppendLine(row);
+            }
+
+            sb.AppendLine(ruleLine);
+
+            return sb.ToString();
+        }
 
         /// <summary>
         /// Returns string in bold
@@ -183,5 +183,11 @@ namespace EasyConsoleFramework.ExtensionMethods
         /// <returns></returns>
         public static string ToUnderlined(this string str)
             => $"{ANSI_ESCAPE_CODE.UNDERLINED}{str}{ANSI_ESCAPE_CODE.NOT_UNDERLINED}";
+
+        internal static int NDigits(this int number)
+            => number.ToString().Length;
+
+        internal static decimal ToFractional(this int number)
+            => number / number.NDigits();
     }
 }

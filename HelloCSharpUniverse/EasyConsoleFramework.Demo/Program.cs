@@ -9,7 +9,11 @@ namespace EasyConsoleFramework.Demo
         {
             CLI cli = new CLI();
 
-            cli.RunAsync();
+            cli.SetApplicationName("EASY CONSOLE FRAMEWORK DEMO");
+
+            cli.AddAction("PM", "Print an example of mocked data in tabular form", () => DemoCatalog.PrintMockedData());
+
+            cli.Run();
         }
     }
 }
