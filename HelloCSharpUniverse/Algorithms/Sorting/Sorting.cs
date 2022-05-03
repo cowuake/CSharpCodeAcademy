@@ -36,58 +36,60 @@ namespace Algorithms.Sorting
         private static int Partition<T>(IList<T> list, int left, int right)
             where T : IComparable<T>
         {
-            int pivot = (left + right) / 2 - 1;
+            int pivot = (left + right) / 2;
             int temp;
+
+            Func<int, bool> isInRange = (pntr) => (pntr >= left && pntr <= right) ? true : false;
 
             while (left < right)
             {
                 temp = list
                     .Skip(left)
-                    .Take(pivot - left)
                     .ToList()
-                    .FindIndex(x => x.CompareTo(list[pivot]) < 0);
+                    .FindIndex(x => x.CompareTo(list[pivot]) > 0) - left;
 
-                if (temp >= 0)
-                {
-                    left = temp;
+                // left points to first greater element than pivot, or pivot itself
+                left = isInRange(temp) ? temp : pivot;
 
-                    (list[left], list[pivot]) = (list[pivot], list[left]);
-
-                    pivot = left;
-                    left++;
-                }
-                else
-                {
-                    left = pivot;
-                }
-
+                // NOTE: The index will be translated on the left by (pivot + 1)!
                 temp = list
-                    .Skip(pivot + 2)
                     .Take(right - pivot)
                     .ToList()
-                    .FindIndex(x => x.CompareTo(list[pivot]) > 0);
+                    .FindLastIndex(x => x.CompareTo(list[pivot]) < 0) + pivot + 1;
 
-                if (temp >= 0)
+                // right points to last lesser element than pivot, or pivot itself 
+                right = isInRange(temp) ? temp : pivot;
+
+                // Swap left and right elements
+                if (left < right)
                 {
-                    right = temp;
+                    (list[left], list[right]) = (list[right], list[left]);
 
-                    (list[pivot], list[right]) = (list[right], list[pivot]);
+                    // If pivot was right, now it has been swapped with left
+                    if (pivot == right)
+                        pivot = left;
 
-                    pivot = right;
+                    // If pivot was left, now it has been swapped with right
+                    if (pivot == left)
+                        pivot = right;
+                }
+
+                if (left < pivot)
+                    left++;
+
+                if (right > pivot)
                     right--;
-                }
-                else
-                {
-                    right = pivot;
-                }
             }
-            
+
             return pivot;
         }
 
         public static void QuickSort<T>(this IList<T> list, int? left = null, int? right = null)
             where T : IComparable<T>
         {
+            //left = (left != -1) ? left :  0;
+            //right = (right != -1) ? right : list.Count - 1;
+
             left ??= 0;
             right ??= list.Count - 1;
 
