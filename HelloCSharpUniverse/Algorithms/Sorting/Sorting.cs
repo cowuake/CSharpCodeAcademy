@@ -48,37 +48,35 @@ namespace Algorithms.Sorting
                     .ToList()
                     .FindIndex(x => x.CompareTo(list[pivot]) > 0) - left;
 
-                // left points to first greater element than pivot, or pivot itself
+                // 'left' points to first greater element than 'pivot', otherwise 'pivot' itself
                 left = isInRange(temp) ? temp : pivot;
 
                 // NOTE: The index will be translated on the left by (pivot + 1)!
                 temp = list
-                    .Take(right - pivot)
+                    .Skip(left + 1)
+                    .Take(right - left)
                     .ToList()
-                    .FindLastIndex(x => x.CompareTo(list[pivot]) < 0) + pivot + 1;
+                    .FindLastIndex(x => x.CompareTo(list[pivot]) < 0) + left + 1;
 
-                // right points to last lesser element than pivot, or pivot itself 
+                // 'right' points to last lesser element than 'pivot', otherwise 'pivot' itself 
                 right = isInRange(temp) ? temp : pivot;
 
-                // Swap left and right elements
                 if (left < right)
                 {
+                    // Swap left and right elements
                     (list[left], list[right]) = (list[right], list[left]);
 
-                    // If pivot was right, now it has been swapped with left
+                    // If 'pivot' was 'right', now it has been swapped with 'left'
                     if (pivot == right)
                         pivot = left;
 
-                    // If pivot was left, now it has been swapped with right
+                    // If 'pivot' was left, now it has been swapped with 'right'
                     if (pivot == left)
                         pivot = right;
-                }
 
-                if (left < pivot)
                     left++;
-
-                if (right > pivot)
                     right--;
+                } 
             }
 
             return pivot;
@@ -87,9 +85,6 @@ namespace Algorithms.Sorting
         public static void QuickSort<T>(this IList<T> list, int? left = null, int? right = null)
             where T : IComparable<T>
         {
-            //left = (left != -1) ? left :  0;
-            //right = (right != -1) ? right : list.Count - 1;
-
             left ??= 0;
             right ??= list.Count - 1;
 

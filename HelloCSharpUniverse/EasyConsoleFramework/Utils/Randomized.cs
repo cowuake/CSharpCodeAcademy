@@ -16,9 +16,9 @@ namespace EasyConsoleFramework.Utils
             int month = r.Next(1, 12);
             int day = r.Next(1, DateTime.DaysInMonth(year, month));
 
-            int h = r.Next(0, 23);
-            int m = r.Next(0, 59);
-            int s = r.Next(0, 59);
+            int h = r.Next(0, 24);
+            int m = r.Next(0, 60);
+            int s = r.Next(0, 60);
 
             return new DateTime(year, month, day, h, m, s);
         }
