@@ -10,6 +10,7 @@ namespace Algorithms.Check
             CLI cli = new CLI();
 
             cli.AddAction("FACT", "Compute the factorial of a number", () => Catalog.Factorial());
+            cli.AddAction("FIB", "Compute n-th Fibonacci number", () => Catalog.Fibonacci());
 
             cli.SetApplicationName("ALGORITHMS: MANUAL CHECK");
 
