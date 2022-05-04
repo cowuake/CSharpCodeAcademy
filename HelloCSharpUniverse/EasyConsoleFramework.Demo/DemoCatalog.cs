@@ -1,5 +1,6 @@
 ﻿using EasyConsoleFramework.Demo.Models;
 using EasyConsoleFramework.ExtensionMethods;
+using EasyConsoleFramework.IO;
 using EasyConsoleFramework.Utils;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,15 @@ namespace EasyConsoleFramework.Demo
             Console.WriteLine(stupidEntities.ToFormattedString(columnWidths, alignment: "left"));
             Console.WriteLine(stupidEntities.ToFormattedString(columnWidths, alignment: "right"));
             Console.WriteLine(stupidEntities.ToFormattedString(columnWidths, alignment: "center"));
+        }
+
+        internal static void LevenshteinDistanceDemo()
+        {
+            Console.WriteLine();
+            string first = BaseIO.ReadFromConsole("\tFirst word: ");
+            string second = BaseIO.ReadFromConsole("\tSecond word: ");
+            Console.WriteLine($"\tLevenshtein distance: {FuzzyLogic.LevenshteinDistance(first, second)}");
+            Console.WriteLine();
         }
     }
 }

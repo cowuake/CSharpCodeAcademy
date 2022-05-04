@@ -112,18 +112,18 @@ namespace EasyConsoleFramework.ExtensionMethods
             string alignment = "left"
             )
         {
-            if (columnWidths != null && columnWidths.Count != enumerable.Count())
-                throw new ArgumentException(nameof(columnTitles));
-
-            if (columnTitles != null && columnTitles.Count != enumerable.Count())
-                throw new ArgumentException(nameof(columnTitles));
-
             if (!new string[] { "left", "right", "center" }.Contains(alignment))
                 throw new ArgumentException(nameof(alignment));
 
             Type type = enumerable.First().GetType();
 
             var properties = type.GetProperties();
+
+            if (columnWidths != null && columnWidths.Count != properties.Length)
+                throw new ArgumentException(nameof(columnTitles));
+
+            if (columnTitles != null && columnTitles.Count != properties.Length)
+                throw new ArgumentException(nameof(columnTitles));
 
             var propertyNames = properties
                 .Select(p => p.Name)

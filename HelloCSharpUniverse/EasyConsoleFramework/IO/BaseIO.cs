@@ -4,9 +4,15 @@ namespace EasyConsoleFramework.IO
 {
     public class BaseIO
     {
-        public static string ReadFromConsole(string msg, Func<string, bool> condition)
+        public static string ReadFromConsole(string msg, Func<string, bool> condition = null)
         {
             string input;
+
+            if (condition == null)
+            {
+                Console.Write(msg);
+                return Console.ReadLine();
+            }
 
             do
             {

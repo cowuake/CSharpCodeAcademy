@@ -11,7 +11,8 @@ namespace EasyConsoleFramework.Demo
 
             cli.SetApplicationName("EASY CONSOLE FRAMEWORK DEMO");
 
-            cli.AddAction("PM", "Print an example of mocked data in tabular form", () => DemoCatalog.PrintMockedData());
+            cli.AddAction("LEVEN", "Levenshtein distance DEMO", () => DemoCatalog.LevenshteinDistanceDemo());
+            cli.AddAction("MOCK", "Print an example of mocked data in tabular form", () => DemoCatalog.PrintMockedData());
 
             cli.Run();
         }
