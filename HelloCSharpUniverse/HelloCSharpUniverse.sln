@@ -127,9 +127,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.DesktopClient", "Li
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.BookGenreWPF", "Library\Library.BookGenreWPF\Library.BookGenreWPF.csproj", "{CBF9840C-2E3E-43D3-A160-69990636D23A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "Algorithms\Algorithms.csproj", "{7958F0D3-F8FD-4D51-B880-E2D6B132C700}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms", "Algorithms\Algorithms.csproj", "{7958F0D3-F8FD-4D51-B880-E2D6B132C700}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Test", "Algorithms.Test\Algorithms.Test.csproj", "{F1089219-D70F-4CC0-B797-AB138D3D9C31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.Test", "Algorithms.Test\Algorithms.Test.csproj", "{F1089219-D70F-4CC0-B797-AB138D3D9C31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Check", "Algorithms.Check\Algorithms.Check.csproj", "{892E1A6E-AE4A-4E87-9231-9AD6C0D5AEE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -381,6 +383,10 @@ Global
 		{F1089219-D70F-4CC0-B797-AB138D3D9C31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1089219-D70F-4CC0-B797-AB138D3D9C31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1089219-D70F-4CC0-B797-AB138D3D9C31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{892E1A6E-AE4A-4E87-9231-9AD6C0D5AEE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{892E1A6E-AE4A-4E87-9231-9AD6C0D5AEE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{892E1A6E-AE4A-4E87-9231-9AD6C0D5AEE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{892E1A6E-AE4A-4E87-9231-9AD6C0D5AEE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
