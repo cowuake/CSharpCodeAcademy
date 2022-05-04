@@ -9,10 +9,10 @@ namespace EasyConsoleFramework.Utils
     {
         public static int LevenshteinDistance(string first, string second)
         {
-            if (first.Length == 0)
+            if (string.IsNullOrEmpty(first))
                 return second.Length;
 
-            if (second.Length == 0)
+            if (string.IsNullOrEmpty(second))
                 return first.Length;
 
             if (first[0] == second[0])

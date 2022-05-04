@@ -89,8 +89,23 @@ namespace EasyConsoleFramework
                 // Launch the command
                 try
                 {
-                    _commandAction[input]();
-                    //await Task.Run(() => _commandAction[input]());
+                    if (_commandAction.ContainsKey(input))
+                    {
+                        _commandAction[input]();
+                    }
+                    else
+                    {
+                        var keys = _commandAction.Keys;
+
+                        string suggested = keys.Aggregate((s1, s2) =>
+                            FuzzyLogic.LevenshteinDistance(s1, input) < FuzzyLogic.LevenshteinDistance(s2, input) ? s1 : s2);
+
+                        Console.WriteLine();
+                        bool followSuggestion = Helpers.ReadYesOrNo($"\tDid you intend '{suggested}'?");
+
+                        if (followSuggestion)
+                            _commandAction[suggested]();
+                    }
                 }
                 catch (Exception e)
                 {
