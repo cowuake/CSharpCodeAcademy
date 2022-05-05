@@ -27,7 +27,6 @@ namespace EasyConsoleFramework.Demo
 
         internal static void LevenshteinDistanceDemo()
         {
-            Console.WriteLine();
             string first = BaseIO.ReadFromConsole("\tFirst word: ");
             string second = BaseIO.ReadFromConsole("\tSecond word: ");
             Console.WriteLine($"\tLevenshtein distance: {first.LevenshteinDistance(second)}");
@@ -36,20 +35,17 @@ namespace EasyConsoleFramework.Demo
 
         internal static void MostSimilarStringDemo()
         {
-            Console.WriteLine();
-
             string[] words = new string[] { "cat", "dog", "Boba Fett", "trebuchet" };
 
             Console.WriteLine($"\tSample words are: {string.Join(", ", words)}");
             string comparer = BaseIO.ReadFromConsole("\tWord to be compared: ");
 
-            string candidate = null;
+            bool foundCandidate = comparer.FindMostSimilarString(words, out string candidate);
 
-            bool candidateFound = comparer.FindMostSimilarString(words, out candidate);
-
-            if (candidate == null)
+            if (foundCandidate)
             {
                 Console.WriteLine("\tNo word in the sample is a good enough candidate.");
+                Console.WriteLine();
                 return;
             }
 

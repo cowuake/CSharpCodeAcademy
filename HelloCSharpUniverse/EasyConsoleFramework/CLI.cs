@@ -87,7 +87,8 @@ namespace EasyConsoleFramework
 
                 string input = BaseIO.ReadFromConsole(
                     "Please choose a valid option: ",
-                    s =>_commandInfo.Keys.Contains(s.ToUpper()) || s.ToUpper().FindMostSimilarString(_commandAction.Keys, out candidate));
+                    s =>_commandInfo.Keys.Contains(s.ToUpper()) ||
+                    s.ToUpper().FindMostSimilarString(_commandAction.Keys, out candidate));
 
                 // Match the _commandInfo key
                 input = input.ToUpper();
@@ -95,22 +96,16 @@ namespace EasyConsoleFramework
                 // Launch the command
                 try
                 {
-                    //bool exactCommanProvided = _commandAction.ContainsKey(input);
-
                     if (_commandAction.ContainsKey(input))
                     {
+                        Console.WriteLine();
                         _commandAction[input]();
                         continue;
                     }
                     else if (candidate != null)
                     {
-                        var keys = _commandAction.Keys;
-
-                        //string suggested = keys.Aggregate((s1, s2) =>
-                        //    FuzzyLogic.LevenshteinDistance(s1, input) < FuzzyLogic.LevenshteinDistance(s2, input) ? s1 : s2);
-
                         Console.WriteLine();
-                        bool followSuggestion = Helpers.ReadYesOrNo($"\tDid you intend '{candidate}'?");
+                        bool followSuggestion = Helpers.ReadYesOrNo($"\tDo you mean '{candidate}'?");
                         Console.WriteLine();
 
                         if (followSuggestion)

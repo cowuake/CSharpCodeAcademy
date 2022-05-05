@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using static System.Math;
 
 namespace EasyConsoleFramework.Utils
 {
@@ -28,24 +29,15 @@ namespace EasyConsoleFramework.Utils
 
         public static bool FindMostSimilarString(this string comparator, ICollection<string> candidates, out string chosen)
         {
-            var distances = candidates.Select(c => c.LevenshteinDistance(comparator));
+            IEnumerable<int> distances = candidates.Select(c => c.LevenshteinDistance(comparator));
 
-            var toBeChecked = candidates.Aggregate(
-                (a, b) => a.LevenshteinDistance(comparator) < b.LevenshteinDistance(comparator) ? a : b);
+            chosen = candidates
+                .Zip(distances, (candidate, distance) => (candidate, distance))
+                .Where(combo => combo.distance < Max(combo.candidate.Length, comparator.Length))
+                .Aggregate((prev, next) => prev.distance < next.distance ? prev : next)
+                .candidate;
 
-            var bestCandidate = candidates.Zip(distances, (c, d) => (c, d))
-                .Where((c, d) => d < Math.Min(c.ToString().Length, comparator.Length))
-                .Select((c, d) => c)
-                .First().c;
-
-            if (bestCandidate == null)
-            {
-                chosen = null;
-                return false;
-            }
-
-            chosen = bestCandidate;
-            return true;
+            return chosen != null;
         }
     }
 }
