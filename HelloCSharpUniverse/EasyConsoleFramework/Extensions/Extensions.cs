@@ -5,9 +5,9 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace EasyConsoleFramework.ExtensionMethods
+namespace EasyConsoleFramework.Extensions
 {
-    public static class ExtensionMethods
+    public static class Extensions
     {
         /// <summary>
         /// Pads a string (left and right) until the specified limit is reached

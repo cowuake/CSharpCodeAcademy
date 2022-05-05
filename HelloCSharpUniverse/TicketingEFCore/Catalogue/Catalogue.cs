@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using TicketingEFCore.EFCore;
 using TicketingEFCore.Entities;
-using EasyConsoleFramework.ExtensionMethods;
+using EasyConsoleFramework.Extensions;
 using EasyConsoleFramework.IO;
 using EasyConsoleFramework.Utils;
 

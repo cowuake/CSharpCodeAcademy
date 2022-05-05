@@ -1,4 +1,4 @@
-using EasyConsoleFramework.ExtensionMethods;
+using EasyConsoleFramework.Extensions;
 using System;
 using Xunit;
 

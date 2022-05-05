@@ -1,5 +1,5 @@
 ﻿using EasyConsoleFramework;
-using EasyConsoleFramework.ExtensionMethods;
+using EasyConsoleFramework.Extensions;
 using EasyConsoleFramework.Utils;
 using Library.Core.EFCore;
 using Library.Core.Entities;

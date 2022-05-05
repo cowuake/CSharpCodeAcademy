@@ -1,5 +1,5 @@
 ﻿using EasyConsoleFramework.Demo.Models;
-using EasyConsoleFramework.ExtensionMethods;
+using EasyConsoleFramework.Extensions;
 using EasyConsoleFramework.IO;
 using EasyConsoleFramework.Utils;
 using System;
@@ -30,7 +30,30 @@ namespace EasyConsoleFramework.Demo
             Console.WriteLine();
             string first = BaseIO.ReadFromConsole("\tFirst word: ");
             string second = BaseIO.ReadFromConsole("\tSecond word: ");
-            Console.WriteLine($"\tLevenshtein distance: {FuzzyLogic.LevenshteinDistance(first, second)}");
+            Console.WriteLine($"\tLevenshtein distance: {first.LevenshteinDistance(second)}");
+            Console.WriteLine();
+        }
+
+        internal static void MostSimilarStringDemo()
+        {
+            Console.WriteLine();
+
+            string[] words = new string[] { "cat", "dog", "Boba Fett", "trebuchet" };
+
+            Console.WriteLine($"\tSample words are: {string.Join(", ", words)}");
+            string comparer = BaseIO.ReadFromConsole("\tWord to be compared: ");
+
+            string candidate = null;
+
+            bool candidateFound = comparer.FindMostSimilarString(words, out candidate);
+
+            if (candidate == null)
+            {
+                Console.WriteLine("\tNo word in the sample is a good enough candidate.");
+                return;
+            }
+
+            Console.WriteLine($"\tThe best candidate is: {candidate}");
             Console.WriteLine();
         }
     }

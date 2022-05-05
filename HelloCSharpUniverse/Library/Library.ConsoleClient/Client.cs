@@ -1,5 +1,5 @@
 ﻿using Library.ConsoleClient;
-using EasyConsoleFramework.ExtensionMethods;
+using EasyConsoleFramework.Extensions;
 using EasyConsoleFramework.Utils;
 using Library.ConsoleClient.Model;
 using Microsoft.Extensions.Configuration;

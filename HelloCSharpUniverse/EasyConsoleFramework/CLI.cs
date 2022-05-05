@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using EasyConsoleFramework.IO;
-using EasyConsoleFramework.ExtensionMethods;
+using EasyConsoleFramework.Extensions;
 using EasyConsoleFramework.Utils;
 using System.Threading.Tasks;
 
@@ -79,9 +79,15 @@ namespace EasyConsoleFramework
             do
             {
                 // Read command from console
+                //string input = BaseIO.ReadFromConsole(
+                //    "Please choose a valid option: ",
+                //    s => _commandInfo.Keys.Contains(s.ToUpper()));
+
+                string candidate = null;
+
                 string input = BaseIO.ReadFromConsole(
                     "Please choose a valid option: ",
-                    s => _commandInfo.Keys.Contains(s.ToUpper()));
+                    s =>_commandInfo.Keys.Contains(s.ToUpper()) || s.ToUpper().FindMostSimilarString(_commandAction.Keys, out candidate));
 
                 // Match the _commandInfo key
                 input = input.ToUpper();
@@ -89,22 +95,26 @@ namespace EasyConsoleFramework
                 // Launch the command
                 try
                 {
+                    //bool exactCommanProvided = _commandAction.ContainsKey(input);
+
                     if (_commandAction.ContainsKey(input))
                     {
                         _commandAction[input]();
+                        continue;
                     }
-                    else
+                    else if (candidate != null)
                     {
                         var keys = _commandAction.Keys;
 
-                        string suggested = keys.Aggregate((s1, s2) =>
-                            FuzzyLogic.LevenshteinDistance(s1, input) < FuzzyLogic.LevenshteinDistance(s2, input) ? s1 : s2);
+                        //string suggested = keys.Aggregate((s1, s2) =>
+                        //    FuzzyLogic.LevenshteinDistance(s1, input) < FuzzyLogic.LevenshteinDistance(s2, input) ? s1 : s2);
 
                         Console.WriteLine();
-                        bool followSuggestion = Helpers.ReadYesOrNo($"\tDid you intend '{suggested}'?");
+                        bool followSuggestion = Helpers.ReadYesOrNo($"\tDid you intend '{candidate}'?");
+                        Console.WriteLine();
 
                         if (followSuggestion)
-                            _commandAction[suggested]();
+                            _commandAction[candidate]();
                     }
                 }
                 catch (Exception e)

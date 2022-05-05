@@ -1,5 +1,5 @@
 ﻿using EasyConsoleFramework.Constants;
-using EasyConsoleFramework.ExtensionMethods;
+using EasyConsoleFramework.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Text;
