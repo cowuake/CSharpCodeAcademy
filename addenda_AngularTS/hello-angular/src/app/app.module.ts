@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SillyButtonComponent } from './components/silly-button/silly-button.component';
+import { GifContainerComponent } from './components/gif-container/gif-container.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SillyButtonComponent
+    SillyButtonComponent,
+    GifContainerComponent
   ],
   imports: [
     BrowserModule,

@@ -3,4 +3,8 @@ header {
     align-content: center;
     display: flex;
     justify-content: space-between;
+    font-size: xxx-large;
+    max-width: 600px;
+    margin-top: 50px;
+    margin-bottom: 10px;
 }

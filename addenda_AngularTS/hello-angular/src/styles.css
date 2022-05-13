@@ -12,12 +12,6 @@ body {
     font-family: "Tangerine"; /* Retrievied from fonts.googleapis.com */
 }
 
-.container {
-    font-size: xxx-large;
-    max-width: 600px;
-    margin-top: 100px;
-}
-
 .btn {
     display: flex;
     font-family: inherit;
