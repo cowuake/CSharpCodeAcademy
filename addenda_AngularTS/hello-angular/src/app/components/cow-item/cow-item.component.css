@@ -2,7 +2,8 @@
 
 .cow {
     background-color: lightgray;
-    margin: 10px 20px;
+    width: 50%;
+    margin: 10px auto;
     padding: 5px 20px;
     cursor: pointer;
     font-family: "Calibri";

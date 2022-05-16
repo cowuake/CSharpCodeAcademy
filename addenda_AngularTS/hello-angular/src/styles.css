@@ -9,7 +9,7 @@
 
 body {
     background-color: antiquewhite;
-    font-family: "Tangerine"; /* Retrievied from fonts.googleapis.com */
+    font-family: "Tangerine", serif; /* Retrievied from fonts.googleapis.com */
 }
 
 .btn {
@@ -19,8 +19,41 @@ body {
     font-size: x-large;
     align-items: center;
     justify-content: center;
-    border-radius: 5%;
-    width: 20%;
-    margin-left: 40%;
+    width: 125px;
     background-color: aliceblue;
+}
+
+.form-control {
+    margin: 20px 20px;
+}
+
+.form-control label {
+    color: steelblue;
+    display: block;
+    font-family: inherit;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.form-control input {
+    width: 100%;
+    height: 40px;
+    margin: 5px;
+    padding: 5px 5px;
+    font-size: medium;
+}
+
+.form-control-check {
+    display: flex;
+    align-items: center;
+    justify-content: auto;
+}
+
+.form-control-check label {
+    flex: 1;
+}
+
+.form-control-check input {
+    flex: 2;
+    height: 20px;
 }
