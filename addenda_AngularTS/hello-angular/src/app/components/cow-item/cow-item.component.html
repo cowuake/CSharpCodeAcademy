@@ -7,9 +7,10 @@
     {{ cow.name }}
     <fa-icon
       (click)="onDelete(cow)"
-      [ngStyle]="{ color: 'red' }"
+      [ngStyle]="{ color: 'red', float: 'right'}"
       [icon]="faTimes"
     ></fa-icon>
   </h3>
-  <p>{{ cow.origin }}</p>
+  <p>Origin: {{ cow.origin }}</p>
+  <p>Purpose: {{ cow.purpose }}</p>
 </div>

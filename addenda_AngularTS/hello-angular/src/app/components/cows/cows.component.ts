@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CowService } from 'src/app/services/cow.service';
-import { Cow } from '../../Cow';
+import { Cow } from 'src/app/Cow';
 
 @Component({
   selector: 'app-cows',
@@ -23,13 +23,17 @@ export class CowsComponent implements OnInit {
   }
 
   toggleFavorite(cow: Cow) {
-    //cow.favorite = !cow.favorite?.valueOf;
-    //cow.favorite = undefined;
-
     if (cow.favorite == undefined || cow.favorite == false) {
       cow.favorite = true;
     } else {
       cow.favorite = false;
     }
+
+    // This will actually update db.json
+    this.cowService.updateCowFavorite(cow).subscribe();
+  }
+
+  addCow(cow: Cow) {
+    this.cowService.addCow(cow).subscribe((cow) => this.cows.push(cow));
   }
 }

@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { SillyButtonComponent } from './components/silly-button/silly-button.com
 import { GifContainerComponent } from './components/gif-container/gif-container.component';
 import { CowsComponent } from './components/cows/cows.component';
 import { CowItemComponent } from './components/cow-item/cow-item.component';
+import { AddCowComponent } from './components/add-cow/add-cow.component';
 
 @NgModule({
   declarations: [
@@ -18,15 +20,17 @@ import { CowItemComponent } from './components/cow-item/cow-item.component';
     SillyButtonComponent,
     GifContainerComponent,
     CowsComponent,
-    CowItemComponent
+    CowItemComponent,
+    AddCowComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

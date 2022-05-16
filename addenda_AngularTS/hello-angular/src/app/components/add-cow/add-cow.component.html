@@ -1,0 +1,40 @@
+<form class="add-form" (ngSubmit)="onSubmit()">
+  <div class="form-control">
+    <label for="name">Cow name</label>
+    <input
+      type="text"
+      name="name"
+      [(ngModel)]="name"
+      id="name"
+      placeholder="Cow name"
+    />
+  </div>
+  <div class="form-control">
+    <label for="origin">Origin</label>
+    <input
+      type="text"
+      name="origin"
+      [(ngModel)]="name"
+      id="origin"
+      placeholder="Cow from:"
+    />
+  </div>
+  <div class="form-control">
+    <label for="purpose">Purpose</label>
+    <input
+      type="text"
+      name="purpose"
+      id="purpose"
+      placeholder="This cow for:"
+    />
+  </div>
+  <div class="form-control form-control-check">
+    <label for="favorite">Loved cow</label>
+    <input
+      type="checkbox"
+      name="favorite"
+      [(ngModel)]="favorite"
+      id="favorite"
+    />
+  </div>
+</form>
