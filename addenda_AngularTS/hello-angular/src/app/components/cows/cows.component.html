@@ -1,3 +1,7 @@
-<app-cow-item *ngFor="let cow of cows" [cow]="cow" (onDeleteCow)="deleteCow(cow)">
-
+<app-cow-item
+  *ngFor="let cow of cows"
+  [cow]="cow"
+  (onDeleteCow)="deleteCow(cow)"
+  (onToggleFavorite)="toggleFavorite(cow)"
+>
 </app-cow-item>

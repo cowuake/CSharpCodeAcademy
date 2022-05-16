@@ -5,6 +5,10 @@
     cursor: pointer;
 }
 
+.cow.favorite {
+    border-left: 5px solid lightgreen;
+}
+
 .cow h3 {
     display: flex;
     align-items: center;

@@ -21,4 +21,15 @@ export class CowsComponent implements OnInit {
       .deleteCow(cow)
       .subscribe(() => this.cows.filter((c) => c.id !== cow.id));
   }
+
+  toggleFavorite(cow: Cow) {
+    //cow.favorite = !cow.favorite?.valueOf;
+    //cow.favorite = undefined;
+
+    if (cow.favorite == undefined || cow.favorite == false) {
+      cow.favorite = true;
+    } else {
+      cow.favorite = false;
+    }
+  }
 }

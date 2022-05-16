@@ -11,6 +11,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 export class CowItemComponent implements OnInit {
   @Input() cow: Cow = COWS[0];
   @Output() onDeleteCow: EventEmitter<Cow> = new EventEmitter();
+  @Output() onToggleFavorite: EventEmitter<Cow> = new EventEmitter();
   faTimes = faTimes;
 
   constructor() {}
@@ -19,5 +20,9 @@ export class CowItemComponent implements OnInit {
 
   onDelete(cow: Cow) {
     this.onDeleteCow.emit(cow);
+  }
+
+  onToggle(cow: Cow) {
+    this.onToggleFavorite.emit(cow);
   }
 }
