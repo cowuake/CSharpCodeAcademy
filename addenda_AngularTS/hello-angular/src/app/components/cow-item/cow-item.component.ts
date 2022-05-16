@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { COWS } from 'src/app/mock-cows';
 import { Cow } from '../../Cow';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-cow-item',
@@ -8,11 +9,15 @@ import { Cow } from '../../Cow';
   styleUrls: ['./cow-item.component.css'],
 })
 export class CowItemComponent implements OnInit {
-  // Requires "strictPropertyInitialization": false in tsconfig.json
-  // If could be undefined, it would not require initialization!
   @Input() cow: Cow = COWS[0];
+  @Output() onDeleteCow: EventEmitter<Cow> = new EventEmitter();
+  faTimes = faTimes;
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onDelete(cow: Cow) {
+    this.onDeleteCow.emit(cow);
+  }
 }

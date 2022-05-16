@@ -1,4 +1,7 @@
 <div class="cow">
-  <h3>{{ cow.name }}</h3>
+  <h3>
+    {{ cow.name }}
+    <fa-icon (click)="onDelete(cow)" [ngStyle]="{ color: 'red' }" [icon]="faTimes"></fa-icon>
+  </h3>
   <p>{{ cow.origin }}</p>
 </div>
