@@ -1,4 +1,6 @@
-export const COWS=[
+import { Cow } from './Cow'
+
+export const COWS: Cow[] = [
     {
         id: 1,
         name: "Abondance",
@@ -1169,7 +1171,7 @@ export const COWS=[
         id: 134,
         name: "Ongole",
         origin: "India",
-        purpose: [,
+        purpose: [
             "beef",
             "draught"
         ]
