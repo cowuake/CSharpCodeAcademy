@@ -34,7 +34,8 @@
       "origin": "Italy",
       "purpose": [
         "milk"
-      ]
+      ],
+      "favorite": false
     },
     {
       "id": 5,
@@ -1694,6 +1695,15 @@
       "purpose": [
         "domestic"
       ]
+    },
+    {
+      "name": "supercow",
+      "origin": "Italy",
+      "purpose": [
+        ""
+      ],
+      "favorite": true,
+      "id": 194
     }
   ]
 }

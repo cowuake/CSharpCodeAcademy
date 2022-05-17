@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Cow } from 'src/app/Cow'
+import { UiService } from 'src/app/services/ui.service';
+import { Cow } from 'src/app/Cow';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-cow',
@@ -12,8 +14,14 @@ export class AddCowComponent implements OnInit {
   origin: string = '';
   purpose: string = '';
   favorite: boolean = false;
+  showAddCow: boolean = false;
+  subscription: Subscription;
 
-  constructor() {}
+  constructor(private uiService: UiService) {
+    this.subscription = this.uiService
+      .onToggle()
+      .subscribe((value) => (this.showAddCow = value));
+  }
 
   ngOnInit(): void {}
 

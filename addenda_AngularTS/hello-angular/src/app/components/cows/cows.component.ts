@@ -17,7 +17,9 @@ export class CowsComponent implements OnInit {
 
   // Accessibilty to be specified for every function argument
   constructor(private cowService: CowService, private uiService: UiService) {
-    this.subscription = this.uiService.onToggle().subscribe();
+    this.subscription = this.uiService
+      .onToggle()
+      .subscribe((value) => (this.showAddCow = value));
   }
 
   ngOnInit(): void {
@@ -46,6 +48,6 @@ export class CowsComponent implements OnInit {
   }
 
   toggleAddCow() {
-    this.uiService.onToggle();
+    this.uiService.toggleAddTask();
   }
 }
