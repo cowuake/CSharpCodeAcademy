@@ -1704,6 +1704,16 @@
       ],
       "favorite": true,
       "id": 194
+    },
+    {
+      "name": "supercow",
+      "origin": "Italy",
+      "purpose": [
+        "Food",
+        "Sport"
+      ],
+      "favorite": true,
+      "id": 195
     }
   ]
 }
