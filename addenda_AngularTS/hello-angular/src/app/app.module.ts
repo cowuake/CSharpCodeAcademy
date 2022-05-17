@@ -12,6 +12,7 @@ import { GifContainerComponent } from './components/gif-container/gif-container.
 import { CowsComponent } from './components/cows/cows.component';
 import { CowItemComponent } from './components/cow-item/cow-item.component';
 import { AddCowComponent } from './components/add-cow/add-cow.component';
+import { AddButtonComponent } from './components/add-button/add-button.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AddCowComponent } from './components/add-cow/add-cow.component';
     CowsComponent,
     CowItemComponent,
     AddCowComponent,
+    AddButtonComponent,
   ],
   imports: [
     BrowserModule,

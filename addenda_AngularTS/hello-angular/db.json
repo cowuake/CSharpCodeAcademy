@@ -1694,15 +1694,6 @@
       "purpose": [
         "domestic"
       ]
-    },
-    {
-      "id": 1000,
-      "name": "TEST",
-      "origin": "TEST",
-      "purpose": [
-        "test"
-      ],
-      "favorite": false
     }
   ]
 }

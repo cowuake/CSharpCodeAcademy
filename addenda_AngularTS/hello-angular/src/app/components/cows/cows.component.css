@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Calibri");
+
+div {
+    display: flex;
+    font-family: "calibri";
+    font-size: x-large;
+    font-weight: bold;
+    width: 500px;
+    margin: 50px auto;
+}
