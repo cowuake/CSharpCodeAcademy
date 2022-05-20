@@ -36,7 +36,7 @@ namespace Library.SelfHostingConsoleClient
             {
                 host.Open();
 
-                cli.RunAsync();
+                cli.Run();
             }
         }
     }

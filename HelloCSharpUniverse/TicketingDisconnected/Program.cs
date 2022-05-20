@@ -35,7 +35,7 @@ namespace TicketingDisconnected
                 cli.AddAction("U", "Delete ticket", () => provider.UpdateDatabase());
 
                 // Run the (user) command line interface
-                cli.RunAsync();
+                cli.Run();
             }
         }
 

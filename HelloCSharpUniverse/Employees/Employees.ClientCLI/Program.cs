@@ -27,7 +27,7 @@ namespace Employees.ClientCLI
             cli.SetApplicationName("EMPLOYEES");
             cli.AddAction("L", "List all employees", () => logic.GetAllEmployees());
 
-            cli.RunAsync();
+            cli.Run();
         }
     }
 }

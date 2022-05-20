@@ -16,7 +16,7 @@ namespace ConnectionStringChecker.Core
             string connectionString = BaseIO.ReadFromConsole(
                 "\tPlease type the connection string followed by [Enter]: ",
                 s => !String.IsNullOrEmpty(s) && !String.IsNullOrWhiteSpace(s));
-            
+
             CheckConnection(connectionString);
         }
 
@@ -33,7 +33,7 @@ namespace ConnectionStringChecker.Core
                 throw new FileNotFoundException();
 
             string line;
-            
+
             using (StreamReader reader = new StreamReader(path))
             {
                 while ((line = reader.ReadLine()) != null)
@@ -43,13 +43,13 @@ namespace ConnectionStringChecker.Core
 
         private static void CheckConnection(string connectionString)
         {
-            SqlConnection connection = null;
-            
+            SqlConnection? connection = null;
+
             try
             {
                 connection = new SqlConnection(connectionString);
                 connection.Open();
-                
+
                 Console.WriteLine("SUCCESS!");
             }
             catch (Exception ex)
@@ -58,8 +58,8 @@ namespace ConnectionStringChecker.Core
             }
             finally
             {
-                if (connection.State != ConnectionState.Closed)
-                    connection.Close();
+                if (connection?.State != ConnectionState.Closed)
+                    connection?.Close();
             }
         }
     }

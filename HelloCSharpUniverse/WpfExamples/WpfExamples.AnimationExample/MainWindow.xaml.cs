@@ -27,8 +27,9 @@ namespace WpfExamples.AnimationExample
 
             DoubleAnimation animation = new DoubleAnimation(360, 0, new Duration(TimeSpan.FromSeconds(3)));
             RotateTransform rotateTransform = new RotateTransform();
-            img.RenderTransform = rotateTransform;
-            img.RenderTransformOrigin = new Point(0.5, 0.5);
+            // ???????
+            //img.RenderTransform = rotateTransform;
+            //img.RenderTransformOrigin = new Point(0.5, 0.5);
             animation.RepeatBehavior = RepeatBehavior.Forever;
             rotateTransform.BeginAnimation(RotateTransform.AngleProperty, animation);
         }
