@@ -10,7 +10,7 @@ namespace Library.DesktopClient.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void NotifyChange([CallerMemberName]string propName = null)
+        public void NotifyChange([CallerMemberName]string propName = null)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
     }
 }

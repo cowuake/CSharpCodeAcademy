@@ -9,106 +9,106 @@
 //------------------------------------------------------------------------------
 
 namespace Library.ConsoleClient.Library.OldConsoleClient.Proxy {
-    
-    
+
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Library.OldConsoleClient.Proxy.ILibraryService")]
     public interface ILibraryService {
-        
+
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/GetBook", ReplyAction="http://tempuri.org/ILibraryService/GetBookResponse")]
         Library.Core.Entities.Book GetBook(string isbn);
-        
+
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/GetBook", ReplyAction="http://tempuri.org/ILibraryService/GetBookResponse")]
         System.Threading.Tasks.Task<Library.Core.Entities.Book> GetBookAsync(string isbn);
-        
+
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/GetAllBooks", ReplyAction="http://tempuri.org/ILibraryService/GetAllBooksResponse")]
         Library.Core.Entities.Book[] GetAllBooks(System.Func<Library.Core.Entities.Book, bool> filter);
-        
+
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/GetAllBooks", ReplyAction="http://tempuri.org/ILibraryService/GetAllBooksResponse")]
         System.Threading.Tasks.Task<Library.Core.Entities.Book[]> GetAllBooksAsync(System.Func<Library.Core.Entities.Book, bool> filter);
-        
+
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/AddBook", ReplyAction="http://tempuri.org/ILibraryService/AddBookResponse")]
         bool AddBook(Library.Core.Entities.Book book);
-        
+
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/AddBook", ReplyAction="http://tempuri.org/ILibraryService/AddBookResponse")]
         System.Threading.Tasks.Task<bool> AddBookAsync(Library.Core.Entities.Book book);
-        
+
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/UpdateBook", ReplyAction="http://tempuri.org/ILibraryService/UpdateBookResponse")]
         bool UpdateBook(Library.Core.Entities.Book book);
-        
+
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/UpdateBook", ReplyAction="http://tempuri.org/ILibraryService/UpdateBookResponse")]
         System.Threading.Tasks.Task<bool> UpdateBookAsync(Library.Core.Entities.Book book);
-        
+
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/RemoveBook", ReplyAction="http://tempuri.org/ILibraryService/RemoveBookResponse")]
         bool RemoveBook(Library.Core.Entities.Book book);
-        
+
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ILibraryService/RemoveBook", ReplyAction="http://tempuri.org/ILibraryService/RemoveBookResponse")]
         System.Threading.Tasks.Task<bool> RemoveBookAsync(Library.Core.Entities.Book book);
     }
-    
+
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ILibraryServiceChannel : Library.ConsoleClient.Library.OldConsoleClient.Proxy.ILibraryService, System.ServiceModel.IClientChannel {
     }
-    
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class LibraryServiceClient : System.ServiceModel.ClientBase<Library.ConsoleClient.Library.OldConsoleClient.Proxy.ILibraryService>, Library.ConsoleClient.Library.OldConsoleClient.Proxy.ILibraryService {
-        
+
         public LibraryServiceClient() {
         }
-        
-        public LibraryServiceClient(string endpointConfigurationName) : 
+
+        public LibraryServiceClient(string endpointConfigurationName) :
                 base(endpointConfigurationName) {
         }
-        
-        public LibraryServiceClient(string endpointConfigurationName, string remoteAddress) : 
+
+        public LibraryServiceClient(string endpointConfigurationName, string remoteAddress) :
                 base(endpointConfigurationName, remoteAddress) {
         }
-        
-        public LibraryServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+
+        public LibraryServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) :
                 base(endpointConfigurationName, remoteAddress) {
         }
-        
-        public LibraryServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+
+        public LibraryServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) :
                 base(binding, remoteAddress) {
         }
-        
+
         public Library.Core.Entities.Book GetBook(string isbn) {
             return base.Channel.GetBook(isbn);
         }
-        
+
         public System.Threading.Tasks.Task<Library.Core.Entities.Book> GetBookAsync(string isbn) {
             return base.Channel.GetBookAsync(isbn);
         }
-        
+
         public Library.Core.Entities.Book[] GetAllBooks(System.Func<Library.Core.Entities.Book, bool> filter) {
             return base.Channel.GetAllBooks(filter);
         }
-        
+
         public System.Threading.Tasks.Task<Library.Core.Entities.Book[]> GetAllBooksAsync(System.Func<Library.Core.Entities.Book, bool> filter) {
             return base.Channel.GetAllBooksAsync(filter);
         }
-        
+
         public bool AddBook(Library.Core.Entities.Book book) {
             return base.Channel.AddBook(book);
         }
-        
+
         public System.Threading.Tasks.Task<bool> AddBookAsync(Library.Core.Entities.Book book) {
             return base.Channel.AddBookAsync(book);
         }
-        
+
         public bool UpdateBook(Library.Core.Entities.Book book) {
             return base.Channel.UpdateBook(book);
         }
-        
+
         public System.Threading.Tasks.Task<bool> UpdateBookAsync(Library.Core.Entities.Book book) {
             return base.Channel.UpdateBookAsync(book);
         }
-        
+
         public bool RemoveBook(Library.Core.Entities.Book book) {
             return base.Channel.RemoveBook(book);
         }
-        
+
         public System.Threading.Tasks.Task<bool> RemoveBookAsync(Library.Core.Entities.Book book) {
             return base.Channel.RemoveBookAsync(book);
         }

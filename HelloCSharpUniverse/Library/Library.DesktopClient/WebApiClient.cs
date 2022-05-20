@@ -28,34 +28,36 @@ namespace Library.DesktopClient
 
             if (filter == null)
             {
-                response = _client.GetAsync("api/Library").Result;
+                response = await _client.GetAsync("api/Library");
 
                 if (response.IsSuccessStatusCode)
                 {
                     var responseContent = response.Content;
-                    return JsonConvert.DeserializeObject<IEnumerable<BookModel>>(responseContent);
+                    return JsonConvert.DeserializeObject<IEnumerable<BookModel>>(responseContent.ToString());
                 }
             }
             else if (!string.IsNullOrEmpty(filter.Isbn))
             {
-                response = _client.GetAsync($"api/ByISBN/{filter.Isbn}").Result;
+                response = await _client.GetAsync($"api/ByISBN/{filter.Isbn}");
 
                 if (response.IsSuccessStatusCode)
                 {
                     var responseContent = response.Content;
-                    return JsonConvert.DeserializeObject<IEnumerable<BookModel>>(responseContent);
+                    return JsonConvert.DeserializeObject<IEnumerable<BookModel>>(responseContent.ToString());
                 }
             }
             else if (!string.IsNullOrEmpty(filter.Title))
             {
-                response = _client.GetAsync($"api/ByTitle/{filter.Isbn}").Result;
+                response = await _client.GetAsync($"api/ByTitle/{filter.Isbn}");
 
                 if (response.IsSuccessStatusCode)
                 {
                     var responseContent = response.Content;
-                    return JsonConvert.DeserializeObject<IEnumerable<BookModel>>(responseContent);
+                    return JsonConvert.DeserializeObject<IEnumerable<BookModel>>(responseContent.ToString());
                 }
             }
+
+            return null;
         }
 
         public async Task<bool> InsertBook(BookModel book)

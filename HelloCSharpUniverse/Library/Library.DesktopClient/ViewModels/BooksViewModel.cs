@@ -20,7 +20,7 @@ namespace Library.DesktopClient.ViewModels
             _webApiClient = new WebApiClient();
             _filterModel = new BookFilterModel();
             _books = new ObservableCollection<BookModel>(_webApiClient.GetBooksAsync(_filterModel).Result);
-            
+
         }
 
         public string SearchIsbn
@@ -41,11 +41,11 @@ namespace Library.DesktopClient.ViewModels
             set { if (_books != value) { _books = value; NotifyChange(); } }
         }
 
-        public RelayCommand Search
-        {
-            get { return new RelayCommand(SearchBooks, true); }
-            set;
-        }
+        // public RelayCommand Search
+        // {
+        //     get { return new RelayCommand(SearchBooks, true); }
+        //     set;
+        // }
 
         private void SearchBooks()
         {
