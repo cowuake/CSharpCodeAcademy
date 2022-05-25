@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CowService } from 'src/app/services/cow.service';
-import { Cow } from 'src/app/Cow';
+import { ICow } from 'src/app/Cow';
 import { UiService } from 'src/app/services/ui.service';
 import { Subscription } from 'rxjs';
 
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class CowsComponent implements OnInit {
   title: string = 'All your cows';
-  cows: Cow[] = [];
+  cows: ICow[] = [];
   showAddCow: boolean = false;
   subscription: Subscription;
 
@@ -26,13 +26,13 @@ export class CowsComponent implements OnInit {
     this.cowService.getCows().subscribe((cows) => (this.cows = cows));
   }
 
-  deleteCow(cow: Cow) {
+  deleteCow(cow: ICow) {
     this.cowService
       .deleteCow(cow)
       .subscribe(() => this.cows.filter((c) => c.id !== cow.id));
   }
 
-  toggleFavorite(cow: Cow) {
+  toggleFavorite(cow: ICow) {
     if (cow.favorite == undefined || cow.favorite == false) {
       cow.favorite = true;
     } else {
@@ -43,11 +43,11 @@ export class CowsComponent implements OnInit {
     this.cowService.updateCowFavorite(cow).subscribe();
   }
 
-  addCow(cow: Cow) {
+  addCow(cow: ICow) {
     this.cowService.addCow(cow).subscribe((cow) => this.cows.push(cow));
   }
 
   toggleAddCow() {
-    this.uiService.toggleAddTask();
+    this.uiService.toggleAddCow();
   }
 }

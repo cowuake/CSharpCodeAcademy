@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UiService } from 'src/app/services/ui.service';
-import { Cow } from 'src/app/Cow';
+import { ICow } from 'src/app/Cow';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./add-cow.component.css'],
 })
 export class AddCowComponent implements OnInit {
-  @Output() onAddCow: EventEmitter<Cow> = new EventEmitter();
+  @Output() onAddCow: EventEmitter<ICow> = new EventEmitter();
   name: string = '';
   origin: string = '';
   purpose: string = '';

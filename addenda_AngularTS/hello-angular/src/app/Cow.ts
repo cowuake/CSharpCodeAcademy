@@ -1,4 +1,4 @@
-export interface Cow {
+export interface ICow {
     id?: number;
     name: string;
     origin: string;

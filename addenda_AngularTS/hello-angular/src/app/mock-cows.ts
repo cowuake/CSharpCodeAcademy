@@ -1,6 +1,6 @@
-import { Cow } from './Cow'
+import { ICow } from './Cow'
 
-export const COWS: Cow[] = [
+export const COWS: ICow[] = [
     {
         id: 1,
         name: "Abondance",

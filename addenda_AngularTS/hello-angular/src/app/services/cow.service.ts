@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { Cow } from 'src/app/Cow';
+import { ICow } from 'src/app/Cow';
 //import { COWS } from 'src/app/mock-cows';
 
 const httpOptions = {
@@ -18,23 +18,23 @@ export class CowService {
 
   constructor(private http: HttpClient) { }
 
-  getCows(): Observable<Cow[]> {
+  getCows(): Observable<ICow[]> {
     //const cows = of(COWS);
     //return cows;
-    return this.http.get<Cow[]>(this.apiUrl);
+    return this.http.get<ICow[]>(this.apiUrl);
   }
 
-  deleteCow(cow: Cow): Observable<Cow> {
+  deleteCow(cow: ICow): Observable<ICow> {
     const url = `${this.apiUrl}/${cow.id}`;
-    return this.http.delete<Cow>(url);
+    return this.http.delete<ICow>(url);
   }
 
-  updateCowFavorite(cow: Cow): Observable<Cow> {
+  updateCowFavorite(cow: ICow): Observable<ICow> {
     const url = `${this.apiUrl}/${cow.id}`;
-    return this.http.put<Cow>(url, cow, httpOptions);
+    return this.http.put<ICow>(url, cow, httpOptions);
   }
 
-  addCow(cow: Cow): Observable<Cow> {
-    return this.http.post<Cow>(this.apiUrl, cow, httpOptions);
+  addCow(cow: ICow): Observable<ICow> {
+    return this.http.post<ICow>(this.apiUrl, cow, httpOptions);
   }
 }
