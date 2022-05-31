@@ -14,6 +14,7 @@ import { CowItemComponent } from './components/cow-item/cow-item.component';
 import { AddCowComponent } from './components/add-cow/add-cow.component';
 import { AddButtonComponent } from './components/add-button/add-button.component';
 import { FilterCowsPipe } from './filter-cows.pipe';
+import { FilterCowsComponent } from './filter-cows/filter-cows.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FilterCowsPipe } from './filter-cows.pipe';
     AddCowComponent,
     AddButtonComponent,
     FilterCowsPipe,
+    FilterCowsComponent,
   ],
   imports: [
     BrowserModule,
