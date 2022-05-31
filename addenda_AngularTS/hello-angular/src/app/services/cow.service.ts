@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { ICow } from 'src/app/Cow';
+import { ICow } from 'src/app/ICow';
 //import { COWS } from 'src/app/mock-cows';
 
 const httpOptions = {

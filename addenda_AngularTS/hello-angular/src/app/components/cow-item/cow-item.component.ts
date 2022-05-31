@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { COWS } from 'src/app/mock-cows';
-import { ICow } from 'src/app/Cow';
+import { ICow } from 'src/app/ICow';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({

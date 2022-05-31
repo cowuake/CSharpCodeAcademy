@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UiService } from 'src/app/services/ui.service';
-import { ICow } from 'src/app/Cow';
+import { ICow } from 'src/app/ICow';
 import { Subscription } from 'rxjs';
 
 @Component({

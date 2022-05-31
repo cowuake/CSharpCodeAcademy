@@ -8,7 +8,7 @@
 </div>
 <app-add-cow (onAddCow)="addCow($event)"></app-add-cow>
 <app-cow-item
-  *ngFor="let cow of cows"
+  *ngFor="let cow of cows | filterCows"
   [cow]="cow"
   (onDeleteCow)="deleteCow(cow)"
   (onToggleFavorite)="toggleFavorite(cow)"

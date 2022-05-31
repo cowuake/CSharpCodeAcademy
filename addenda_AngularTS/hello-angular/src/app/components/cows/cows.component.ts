@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CowService } from 'src/app/services/cow.service';
-import { ICow } from 'src/app/Cow';
+import { ICow } from 'src/app/ICow';
 import { UiService } from 'src/app/services/ui.service';
 import { Subscription } from 'rxjs';
 

@@ -1,4 +1,4 @@
-import { ICow } from './Cow'
+import { ICow } from './ICow'
 
 export const COWS: ICow[] = [
     {
