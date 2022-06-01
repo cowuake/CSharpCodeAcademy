@@ -6,6 +6,7 @@
     [(ngModel)]="nameFilter"
     id="filter-name-input"
     placeholder="Filter cows by name..."
+    (input)="updateNameFilter()"
   />
 </div>
 <div *ngIf="showFilterCows" class="form-control">
@@ -16,6 +17,7 @@
     [(ngModel)]="originFilter"
     id="filter-origin-input"
     placeholder="Filter cows by origin..."
+    (input)="updateOriginFilter()"
   />
 </div>
 <div *ngIf="showFilterCows" class="form-control">
@@ -26,5 +28,6 @@
     [(ngModel)]="purposeFilter"
     id="filter-purpose-input"
     placeholder="Filter cows by purpose..."
+    (input)="updatePurposeFilter()"
   />
 </div>

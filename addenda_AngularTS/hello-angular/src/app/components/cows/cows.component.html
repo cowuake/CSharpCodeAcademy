@@ -9,7 +9,7 @@
 <app-add-cow (onAddCow)="addCow($event)"></app-add-cow>
 <app-filter-cows></app-filter-cows>
 <app-cow-item
-  *ngFor="let cow of cows | filterCows"
+  *ngFor="let cow of cows | filterCows : cowNameFilter : cowOriginFilter : cowPurposeFilter"
   [cow]="cow"
   (onDeleteCow)="deleteCow(cow)"
   (onToggleFavorite)="toggleFavorite(cow)"

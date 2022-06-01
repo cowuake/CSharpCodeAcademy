@@ -5,13 +5,13 @@ import { UiService } from '../services/ui.service';
 @Component({
   selector: 'app-filter-cows',
   templateUrl: './filter-cows.component.html',
-  styleUrls: ['./filter-cows.component.css']
+  styleUrls: ['./filter-cows.component.css'],
 })
 export class FilterCowsComponent implements OnInit {
-  nameFilter: string = "";
-  originFilter: string = "";
-  purposeFilter: string = "";
-  showFilterCows: boolean = false;
+  nameFilter: string = '';
+  originFilter: string = '';
+  purposeFilter: string = '';
+  showFilterCows: boolean = true;
   subscription: Subscription;
 
   constructor(private uiService: UiService) {
@@ -20,7 +20,17 @@ export class FilterCowsComponent implements OnInit {
       .subscribe((value) => (this.showFilterCows = !value));
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  updateNameFilter(): void {
+    this.uiService.changeNameFilter(this.nameFilter);
   }
 
+  updateOriginFilter(): void {
+    this.uiService.changeOriginFilter(this.originFilter);
+  }
+
+  updatePurposeFilter(): void {
+    this.uiService.changePurposeFilter(this.purposeFilter);
+  }
 }

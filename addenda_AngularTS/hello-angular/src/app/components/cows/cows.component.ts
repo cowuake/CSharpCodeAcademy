@@ -14,6 +14,9 @@ export class CowsComponent implements OnInit {
   cows: ICow[] = [];
   showAddCow: boolean = false;
   subscription: Subscription;
+  cowNameFilter: string = '';
+  cowOriginFilter: string = '';
+  cowPurposeFilter: string = '';
 
   // Accessibilty to be specified for every function argument
   constructor(private cowService: CowService, private uiService: UiService) {
@@ -24,6 +27,11 @@ export class CowsComponent implements OnInit {
 
   ngOnInit(): void {
     this.cowService.getCows().subscribe((cows) => (this.cows = cows));
+    this.uiService.cowNameFilter.subscribe((f) => (this.cowNameFilter = f));
+    this.uiService.cowOriginFilter.subscribe((f) => (this.cowOriginFilter = f));
+    this.uiService.cowPurposeFilter.subscribe(
+      (f) => (this.cowPurposeFilter = f)
+    );
   }
 
   deleteCow(cow: ICow) {
