@@ -30,14 +30,16 @@ export class UiService {
     return this.subject.asObservable();
   }
 
+  // The following three functions are called in 'filter-cows.component.ts'
+  // They allow to update values on change in the calling component and
+  // submit the updated values to all observers
+  // SEE MORE ABOUT: 'BehaviorSubject'
   changeNameFilter(name: string): void {
     this.nameFilterSource$.next(name);
   }
-
   changeOriginFilter(origin: string): void {
     this.originFilterSource$.next(origin);
   }
-
   changePurposeFilter(purpose: string): void {
     this.purposeFilterSource$.next(purpose);
   }

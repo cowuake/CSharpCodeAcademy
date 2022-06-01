@@ -22,14 +22,16 @@ export class FilterCowsComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // The following three functions send values to uiService,
+  // which in turn submit them to observers
+  // The values are update in the template via events: (input)="update[...]Filter()"
+  // SEE MORE ABOUT: 'BehaviorSubject'
   updateNameFilter(): void {
     this.uiService.changeNameFilter(this.nameFilter);
   }
-
   updateOriginFilter(): void {
     this.uiService.changeOriginFilter(this.originFilter);
   }
-
   updatePurposeFilter(): void {
     this.uiService.changePurposeFilter(this.purposeFilter);
   }
