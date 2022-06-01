@@ -1,4 +1,4 @@
-<div class="form-control">
+<div *ngIf="showFilterCows" class="form-control">
   <label for="name">Name</label>
   <input
     type="text"
@@ -8,7 +8,7 @@
     placeholder="Filter cows by name..."
   />
 </div>
-<div class="form-control">
+<div *ngIf="showFilterCows" class="form-control">
   <label for="purpose">Origin</label>
   <input
     type="text"
@@ -18,7 +18,7 @@
     placeholder="Filter cows by origin..."
   />
 </div>
-<div class="form-control">
+<div *ngIf="showFilterCows" class="form-control">
   <label for="purpose">Purpose</label>
   <input
     type="text"
