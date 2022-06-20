@@ -2,58 +2,73 @@
 @import url("https://fonts.googleapis.com/css2?family=Tangerine");
 
 * {
-    box-sizing: border-box;
-    margin: auto;
-    padding: auto;
+  box-sizing: border-box;
+  margin: auto;
+  padding: auto;
 }
 
 body {
-    background-color: antiquewhite;
-    font-family: "Tangerine", serif; /* Retrieved from fonts.googleapis.com */
+  background-color: antiquewhite;
+  font-family: "Tangerine", serif; /* Retrieved from fonts.googleapis.com */
+}
+
+nav {
+    display: flex;
+    align-items: flex-end;
+}
+
+a[ng-reflect-router-link] {
+  font-size: xxx-large;
+  color: crimson;
+  font-weight: bold;
+}
+
+tr[ng-reflect-router-link] {
+  cursor: pointer;
 }
 
 .btn {
-    display: flex;
-    font-family: inherit;
-    font-weight: bold;
-    font-size: x-large;
-    align-items: center;
-    justify-content: center;
-    width: 125px;
-    background-color: aliceblue;
+  display: flex;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: x-large;
+  align-items: center;
+  justify-content: center;
+  width: 125px;
+  background-color: aliceblue;
 }
 
 .form-control {
-    margin: 20px 20px;
+  margin: 20px 20px;
 }
 
 .form-control label {
-    color: steelblue;
-    display: block;
-    font-family: inherit;
-    font-size: xx-large;
-    font-weight: bold;
+  color: steelblue;
+  display: block;
+  font-family: inherit;
+  font-size: xx-large;
+  font-weight: bold;
 }
 
 .form-control input {
-    width: 100%;
-    height: 40px;
-    margin: 5px;
-    padding: 5px 5px;
-    font-size: medium;
+  width: 100%;
+  height: 40px;
+  margin: 5px;
+  padding: 5px 5px;
+  font-size: medium;
 }
 
 .form-control-check {
-    display: flex;
-    align-items: center;
-    justify-content: auto;
+  display: flex;
+  align-items: center;
+  justify-content: auto;
 }
 
 .form-control-check label {
-    flex: 1;
+  flex: 1;
 }
 
 .form-control-check input {
-    flex: 2;
-    height: 20px;
+  flex: 2;
+  height: 20px;
 }

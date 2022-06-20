@@ -1530,7 +1530,8 @@
       "purpose": [
         "milk",
         "beef"
-      ]
+      ],
+      "favorite": false
     },
     {
       "id": 175,

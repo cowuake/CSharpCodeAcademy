@@ -4,7 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SillyButtonComponent } from './components/silly-button/silly-button.component';
@@ -19,6 +19,7 @@ import { FilterCowsComponent } from './filter-cows/filter-cows.component';
 @NgModule({
   declarations: [
     AppComponent,
+    routingComponents, // Pay attention to this!
     HeaderComponent,
     SillyButtonComponent,
     GifContainerComponent,

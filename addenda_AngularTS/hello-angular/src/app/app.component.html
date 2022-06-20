@@ -1,6 +1,13 @@
 <div class="container">
   <app-header></app-header>
   <app-silly-button text="MOO!" color="white"></app-silly-button>
-  <app-gif-container></app-gif-container>
-  <app-cows></app-cows>
+  <!-- <app-gif-container></app-gif-container> -->
+  <!-- <app-cows></app-cows> -->
 </div>
+
+<nav>
+  <a routerLink="/home" routerLinkActive="active">Home</a>
+  <a routerLink="/cows" routerLinkActive="active">Cows</a>
+</nav>
+
+<router-outlet></router-outlet>
