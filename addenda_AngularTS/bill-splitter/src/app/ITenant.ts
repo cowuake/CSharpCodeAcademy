@@ -1,9 +1,7 @@
 export interface ITenant {
     firstName: string,
     lastName?: string,
-    firstDate?: Date,
-    lastDate?: Date,
-    daysOut?: number,
+    daysOff?: number,
     dayOfBilling: number,
     dueAmount: number
 }
