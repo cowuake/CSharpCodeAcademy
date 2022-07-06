@@ -1,0 +1,41 @@
+<div class="form-control">
+  <label for="name">Bill name</label>
+  <input
+    type="text"
+    name="name"
+    [(ngModel)]="name"
+    id="name"
+    placeholder="Bill name [optional]:"
+  />
+</div>
+<div class="form-control">
+  <label for="firstDay">First day</label>
+  <input
+    type="date"
+    name="firstDay"
+    [(ngModel)]="firstDay"
+    id="firstDay"
+    placeholder="First day of billing:"
+  />
+</div>
+<div class="form-control">
+  <label for="lastDay">Last day</label>
+  <input
+    type="date"
+    name="lastDay"
+    [(ngModel)]="lastDay"
+    id="lastDay"
+    placeholder="Last day of billing:"
+  />
+</div>
+<div class="form-control">
+  <label for="amount">Total amount</label>
+  <input
+    type="money"
+    name="amount"
+    [(ngModel)]="amount"
+    id="amount"
+    placeholder="Total amount due:"
+  />
+</div>
+<input type="submit" value="Confirm data" class="btn btn-block" />
