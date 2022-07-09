@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormArray, Validators, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormArray, Validators, UntypedFormBuilder } from '@angular/forms';
 import { IBill } from 'src/app/IBill';
 
 @Component({
@@ -8,7 +8,7 @@ import { IBill } from 'src/app/IBill';
   styleUrls: ['./new-bill.component.css'],
 })
 export class NewBillComponent implements OnInit {
-  billForm: FormGroup = this.fb.group({
+  billForm: UntypedFormGroup = this.fb.group({
     name: [''],
     firstDay: [new Date(), Validators.required],
     lastDay: [new Date(), Validators.required],
@@ -16,16 +16,16 @@ export class NewBillComponent implements OnInit {
     tenants: this.fb.array([]),
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: UntypedFormBuilder) {}
 
   ngOnInit(): void {}
 
   get tenants() {
-    return this.billForm.controls['tenants'] as FormArray;
+    return this.billForm.controls['tenants'] as UntypedFormArray;
   }
 
   addTenant(): void {
-    const tenantForm: FormGroup = this.fb.group({
+    const tenantForm: UntypedFormGroup = this.fb.group({
       firstName: ['', Validators.required],
       lastName: [''],
       daysOff: [0],
