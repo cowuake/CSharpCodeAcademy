@@ -14,17 +14,15 @@ import { IBill } from 'src/app/IBill';
   styleUrls: ['./new-bill.component.css'],
 })
 export class NewBillComponent implements OnInit {
-  billForm: FormGroup;
-  constructor(public fb: FormBuilder) {
-    this.billForm = fb.group({
-      name: fb.control(''),
-      firstDay: fb.control(null, [Validators.required]),
-      lastDay: fb.control(null, [Validators.required]),
-      amount: fb.control(0, [Validators.required]),
-      tenants: fb.array([]),
-    });
-    this.addTenant();
-  }
+  billForm: FormGroup = this.fb.group({
+    name: [''],
+    firstDay: [new Date(), Validators.required],
+    lastDay: [new Date(), Validators.required],
+    amount: [0, Validators.required],
+    tenants: this.fb.array([]),
+  });
+
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {}
 
@@ -33,12 +31,12 @@ export class NewBillComponent implements OnInit {
   }
 
   addTenant(): void {
-    const tenantForm = this.fb.group({
-      firstName: this.fb.control('', [Validators.required]),
-      lastName: this.fb.control(''),
-      daysOff: this.fb.control(0),
-      daysOfBilling: this.fb.control(0),
-      dueAmount: this.fb.control(0),
+    const tenantForm: FormGroup = this.fb.group({
+      firstName: ['', Validators.required],
+      lastName: [''],
+      daysOff: [0],
+      daysOfBilling: [0],
+      dueAmount: [0],
     });
 
     this.tenants.push(tenantForm);

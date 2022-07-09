@@ -1,43 +1,61 @@
-<!-- <form [formGroup]="billForm"> -->
-  <div formGroupName="billForm">
-    <div formControlName="name">
-      <label for="name">Name</label>
-      <input type="text" name="name" placeholder="Bill name [optional]" />
-    </div>
-    <div formControlName="firstDay">
-      <label for="firstDay">First day</label>
-      <input type="date" name="firstDay" placeholder="First day of billing" />
-    </div>
-    <div formControlName="lastDay">
-      <label for="lastDay">Last day</label>
-      <input type="date" name="lastDay" placeholder="Last day of billing" />
-    </div>
-    <div formControlName="amount">
-      <label for="amount">Amount due</label>
-      <input type="number" name="amount" placeholder="Total amount due" />
-    </div>
-    <ng-container formArrayName="tenants">
-      <div *ngFor="let tenantForm of tenants.controls; let i = index">
-        <div formArrayName="tenantForm">
-          <!-- <div formControlName="firstName"> -->
-            <input type="text" name="firstName" placeholder="Tenant's first name" />
-          <!-- </div> -->
-          <!-- <div formControlName="lastName"> -->
-            <input type="text" name="lastName" placeholder="Tenant's last name" />
-          <!-- </div> -->
-          <!-- <div formControlName="daysOff"> -->
-            <input type="number" name="daysOff" placeholder="Tenant's days off" />
-          <!-- </div> -->
-          <!-- <div formControlName="daysOfBilling"> -->
-            <input type="number" name="daysOfBilling" placeholder="Tenant's days of billing" />
-          <!-- </div> -->
-          <!-- <div formControlName="dueAmount"> -->
-            <input type="number" name="dueAmount" placeholder="Tenant's due amount" />
-          <!-- </div> -->
-          <button type="button" (click)="removeTenant(i)">Remove tenant</button>
+<form formGroupName="billForm">
+  <div formControlName="name">
+    <label for="name">Name</label>
+    <input type="text" name="name" placeholder="Bill name [optional]" />
+  </div>
+  <div formControlName="firstDay">
+    <label for="firstDay">First day</label>
+    <input type="date" name="firstDay" placeholder="First day of billing" />
+  </div>
+  <div formControlName="lastDay">
+    <label for="lastDay">Last day</label>
+    <input type="date" name="lastDay" placeholder="Last day of billing" />
+  </div>
+  <div formControlName="amount">
+    <label for="amount">Amount due</label>
+    <input type="number" name="amount" placeholder="Total amount due" />
+  </div>
+  <ng-container formArrayName="tenants">
+    <div *ngFor="let tenantForm of tenants.controls; let i = index">
+      <div formArrayName="tenantForm">
+        <div>
+          <input
+            formControlName="firstName"
+            type="text"
+            name="firstName"
+            placeholder="Tenant's first name"
+          />
+          <input
+            formControlName="lastName"
+            type="text"
+            name="lastName"
+            placeholder="Tenant's last name"
+          />
+          <button type="button" (onClick)="removeTenant(i)">Remove tenant</button>
+        </div>
+        <div>
+          <input
+            formControlName="daysOff"
+            type="number"
+            name="daysOff"
+            placeholder="Tenant's days off"
+          />
+          <input
+            formControlName="daysOfBilling"
+            type="number"
+            name="daysOfBilling"
+            placeholder="Tenant's days of billing"
+          />
+          <input
+            formControlName="dueAmount"
+            type="number"
+            name="dueAmount"
+            placeholder="Tenant's due amount"
+          />
         </div>
       </div>
-    </ng-container>
+    </div>
     <button type="button" (click)="addTenant()">Add tenant</button>
-  </div>
-<!-- </form> -->
+  </ng-container>
+  <button type="submit">Submit</button>
+</form>
