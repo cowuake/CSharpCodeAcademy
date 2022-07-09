@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ITenant } from 'src/app/ITenant';
-import { first } from 'rxjs';
+import {
+  FormGroup,
+  FormControl,
+  FormArray,
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
+import { IBill } from 'src/app/IBill';
 
 @Component({
   selector: 'app-new-bill',
@@ -8,29 +14,43 @@ import { first } from 'rxjs';
   styleUrls: ['./new-bill.component.css'],
 })
 export class NewBillComponent implements OnInit {
-  name?: string = '';
-  firstDay: Date = new Date();
-  lastDay: Date = new Date();
-  amount: number = 0;
-  tenants: ITenant[] = [];
-
-  constructor() {}
+  billForm: FormGroup;
+  constructor(public fb: FormBuilder) {
+    this.billForm = fb.group({
+      name: fb.control(''),
+      firstDay: fb.control(null, [Validators.required]),
+      lastDay: fb.control(null, [Validators.required]),
+      amount: fb.control(0, [Validators.required]),
+      tenants: fb.array([]),
+    });
+    this.addTenant();
+  }
 
   ngOnInit(): void {}
 
-  OnSubmit() {
-    const newBill = {
-      name: this.name,
-      firstDay: this.firstDay,
-      lastDay: this.lastDay,
-      amount: this.amount,
-      tenant: this.tenants,
-    };
+  get tenants() {
+    return this.billForm.controls['tenants'] as FormArray;
+  }
 
-    this.name = '';
-    this.firstDay = new Date();
-    this.lastDay = new Date();
-    this.amount = 0;
-    this.tenants = [];
+  addTenant(): void {
+    const tenantForm = this.fb.group({
+      firstName: this.fb.control('', [Validators.required]),
+      lastName: this.fb.control(''),
+      daysOff: this.fb.control(0),
+      daysOfBilling: this.fb.control(0),
+      dueAmount: this.fb.control(0),
+    });
+
+    this.tenants.push(tenantForm);
+  }
+
+  OnSubmit() {
+    const newBill: IBill = {
+      name: this.billForm.value.name,
+      firstDay: this.billForm.value.firstDay,
+      lastDay: this.billForm.value.lastDay,
+      amount: this.billForm.value.amount,
+      tenants: this.billForm.value.tenants,
+    };
   }
 }

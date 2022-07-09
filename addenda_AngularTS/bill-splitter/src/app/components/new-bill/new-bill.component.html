@@ -1,41 +1,32 @@
-<div class="form-control">
-  <label for="name">Bill name</label>
-  <input
-    type="text"
-    name="name"
-    [(ngModel)]="name"
-    id="name"
-    placeholder="Bill name [optional]:"
-  />
-</div>
-<div class="form-control">
-  <label for="firstDay">First day</label>
-  <input
-    type="date"
-    name="firstDay"
-    [(ngModel)]="firstDay"
-    id="firstDay"
-    placeholder="First day of billing:"
-  />
-</div>
-<div class="form-control">
-  <label for="lastDay">Last day</label>
-  <input
-    type="date"
-    name="lastDay"
-    [(ngModel)]="lastDay"
-    id="lastDay"
-    placeholder="Last day of billing:"
-  />
-</div>
-<div class="form-control">
-  <label for="amount">Total amount</label>
-  <input
-    type="money"
-    name="amount"
-    [(ngModel)]="amount"
-    id="amount"
-    placeholder="Total amount due:"
-  />
-</div>
-<input type="submit" value="Confirm data" class="btn btn-block" />
+<form [formGroup]="billForm">
+  <div formGroupName="bill">
+    <div formControlName="name">
+      <label for="name">Name</label>
+      <input type="text" name="name" placeholder="Bill name [optional]" />
+    </div>
+    <div formControlName="firstDay">
+      <label for="firstDay">First day</label>
+      <input type="date" name="firstDay" placeholder="First day of billing" />
+    </div>
+    <div formControlName="lastDay">
+      <label for="lastDay">Last day</label>
+      <input type="date" name="lastDay" placeholder="Last day of billing" />
+    </div>
+    <div formControlName="amount">
+      <label for="amount">Amount due</label>
+      <input type="number" name="amount" placeholder="Total amount due" />
+    </div>
+    <ul formArrayName="tenants">
+      <li *ngFor="let t of tenants.controls let i = index">
+        <div [formGroupName]="i">
+          <input type="text" name="firstName" placeholder="Tenant's first name" />
+          <input type="text" name="lastName" placeholder="Tenant's last name" />
+          <input type="number" name="daysOff" placeholder="Tenant's days off" />
+          <input type="number" name="daysOfBilling" placeholder="Tenant's days of billing" />
+          <input type="number" name="dueAmount" placeholder="Tenant's due amount" />
+        </div>
+      </li>
+    </ul>
+    <button type="button" (click)="addTenant()">Add tenant</button>
+  </div>
+</form>
