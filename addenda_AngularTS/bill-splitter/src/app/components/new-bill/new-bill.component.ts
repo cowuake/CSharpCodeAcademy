@@ -44,6 +44,10 @@ export class NewBillComponent implements OnInit {
     this.tenants.push(tenantForm);
   }
 
+  removeTenant(index: number): void {
+    this.tenants.removeAt(index);
+  }
+
   OnSubmit() {
     const newBill: IBill = {
       name: this.billForm.value.name,

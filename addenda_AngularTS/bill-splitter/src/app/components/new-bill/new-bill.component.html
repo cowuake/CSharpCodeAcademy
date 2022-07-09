@@ -1,5 +1,5 @@
-<form [formGroup]="billForm">
-  <div formGroupName="bill">
+<!-- <form [formGroup]="billForm"> -->
+  <div formGroupName="billForm">
     <div formControlName="name">
       <label for="name">Name</label>
       <input type="text" name="name" placeholder="Bill name [optional]" />
@@ -16,17 +16,28 @@
       <label for="amount">Amount due</label>
       <input type="number" name="amount" placeholder="Total amount due" />
     </div>
-    <ul formArrayName="tenants">
-      <li *ngFor="let t of tenants.controls let i = index">
-        <div [formGroupName]="i">
-          <input type="text" name="firstName" placeholder="Tenant's first name" />
-          <input type="text" name="lastName" placeholder="Tenant's last name" />
-          <input type="number" name="daysOff" placeholder="Tenant's days off" />
-          <input type="number" name="daysOfBilling" placeholder="Tenant's days of billing" />
-          <input type="number" name="dueAmount" placeholder="Tenant's due amount" />
+    <ng-container formArrayName="tenants">
+      <div *ngFor="let tenantForm of tenants.controls; let i = index">
+        <div formArrayName="tenantForm">
+          <!-- <div formControlName="firstName"> -->
+            <input type="text" name="firstName" placeholder="Tenant's first name" />
+          <!-- </div> -->
+          <!-- <div formControlName="lastName"> -->
+            <input type="text" name="lastName" placeholder="Tenant's last name" />
+          <!-- </div> -->
+          <!-- <div formControlName="daysOff"> -->
+            <input type="number" name="daysOff" placeholder="Tenant's days off" />
+          <!-- </div> -->
+          <!-- <div formControlName="daysOfBilling"> -->
+            <input type="number" name="daysOfBilling" placeholder="Tenant's days of billing" />
+          <!-- </div> -->
+          <!-- <div formControlName="dueAmount"> -->
+            <input type="number" name="dueAmount" placeholder="Tenant's due amount" />
+          <!-- </div> -->
+          <button type="button" (click)="removeTenant(i)">Remove tenant</button>
         </div>
-      </li>
-    </ul>
+      </div>
+    </ng-container>
     <button type="button" (click)="addTenant()">Add tenant</button>
   </div>
-</form>
+<!-- </form> -->
