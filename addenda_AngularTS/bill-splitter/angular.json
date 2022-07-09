@@ -102,5 +102,8 @@
       }
     }
   },
-  "defaultProject": "bill-splitter"
+  "defaultProject": "bill-splitter",
+  "cli": {
+    "analytics": "585e69ac-92f5-49b2-ac90-69146f5f7b63"
+  }
 }
