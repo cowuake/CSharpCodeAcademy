@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormGroup,
-  FormControl,
-  FormArray,
-  Validators,
-  FormBuilder,
-} from '@angular/forms';
+import { FormGroup, FormArray, Validators, FormBuilder } from '@angular/forms';
 import { IBill } from 'src/app/IBill';
 
 @Component({
@@ -46,7 +40,7 @@ export class NewBillComponent implements OnInit {
     this.tenants.removeAt(index);
   }
 
-  OnSubmit() {
+  onSubmit() {
     const newBill: IBill = {
       name: this.billForm.value.name,
       firstDay: this.billForm.value.firstDay,
@@ -54,5 +48,6 @@ export class NewBillComponent implements OnInit {
       amount: this.billForm.value.amount,
       tenants: this.billForm.value.tenants,
     };
+    console.log(newBill);
   }
 }

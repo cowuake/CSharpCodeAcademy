@@ -1,4 +1,4 @@
-<form formGroupName="billForm">
+<form [formGroup]="billForm" (ngSubmit)="onSubmit()">
   <div formControlName="name">
     <label for="name">Name</label>
     <input type="text" name="name" placeholder="Bill name [optional]" />
@@ -16,7 +16,7 @@
     <input type="number" name="amount" placeholder="Total amount due" />
   </div>
   <ng-container formArrayName="tenants">
-    <div *ngFor="let tenantForm of tenants.controls; let i = index">
+    <div *ngFor="let tenantForm of tenants.controls; let i = index;">
       <div formArrayName="tenantForm">
         <div>
           <input
@@ -31,7 +31,7 @@
             name="lastName"
             placeholder="Tenant's last name"
           />
-          <button type="button" (onClick)="removeTenant(i)">Remove tenant</button>
+          <button type="button" (click)="removeTenant(i)">Remove tenant</button>
         </div>
         <div>
           <input
@@ -56,6 +56,7 @@
       </div>
     </div>
     <button type="button" (click)="addTenant()">Add tenant</button>
+    <!-- <button type="submit">Submit</button> -->
+    <input type="submit" value="Save bill" class="btn btn-block" />
   </ng-container>
-  <button type="submit">Submit</button>
 </form>
