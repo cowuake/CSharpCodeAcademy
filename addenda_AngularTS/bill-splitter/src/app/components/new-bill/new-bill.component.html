@@ -1,38 +1,42 @@
 <form class="main-form" [formGroup]="billForm" (ngSubmit)="onSubmit()">
   <p>
-    <mat-form-field appearance="outline">
-      <mat-label>Name for the bill</mat-label>
-      <input
-        matInput
-        type="text"
-        formControlName="name"
-        placeholder="Bill's name (optional)"
-      />
-      <mat-hint>Provider-Year-Month?</mat-hint>
-    </mat-form-field>
+    <span>
+      <mat-form-field appearance="outline">
+        <mat-label>Name for the bill</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="name"
+          placeholder="Bill's name (optional)"
+        />
+        <mat-hint>Provider-Year-Month?</mat-hint>
+      </mat-form-field>
+    </span>
+    <span>
+      <mat-form-field appearance="outline">
+        <mat-label>First day</mat-label>
+        <input matInput type="date" formControlName="firstDay" />
+      </mat-form-field>
+    </span>
   </p>
   <p>
-    <mat-form-field appearance="outline">
-      <mat-label>First day</mat-label>
-      <input matInput type="date" formControlName="firstDay" />
-    </mat-form-field>
-  </p>
-  <p>
-    <mat-form-field appearance="outline">
-      <mat-label>Last day</mat-label>
-      <input matInput type="date" formControlName="lastDay" />
-    </mat-form-field>
-  </p>
-  <p>
-    <mat-form-field appearance="outline">
-      <mat-label>Amount due</mat-label>
-      <input
-        matInput
-        type="number"
-        formControlName="amount"
-        placeholder="Total amount due"
-      />
-    </mat-form-field>
+    <span>
+      <mat-form-field appearance="outline">
+        <mat-label>Amount due</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="amount"
+          placeholder="Total amount due"
+        />
+      </mat-form-field>
+    </span>
+    <span>
+      <mat-form-field appearance="outline">
+        <mat-label>Last day</mat-label>
+        <input matInput type="date" formControlName="lastDay" />
+      </mat-form-field>
+    </span>
   </p>
   <ng-container formArrayName="tenants">
     <div *ngFor="let tenantForm of tenants.controls; let i = index">
