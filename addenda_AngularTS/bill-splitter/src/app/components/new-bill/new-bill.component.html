@@ -14,14 +14,6 @@
     </span>
     <span>
       <mat-form-field appearance="outline">
-        <mat-label>First day</mat-label>
-        <input matInput type="date" formControlName="firstDay" aria-label="date" />
-      </mat-form-field>
-    </span>
-  </p>
-  <p>
-    <span>
-      <mat-form-field appearance="outline">
         <mat-label>Amount due</mat-label>
         <input
           matInput
@@ -31,10 +23,28 @@
         />
       </mat-form-field>
     </span>
+  </p>
+  <p>
+    <span>
+      <mat-form-field appearance="outline">
+        <mat-label>First day</mat-label>
+        <input
+          matInput
+          type="date"
+          formControlName="firstDay"
+          aria-label="date"
+        />
+      </mat-form-field>
+    </span>
     <span>
       <mat-form-field appearance="outline">
         <mat-label>Last day</mat-label>
-        <input matInput type="date" formControlName="lastDay" aria-label="lastDay" />
+        <input
+          matInput
+          type="date"
+          formControlName="lastDay"
+          aria-label="lastDay"
+        />
       </mat-form-field>
     </span>
   </p>
@@ -43,62 +53,92 @@
       <!-- [formGroupName]="i" instead of [formGrup]="tenantForm", type not recognized otherwise! -->
       <div [formGroupName]="i">
         <p>
-          <mat-form-field appearance="fill">
-            <input
-              matInput
-              type="text"
-              formControlName="firstName"
-              placeholder="Tenant's first name"
-            />
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <input
-              matInput
-              type="text"
-              formControlName="lastName"
-              placeholder="Tenant's last name"
-            />
-          </mat-form-field>
-          <button type="reset" mat-button color="warn" (click)="removeTenant(i)">
-            Remove tenant
-          </button>
+          <span>
+            <mat-form-field appearance="fill">
+              <mat-label>First Name</mat-label>
+              <input
+                matInput
+                type="text"
+                formControlName="firstName"
+                placeholder="Tenant's first name"
+              />
+            </mat-form-field>
+          </span>
+          <span>
+            <mat-form-field appearance="fill">
+              <mat-label>Last Name</mat-label>
+              <input
+                matInput
+                type="text"
+                formControlName="lastName"
+                placeholder="Tenant's last name"
+              />
+            </mat-form-field>
+          </span>
+          <span>
+            <button
+              type="reset"
+              mat-button
+              color="warn"
+              (click)="removeTenant(i)"
+            >
+              Remove tenant
+            </button>
+          </span>
         </p>
         <p>
-          <mat-form-field appearance="fill">
-            <input
-              matInput
-              type="number"
-              formControlName="daysOff"
-              placeholder="Tenant's days off"
-            />
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <input
-              matInput
-              type="number"
-              formControlName="daysOfBilling"
-              placeholder="Tenant's days of billing"
-            />
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <input
-              matInput
-              type="number"
-              formControlName="dueAmount"
-              placeholder="Tenant's due amount"
-            />
-          </mat-form-field>
+          <span>
+            <mat-form-field appearance="fill">
+              <mat-label>Days Off</mat-label>
+              <input
+                matInput
+                type="number"
+                formControlName="daysOff"
+                placeholder="Tenant's days off"
+              />
+            </mat-form-field>
+          </span>
+          <span>
+            <mat-form-field appearance="fill">
+              <mat-label>Days Of Billing</mat-label>
+              <input
+                matInput
+                type="number"
+                formControlName="daysOfBilling"
+                placeholder="Tenant's days of billing"
+              />
+            </mat-form-field>
+          </span>
+          <span>
+            <mat-form-field appearance="fill">
+              <mat-label>Due Amount</mat-label>
+              <input
+                matInput
+                type="number"
+                formControlName="dueAmount"
+                placeholder="Tenant's due amount"
+              />
+            </mat-form-field>
+          </span>
         </p>
       </div>
     </div>
     <p>
-      <button type="button" mat-button color="basic" (click)="addTenant()">
-        Add tenant
-      </button>
-      <button type="button" mat-button color="basic" (click)="clearTenants()">
-        Clear tenants
-      </button>
-      <button type="submit" mat-button type="accent" color="primary">COMPUTE</button>
+      <span>
+        <button type="button" mat-button color="basic" (click)="addTenant()">
+          Add tenant
+        </button>
+      </span>
+      <span>
+        <button type="button" mat-button color="basic" (click)="clearTenants()">
+          Clear tenants
+        </button>
+      </span>
+      <span>
+        <button type="submit" mat-button type="accent" color="primary">
+          COMPUTE
+        </button>
+      </span>
     </p>
   </ng-container>
 </form>
