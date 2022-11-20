@@ -40,7 +40,8 @@
   </p>
   <ng-container formArrayName="tenants">
     <div *ngFor="let tenantForm of tenants.controls; let i = index">
-      <div formArrayName="tenantForm">
+      <!-- [formGroupName]="i" instead of [formGrup]="tenantForm", type not recognized otherwise! -->
+      <div [formGroupName]="i">
         <p>
           <mat-form-field appearance="fill">
             <input

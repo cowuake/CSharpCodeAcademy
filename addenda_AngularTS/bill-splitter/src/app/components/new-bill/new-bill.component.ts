@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, UntypedFormArray, Validators, UntypedFormBuilder } from '@angular/forms';
+import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
 import { IBill } from 'src/app/IBill';
+import { ITenant } from 'src/app/ITenant';
 
 @Component({
   selector: 'app-new-bill',
@@ -8,30 +9,30 @@ import { IBill } from 'src/app/IBill';
   styleUrls: ['./new-bill.component.css'],
 })
 export class NewBillComponent implements OnInit {
-  billForm: UntypedFormGroup = this.fb.group({
+  billForm: FormGroup = this.fb.group({
     name: [''],
     firstDay: [new Date(), Validators.required],
     lastDay: [new Date(), Validators.required],
     amount: [0, Validators.required],
-    tenants: this.fb.array([]),
+    tenants: this.fb.array<FormGroup>([]),
   });
 
-  constructor(private fb: UntypedFormBuilder) {}
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {}
 
   get tenants() {
-    return this.billForm.controls['tenants'] as UntypedFormArray;
+    return this.billForm.controls['tenants'] as FormArray;
   }
 
   addTenant(): void {
-    const tenantForm: UntypedFormGroup = this.fb.group({
+    const tenantForm: FormGroup = this.fb.group({
       firstName: ['', Validators.required],
       lastName: [''],
       daysOff: [0],
       daysOfBilling: [0],
       dueAmount: [0],
-    });
+    }) as FormGroup;
 
     this.tenants.push(tenantForm);
   }
@@ -47,11 +48,11 @@ export class NewBillComponent implements OnInit {
 
   onSubmit() {
     const newBill: IBill = {
-      name: this.billForm.value.name,
-      firstDay: this.billForm.value.firstDay,
-      lastDay: this.billForm.value.lastDay,
-      amount: this.billForm.value.amount,
-      tenants: this.billForm.value.tenants,
+      name: this.billForm.value.name as string,
+      firstDay: this.billForm.value.firstDay as Date,
+      lastDay: this.billForm.value.lastDay as Date,
+      amount: this.billForm.value.amount as number,
+      tenants: this.billForm.value.tenants as ITenant[],
     };
     console.log(newBill);
   }
