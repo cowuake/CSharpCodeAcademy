@@ -15,7 +15,7 @@
     <span>
       <mat-form-field appearance="outline">
         <mat-label>First day</mat-label>
-        <input matInput type="date" formControlName="firstDay" />
+        <input matInput type="date" formControlName="firstDay" aria-label="date" />
       </mat-form-field>
     </span>
   </p>
@@ -34,7 +34,7 @@
     <span>
       <mat-form-field appearance="outline">
         <mat-label>Last day</mat-label>
-        <input matInput type="date" formControlName="lastDay" />
+        <input matInput type="date" formControlName="lastDay" aria-label="lastDay" />
       </mat-form-field>
     </span>
   </p>
@@ -58,7 +58,7 @@
               placeholder="Tenant's last name"
             />
           </mat-form-field>
-          <button mat-raised-button color="warn" (click)="removeTenant(i)">
+          <button type="reset" mat-button color="warn" (click)="removeTenant(i)">
             Remove tenant
           </button>
         </p>
@@ -91,13 +91,13 @@
       </div>
     </div>
     <p>
-      <button mat-raised-button color="basic" (click)="addTenant()">
+      <button type="button" mat-button color="basic" (click)="addTenant()">
         Add tenant
       </button>
-      <button mat-raised-button color="basic" (click)="clearTenants()">
+      <button type="button" mat-button color="basic" (click)="clearTenants()">
         Clear tenants
       </button>
-      <button mat-raised-button type="accent" color="primary">Submit data</button>
+      <button type="submit" mat-button type="accent" color="primary">COMPUTE</button>
     </p>
   </ng-container>
 </form>
