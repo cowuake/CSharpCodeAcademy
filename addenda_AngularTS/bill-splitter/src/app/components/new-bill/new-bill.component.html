@@ -12,17 +12,6 @@
         <mat-hint>Provider-Year-Month?</mat-hint>
       </mat-form-field>
     </span>
-    <span>
-      <mat-form-field appearance="outline">
-        <mat-label>Amount due</mat-label>
-        <input
-          matInput
-          type="number"
-          formControlName="amount"
-          placeholder="Total amount due"
-        />
-      </mat-form-field>
-    </span>
   </p>
   <p>
     <span>
@@ -32,7 +21,8 @@
           matInput
           type="date"
           formControlName="firstDay"
-          aria-label="date"
+          aria-label="firstDay"
+          (change)="updateDaysOfBilling()"
         />
       </mat-form-field>
     </span>
@@ -44,6 +34,31 @@
           type="date"
           formControlName="lastDay"
           aria-label="lastDay"
+          (change)="updateDaysOfBilling()"
+        />
+      </mat-form-field>
+    </span>
+  </p>
+  <p>
+    <span>
+      <mat-form-field appearance="outline">
+        <mat-label>Days of billing</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="daysOfBilling"
+          placeholder="Total days of billing"
+        />
+      </mat-form-field>
+    </span>
+    <span>
+      <mat-form-field appearance="outline">
+        <mat-label>Amount due</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="amount"
+          placeholder="Total amount due"
         />
       </mat-form-field>
     </span>
@@ -95,6 +110,7 @@
                 type="number"
                 formControlName="daysOff"
                 placeholder="Tenant's days off"
+                onchange="computeDaysOfBilling(i)"
               />
             </mat-form-field>
           </span>
@@ -135,7 +151,7 @@
         </button>
       </span>
       <span>
-        <button type="submit" mat-button type="accent" color="primary">
+        <button type="submit" mat-button type="accent" color="primary" (click)="onSubmit()">
           COMPUTE
         </button>
       </span>

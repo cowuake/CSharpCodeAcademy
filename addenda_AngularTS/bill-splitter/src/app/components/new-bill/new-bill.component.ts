@@ -11,8 +11,9 @@ import { ITenant } from 'src/app/ITenant';
 export class NewBillComponent implements OnInit {
   billForm: FormGroup = this.fb.group({
     name: [''],
-    firstDay: [new Date(), Validators.required],
-    lastDay: [new Date(), Validators.required],
+    firstDay: [new Date()],
+    lastDay: [new Date()],
+    daysOfBilling: [0],
     amount: [0, Validators.required],
     tenants: this.fb.array<FormGroup>([]),
   });
@@ -47,13 +48,25 @@ export class NewBillComponent implements OnInit {
   }
 
   onSubmit() {
-    const newBill: IBill = {
-      name: this.billForm.value.name as string,
-      firstDay: this.billForm.value.firstDay as Date,
-      lastDay: this.billForm.value.lastDay as Date,
-      amount: this.billForm.value.amount as number,
-      tenants: this.billForm.value.tenants as ITenant[],
-    };
-    console.log(newBill);
+    this.computeShares();
+  }
+
+  updateDaysOfBilling() {
+    const diff = this.computeDateDiff(
+      this.billForm.value.firstDay,
+      this.billForm.value.lastDay);
+    this.billForm.get('daysOfBilling')?.setValue(diff);
+  }
+
+  computeDateDiff(initialDate: Date, finalDate: Date) {
+    const millisecondsInDay = 1000 * 60 * 60 * 24;
+    const days = 1 + Math.abs(((new Date(finalDate)).getTime() - (new Date(initialDate)).getTime()) / millisecondsInDay);
+    return days;
+  }
+
+  computeTenantDaysOfBilling(i: number) {
+  }
+
+  computeShares(): void {
   }
 }
